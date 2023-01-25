@@ -22,8 +22,8 @@
 
 		<!-- <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet"> -->
 
-		<?php // get_template_part( 'template-parts/googlefonts' ); ?>
-		<?php get_template_part( 'template-parts/adobefonts' ); ?>
+		<?php get_template_part( 'template-parts/googlefonts' ); ?>
+		<?php // get_template_part( 'template-parts/adobefonts' ); ?>
 
 		<?php wp_head(); ?>
 
@@ -53,14 +53,14 @@
 			
 		<main id="site-content-container" class="site-content-container">
 
-			<header class="site-header [ bg-tertiary ]">
+			<header class="site-header [ bg-secondary ]">
 
 				<div class="wrapper site-header--inner">
 						
 					<div class="site-header--left">
 						<div class="site-header--logo">
 							<a aria-label="homepage" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
-								<?php get_template_part('dist/svg_php/inline', 'ray-logo.svg'); ?>
+								<?php get_template_part('dist/svg_php/inline', 'f59-logo.svg'); ?>
 							</a>
 						</div>
 					</div>

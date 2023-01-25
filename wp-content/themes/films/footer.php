@@ -1,5 +1,12 @@
 			<footer class="[ site-footer ]">
-				<div class="wrapper">				
+				<div class="wrapper">
+
+					<div class="footer-logo">
+						<a aria-label="homepage" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
+							<?php get_template_part('dist/svg_php/inline', 'f59-logo.svg'); ?>
+						</a>
+					</div>
+
 					<h2>[footer content]</h2>
 					<?php ray_footer_menu(); ?>
 					Copyright &copy; <?php echo date("Y"); ?>

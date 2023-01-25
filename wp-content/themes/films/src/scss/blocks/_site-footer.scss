@@ -6,3 +6,11 @@
 	padding-top: get-size('600');
 	padding-bottom: get-size('600');
 }
+
+.footer-logo {
+	svg {
+		path {
+			fill: var(--color-secondary);
+		}
+	}
+}

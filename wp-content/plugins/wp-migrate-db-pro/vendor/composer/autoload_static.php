@@ -21,7 +21,6 @@ class ComposerStaticInit1aa7014d9d85f6779fbd380cfa008f5f
             'DeliciousBrains\\WPMDB\\Container\\Invoker\\' => 40,
             'DeliciousBrains\\WPMDB\\Container\\Interop\\Container\\' => 50,
             'DeliciousBrains\\WPMDB\\Container\\Dotenv\\' => 39,
-            'DeliciousBrains\\WPMDB\\Container\\Doctrine\\Common\\Cache\\' => 54,
             'DeliciousBrains\\WPMDB\\Container\\DI\\' => 35,
         ),
     );
@@ -54,10 +53,6 @@ class ComposerStaticInit1aa7014d9d85f6779fbd380cfa008f5f
         'DeliciousBrains\\WPMDB\\Container\\Dotenv\\' => 
         array (
             0 => __DIR__ . '/..' . '/vlucas/phpdotenv/src',
-        ),
-        'DeliciousBrains\\WPMDB\\Container\\Doctrine\\Common\\Cache\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/doctrine/cache/lib/Doctrine/Common/Cache',
         ),
         'DeliciousBrains\\WPMDB\\Container\\DI\\' => 
         array (
