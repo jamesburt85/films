@@ -1,0 +1,1 @@
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 88.96 88.96"><title>inline-cross</title><rect x="39.21" y="-8.23" width="10.54" height="105.42" transform="translate(44.48 -18.42) rotate(45)" fill="#fff"/><rect x="39.21" y="-8.23" width="10.54" height="105.42" transform="translate(107.38 44.48) rotate(135)" fill="#fff"/></svg>

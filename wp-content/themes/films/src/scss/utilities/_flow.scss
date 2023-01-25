@@ -1,0 +1,5 @@
+// .flow { outline: 10px solid red; }
+
+.flow > * + * {
+  margin-top: var(--flow-space, 1rem);
+}

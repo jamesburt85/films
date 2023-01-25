@@ -1,0 +1,16 @@
+.block-logowall {
+	display: grid;
+	grid-gap: 1rem;
+
+	> * {
+		aspect-ratio: 3/2;
+		object-fit: contain;
+		mix-blend-mode: color-burn;
+	}
+	
+}
+@supports (width: min(250px, 100%)) {
+	.block-logowall {
+		grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));
+	}
+}

@@ -1,0 +1,176 @@
+// BASED ON CUBE CSS
+// https://cube.fyi/
+// https://www.youtube.com/watch?v=5uhIiI9Ld5M&t=155s
+// https://heypresents.com/talks/be-the-browser-s-mentor-not-its-micromanager
+// https://archive.piccalil.li/talk/cube-vienna/
+
+// CUBE CSS is:
+
+// Global CSS - declare as much as possible at highest point in cascade
+// After that, then CUBE kicks in:
+
+// C - Composition //
+// Skeletal Layout, regardless of viewport or content. Not colours, not fonts, not shadows. How the elements layout in the page, agnostic of what the element is. See 'Every Layout' docs. Full pages, but also the layout within blocks.
+
+// U - Utilities // 
+// Utility that does one job and one job well. Define once, set everywhere.
+
+// B - Blocks // 
+//  aka Components. majority of css should be done before this stage via global css, Composition and utilities. Block level stuff over-writes what you've done above. Do whatever you want! e.g. my-block h2 { // } should be short, max ~80 lines
+
+// E - Exceptions // 
+// State changes - implemented using data-attributes, control over state change: [data-state="inactive"] reversed, inactive, etc. e.g. .card[data-state='inactive']. By using this data-state css selector safer than just adding BEM css as it's unclear what state an element is in.
+
+// Reasons for CUBE - progresive enhancement, writing less code overall, manageable. Using CSS for what it's good for, utilising the Cascade. Principles work with CSS, SASS or CSS-in-JS - future proof.
+
+// First up: config
+@import 'config';
+
+// Next: pull in gorko for design tokens
+@import '../../node_modules/gorko/gorko.scss';
+// gorko adds --vars on body and utility classes such as .bg-primary, .font-base, .pad-top-300, etc.
+
+// DEBUG
+// @import 'debug';
+
+body {
+  --flow-space: 2rem;
+}
+
+// Pull in modern reset
+@import 'reset';
+
+// [ 3rd Party CSS ] //
+
+// off canvas nav
+@import '../../node_modules/offside-js/dist/offside.css';
+
+// hamburger
+@import './configs/hamburgers_config.scss';
+@import '../../node_modules/hamburgers/_sass/hamburgers/hamburgers.scss';
+
+// accessible slick
+@import "../../node_modules/@accessible360/accessible-slick/slick/slick";
+@import "../../node_modules/@accessible360/accessible-slick/slick/slick-theme";
+
+// magnific popup
+@import './configs/magnific_config.scss';
+// @import "node_modules/magnific-popup/src/css/settings.scss";
+@import "node_modules/magnific-popup/src/css/main.scss";
+
+// photoswipe
+@import '../../node_modules/photoswipe/dist/photoswipe.css';
+
+// [ 3rd Party CSS end ] //
+
+// Global CSS starts
+body {
+  line-height: 1.5;
+  overflow-x: hidden;
+  // padding-bottom: get-size('600');
+}
+
+// sticky footer solved by Flexbox
+.site-content-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  > .entry-content {
+    flex: 1;
+    width: 100%;
+  }
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: get-size('700');
+}
+
+h2,
+h3 {
+  font-size: get-size('600');
+}
+
+a {
+  color: currentColor;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+th {
+  text-align: left;
+}
+
+:focus {
+  outline: 2px dotted;
+  outline-offset: 0.25rem;
+}
+
+.block-sitewide {
+  @extend article;
+}
+
+.entry-content {
+  --flow-space: 1rem;
+  // image immediately after gutenberg container
+  > .wp-block-image {
+    @extend .wrapper;
+    margin-top: var(--flow-space, 1rem);
+  }
+}
+
+// Compositonal (Utilities)
+@import 'utilities/flow';
+@import 'utilities/wrapper';
+@import 'utilities/card-grid';
+@import 'utilities/visually-hidden';
+@import 'utilities/mobile-only';
+@import 'utilities/desktop-only';
+// @import 'utilities/xxxx';
+// @import 'utilities/xxxx';
+// @import 'utilities/xxxx';
+// @import 'utilities/xxxx';
+
+// Utilities
+// @import 'utilities/radius';
+// @import 'utilities/splitter';
+
+// Blocks
+@import 'blocks/card';
+@import 'blocks/button';
+@import 'blocks/site-header';
+// @import 'blocks/pill';
+// @import 'blocks/site-head';
+// @import 'blocks/table-group';
+// @import 'blocks/user';
+@import 'blocks/off-canvas-menu';
+@import 'blocks/post-nav';
+@import 'blocks/share-bar';
+@import 'blocks/site-footer';
+@import 'blocks/magnific-popup';
+// @import 'blocks/xxx';
+// @import 'blocks/xxx';
+// @import 'blocks/xxx';
+// @import 'blocks/xxx';
+// @import 'blocks/xxx';
+// @import 'blocks/xxx';
+
+
+// ACF Blocks
+@import 'blocks/block-copy';
+@import 'blocks/block-logowall';
+@import 'blocks/block-yoast-faq';
+@import 'blocks/block-embed';
+// @import 'blocks/block-xxx';
+// @import 'blocks/block-xxx';
+// @import 'blocks/block-xxx';
+// @import 'blocks/block-xxx';
+// @import 'blocks/block-xxx';
+// @import 'blocks/block-xxx';

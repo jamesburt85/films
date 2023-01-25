@@ -1,0 +1,2 @@
+include SVG inline like so:
+<?php get_template_part('svg/inline', 'example.svg'); ?>

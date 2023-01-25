@@ -1,0 +1,5 @@
+.mobile-only {
+	@include media-query('md') {
+		display: none;
+	}
+}

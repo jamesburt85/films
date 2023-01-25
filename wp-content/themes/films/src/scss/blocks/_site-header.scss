@@ -1,0 +1,47 @@
+.site-header {
+    padding: 0.8rem 0;
+
+    &--inner {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    &--logo {
+        svg {
+            width: 200px;
+        }
+    }
+
+}
+
+.site-header-desktop-menu {
+    ul {
+        display: flex;
+        flex-direction: row;
+    }
+
+    // Temp
+    ul.sub-menu {
+        flex-direction: column;
+    }
+}
+
+.site-header-desktop-menu {
+    display: none;
+}
+
+.site-header-mobile-toggle {
+    display: block;
+}
+
+@include media-query('md') {
+    .site-header-desktop-menu {
+        display: block;
+    }
+
+    .site-header-mobile-toggle {
+        display: none;
+    }
+}

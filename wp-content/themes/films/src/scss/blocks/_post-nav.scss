@@ -1,0 +1,4 @@
+.post-nav {
+	display: flex;
+	> * + * { padding-left: get-size('300'); }
+}

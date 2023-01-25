@@ -1,0 +1,1 @@
+<svg id="ed8a37b8-c8d2-4b4e-8a12-0f1a38b0582f" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 88.96 88.96"><title>inline-icon-facebook</title><path d="M34.58,21.84V32.22H24.67V44.48h9.91V81.26h16.5V44.48h12l1.19-12.26H51.08V27.11c0-2.93.64-4.09,3.68-4.09h9.53V7.7H51.72C39.85,7.7,34.58,12.55,34.58,21.84Z" fill="#4a4a4a"/></svg>

@@ -1,0 +1,6 @@
+.desktop-only {
+	display: none;
+	@include media-query('md') {
+		display: block;
+	}
+}

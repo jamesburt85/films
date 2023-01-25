@@ -1,0 +1,50 @@
+// button,
+.button {
+  // @extend .radius;
+  font: inherit;
+  display: inline-block;
+  line-height: 1;
+  text-decoration: none;
+  border: 1px solid get-color('secondary');
+  border: none !important;
+  outline: none;
+  background: get-color('secondary');
+  padding: 0.6rem 1.5rem;
+  position: relative;
+
+  display: inline-block;
+      // border: none;
+      // padding: 1rem 2rem;
+      // margin: 0;
+      // text-decoration: none;
+      // background: #0069ed;
+      // color: #ffffff;
+      // font-family: sans-serif;
+      // font-size: 1rem;
+      // cursor: pointer;
+      // text-align: center;
+      // transition: background 250ms ease-in-out, 
+      //             transform 150ms ease;
+      -webkit-appearance: none;
+      -moz-appearance: none; 
+
+  &[data-variant='ghost'] {
+    border-color: currentColor;
+    background: transparent;
+  }
+
+  &:focus {
+    outline-offset: -0.4rem;
+    outline: 1px solid;
+  }
+
+  &:hover {
+    background: get-color('primary');
+    border-color: get-color('primary');
+    color: get-color('light');
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+}
