@@ -8,25 +8,27 @@
 
 		<h2>We provide an end-to-end service, from planning to delivery, Films@59 can do it all</h2>
 
-		<div class="with-sidebar">
-			<div class="sidebar">
+		<div class="with-sidebar ">
+			<div class="sidebar services-sidebar-list ">
 
 				<!-- <h2>list of services</h2> -->
+				<div class="is-sticky">
+					<ul>
+					<?php 
+						// https://wordpress.stackexchange.com/questions/103958/custom-post-type-hierarchical-loop-in-homepage
 
-				<?php 
-					// https://wordpress.stackexchange.com/questions/103958/custom-post-type-hierarchical-loop-in-homepage
+						$args = array(
+						    'post_type'    => 'service_cpt',
+						    'title_li' => ''
+						    // 'post_status'  => 'publish',
+						    // 'author' => $idutente, // must be comma separated list of IDs
+						);
+						wp_list_pages($args);
+					?>
 
-					$args = array(
-					    'post_type'    => 'service_cpt',
-					    'title_li' => ''
-					    // 'post_status'  => 'publish',
-					    // 'author' => $idutente, // must be comma separated list of IDs
-					);
-					wp_list_pages($args);
-				?>
-
-				<!-- <h3>Our Services</h3> -->
-				<!-- <ul> -->
+					<!-- <h3>Our Services</h3> -->
+					</ul>
+				</div>
 					
 				<?php // while ( have_posts() ) : the_post(); ?>
 					<!-- <li>				 -->
@@ -63,6 +65,8 @@
 					        ?>
 
 					        	<h3><?php the_title(); ?></h3>
+					        	<img src="https://picsum.photos/900/<?php echo rand(500, 700); ?>?random=1&grayscale&blur=5">
+					        	<!-- <img src="https://picsum.photos/900/<?php // echo rand(500, 700); ?>?random=1&grayscale&blur=2"> -->
 					        	<p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>
 
 					        <?php 

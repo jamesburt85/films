@@ -1,0 +1,11 @@
+.services-sidebar-list {
+	list-style: none;
+	> * {
+		font-weight: bold;
+	}
+	.children {
+		font-weight: normal;
+		margin-left: 1rem; // temp
+		display: none;
+	}
+}

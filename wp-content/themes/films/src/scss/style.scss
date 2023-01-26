@@ -66,7 +66,7 @@ body {
 // Global CSS starts
 body {
   line-height: 1.5;
-  overflow-x: hidden;
+  // overflow-x: hidden;
   // padding-bottom: get-size('600');
 }
 
@@ -133,7 +133,7 @@ th {
 @import 'utilities/visually-hidden';
 @import 'utilities/mobile-only';
 @import 'utilities/desktop-only';
-// @import 'utilities/xxxx';
+@import 'utilities/is-sticky';
 // @import 'utilities/xxxx';
 // @import 'utilities/xxxx';
 // @import 'utilities/xxxx';
@@ -160,7 +160,7 @@ th {
 @import 'blocks/site-footer';
 @import 'blocks/magnific-popup';
 @import 'blocks/category-list';
-// @import 'blocks/xxx';
+@import 'blocks/services-sidebar-list';
 // @import 'blocks/xxx';
 // @import 'blocks/xxx';
 // @import 'blocks/xxx';
