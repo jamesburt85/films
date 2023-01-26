@@ -26,6 +26,22 @@ if (!empty($acf_fields)) {
         <?php include( get_template_directory() . '/template-parts/logic/get_featured_img.php'); ?>
     </a>
 
+    
     <?php the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );  ?>
+
+    <?php
+
+        $categories = wp_get_object_terms( $id, 'work_category');
+        // echo "<pre>";
+        // print_r($categories);
+        // echo "</pre>";
+        if (!empty($categories)) {
+            foreach ($categories as $cat) { ?>
+                <p><?php echo $cat->name; ?></p>
+            <?php }
+        }
+
+    ?>
+
 
 </article>
