@@ -85,6 +85,22 @@ function cpt_kit() {
     /* end of register post type */
 
 
+    register_taxonomy('kit_category', 'kit', array(
+        'public' => true,
+        'show_ui' => true,
+        'show_in_nav_menus' => true,
+        'show_admin_column' => true,
+        'hierarchical' => true,
+        'label' => __("Kit Category", 'ray_theme') ,
+        'query_var' => true,
+        'show_tagcloud' => true,
+        'rewrite' => array(
+            'slug' => 'kit-category',
+            'with_front' => false,
+            'hierarchical' => true
+        ) ,
+    ));
+
 
     // register_taxonomy('custom_tax', 'casestudy', array(
     //     'public' => true,

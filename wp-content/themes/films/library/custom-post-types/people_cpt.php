@@ -91,7 +91,7 @@ function cpt_people() {
         'show_ui' => true,
         'show_in_nav_menus' => true,
         'show_admin_column' => true,
-        'hierarchical' => true,
+        'hierarchical' => false,
         'label' => __("People Category", 'tcc_theme') ,
         'query_var' => true,
         'show_tagcloud' => true,

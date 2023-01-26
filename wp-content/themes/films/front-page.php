@@ -1,21 +1,23 @@
 <?php get_header(); ?>
 
-	<article class="entry-content wrapper">
-
-		<h1>[ Homepage content TBC ]</h1>
-
+	<div>
+		
 		<?php 
 
-			// get all people, loop through them, get the ACF category and add it to the custom taxonomy...
+
+			// AD NOTE TO AD - 26th JAN...
+			// need to loop through kit, get kit category ACF, then add it to kit category TAXONOMY, and also get that kit categories sub category ACF (e.g. lenses), and add that in as a child taxonomy of parent tax.
+
+			// maybe we just add all the taxonomies in, and then organise the actual taxonomy afterwards. So just chuck all tax in at parent level. And then manually restrucutre the category afterwards
 
 			$args = array(
-			    'post_type'    => 'service_cpt',
+			    'post_type'    => 'kit',
 			    // 'title_li' => ''
-			    'order' => 'ASC',
+			    // 'order' => 'ASC',
 			    'posts_per_page' => -1,
-			    'orderby' => 'menu_order',
-			    'post_status'  => 'publish',
-			    'post_parent' => 0, // just the parents
+			    // 'orderby' => 'menu_order',
+			    // 'post_status'  => 'publish',
+			    // 'post_parent' => 0, // just the parents
 			    // 'author' => $idutente, // must be comma separated list of IDs
 			);
 
@@ -24,20 +26,31 @@
 
 			// The Loop
 			if ( $the_query->have_posts() ) {
-			        echo '<ul>';
-			    while ( $the_query->have_posts() ) {
-			        $the_query->the_post();
-			        ?>
+			    echo '<ul>';
+				    while ( $the_query->have_posts() ) {
+				        $the_query->the_post(); ?>
+				        <h3><?php the_title(); ?></h3>
+				        <?php
+				        	$tag = get_field( "category" );
+							// print_r($tag);
 
-			        	<h3><?php the_title(); ?></h3>
-			        	<img src="https://picsum.photos/900/<?php echo rand(500, 700); ?>?random=1&grayscale&blur=5">
-			        	<!-- <img src="https://picsum.photos/900/<?php // echo rand(500, 700); ?>?random=1&grayscale&blur=2"> -->
-			        	<p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>
+							// SET POST TERM...
+							$post_id = $post->ID;
+							$taxonomy = 'kit_category'; 
+							echo "<pre>";
+							print_r($post_id);
+							echo "<br/>";
+							print_r($tag);
+							echo "<br/>";
+							print_r($taxonomy);
+							echo "</pre>";
 
-			        <?php 
+							// DO NOT UNCOMMENT THIS LINE TIL READY...
+							// wp_set_post_terms( $post_id, $tag, $taxonomy );
 
-			    }
-			        echo '</ul>';
+						?>
+			        <?php }
+			    echo '</ul>';
 			} else {
 			    // no posts found
 			}
@@ -45,6 +58,12 @@
 			wp_reset_postdata();
 
 		?>
+
+	</div>
+
+	<article class="entry-content wrapper">
+
+		<h1>[ Homepage content TBC ]</h1>
 
 	</article>
 
