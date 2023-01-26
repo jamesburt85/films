@@ -34,7 +34,7 @@
 // @import 'debug';
 
 body {
-  --flow-space: 2rem;
+    --flow-space: 2rem;
 }
 
 // Pull in modern reset
@@ -183,18 +183,17 @@ th {
 // TEMP - DELETE THIS AFTER PROTOTYPE PHASE
 
 body.page-template-page-homepage {
-  .entry-content {
-    min-height: 60vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
+    .entry-content {
+        min-height: 60vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
 }
 
 .desktop-menu {
-  > * {
-    margin: 0 0.5rem;
-  }
+    >* {
+        margin: 0 0.5rem;
+    }
 }
-
