@@ -86,18 +86,21 @@ function cpt_people() {
 
 
 
-    // register_taxonomy('custom_tax', 'casestudy', array(
-    //     'public' => true,
-    //     'show_ui' => true,
-    //     'show_in_nav_menus' => true,
-    //     'show_admin_column' => true,
-    //     'hierarchical' => false,
-    //     'label' => __("Country of Origin", 'tcc_theme') ,
-    //     'query_var' => true,
-    //     'rewrite' => array(
-    //         'slug' => 'country',
-    //     ) ,
-    // ));
+    register_taxonomy('people_category', 'people', array(
+        'public' => true,
+        'show_ui' => true,
+        'show_in_nav_menus' => true,
+        'show_admin_column' => true,
+        'hierarchical' => true,
+        'label' => __("People Category", 'tcc_theme') ,
+        'query_var' => true,
+        'show_tagcloud' => true,
+        'rewrite' => array(
+            'slug' => 'people-category',
+            'with_front' => false,
+            'hierarchical' => true
+        ) ,
+    ));
 
 
 }
