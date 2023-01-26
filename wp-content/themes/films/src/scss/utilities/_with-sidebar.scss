@@ -1,6 +1,9 @@
 .with-sidebar {
   display: flex;
-  flex-wrap: wrap;
+  // flex-wrap: wrap;
+  flex-direction: row;
+  min-height: 100%;
+  align-items: stretch;
 }
 
 .sidebar {

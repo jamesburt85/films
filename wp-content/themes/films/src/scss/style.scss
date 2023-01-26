@@ -34,7 +34,7 @@
 // @import 'debug';
 
 body {
-    --flow-space: 2rem;
+  --flow-space: 2rem;
 }
 
 // Pull in modern reset
@@ -65,67 +65,65 @@ body {
 
 // Global CSS starts
 body {
-    line-height: 1.5;
-    overflow-x: hidden;
-    // padding-bottom: get-size('600');
+  line-height: 1.5;
+  // overflow-x: hidden;
+  // padding-bottom: get-size('600');
 }
 
 // sticky footer solved by Flexbox
 .site-content-container {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-
-    >.entry-content {
-        flex: 1;
-        width: 100%;
-    }
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  > .entry-content {
+    flex: 1;
+    width: 100%;
+  }
 }
 
 h1,
 h2,
 h3 {
-    line-height: 1.2;
+  line-height: 1.2;
 }
 
 h1 {
-    font-size: get-size('700');
+  font-size: get-size('700');
 }
 
 h2,
 h3 {
-    font-size: get-size('600');
+  font-size: get-size('600');
 }
 
 a {
-    color: currentColor;
+  color: currentColor;
 }
 
 table {
-    border-collapse: collapse;
+  border-collapse: collapse;
 }
 
 th {
-    text-align: left;
+  text-align: left;
 }
 
 :focus {
-    outline: 2px dotted;
-    outline-offset: 0.25rem;
+  outline: 2px dotted;
+  outline-offset: 0.25rem;
 }
 
 .block-sitewide {
-    @extend article;
+  @extend article;
 }
 
 .entry-content {
-    --flow-space: 1rem;
-
-    // image immediately after gutenberg container
-    >.wp-block-image {
-        @extend .wrapper;
-        margin-top: var(--flow-space, 1rem);
-    }
+  --flow-space: 1rem;
+  // image immediately after gutenberg container
+  > .wp-block-image {
+    @extend .wrapper;
+    margin-top: var(--flow-space, 1rem);
+  }
 }
 
 // Compositonal (Utilities)
@@ -135,7 +133,7 @@ th {
 @import 'utilities/visually-hidden';
 @import 'utilities/mobile-only';
 @import 'utilities/desktop-only';
-// @import 'utilities/xxxx';
+@import 'utilities/is-sticky';
 // @import 'utilities/xxxx';
 // @import 'utilities/xxxx';
 // @import 'utilities/xxxx';
@@ -162,7 +160,7 @@ th {
 @import 'blocks/site-footer';
 @import 'blocks/magnific-popup';
 @import 'blocks/category-list';
-// @import 'blocks/xxx';
+@import 'blocks/services-sidebar-list';
 // @import 'blocks/xxx';
 // @import 'blocks/xxx';
 // @import 'blocks/xxx';
