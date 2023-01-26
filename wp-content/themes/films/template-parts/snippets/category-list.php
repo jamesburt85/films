@@ -22,5 +22,13 @@ $args = array(
 ?>
 
 <ul class="category-list">
-	<?php wp_list_categories( $args ); ?>
+	<?php // wp_list_categories( $args ); ?>
+  <?php 
+    $categories = get_categories($args);
+    foreach($categories as $category) { 
+      echo '<li>
+        <a class="button pill" href="' . get_category_link( $category->term_id ) . '" title="' . sprintf( __( "View all posts in %s" ), $category->name ) . '" ' . '>' . $category->name.'</a>
+        </li>';
+      } 
+  ?>
 </ul>

@@ -1,3 +1,7 @@
 .category-list {
 	display: flex;
+	> * {
+		margin: var(--flow-space);
+		margin-left: 0;
+	}
 }

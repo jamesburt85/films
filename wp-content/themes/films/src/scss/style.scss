@@ -150,7 +150,7 @@ th {
 @import 'blocks/card';
 @import 'blocks/button';
 @import 'blocks/site-header';
-// @import 'blocks/pill';
+@import 'blocks/pill';
 // @import 'blocks/site-head';
 // @import 'blocks/table-group';
 // @import 'blocks/user';
@@ -178,3 +178,23 @@ th {
 // @import 'blocks/block-xxx';
 // @import 'blocks/block-xxx';
 // @import 'blocks/block-xxx';
+
+
+// TEMP - DELETE THIS AFTER PROTOTYPE PHASE
+
+body.page-template-page-homepage {
+  .entry-content {
+    min-height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.desktop-menu {
+  > * {
+    margin: 0 0.5rem;
+  }
+}
+
