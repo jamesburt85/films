@@ -177,3 +177,24 @@ function my_block_plugin_editor_scripts() {
 add_action( 'enqueue_block_editor_assets', 'my_block_plugin_editor_scripts' );
 
 
+
+// SET NUM OF POSTS TO DISPLAY, ACCORDING TO POST TYPE
+
+function num_posts_in_archive($query) {
+    if (!is_admin() && $query->is_archive('service_cpt') && $query->is_main_query()) {
+            $query->set('posts_per_page', 99);
+   }
+    return $query;
+}
+
+add_filter('pre_get_posts', 'num_posts_in_archive');
+
+
+// function my_query_post_type($query) {
+//     if ( is_category('factual') && ( ! isset( $query->query_vars['suppress_filters'] ) || false == $query->query_vars['suppress_filters'] ) ) {
+//         $query->set( 'post_type', array( 'post', 'work' ) );
+//         return $query;
+//     }
+// }
+// add_filter('pre_get_posts', 'my_query_post_type');
+

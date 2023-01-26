@@ -1,4 +1,12 @@
 			<footer class="[ site-footer ]">
+
+				<div class="wrapper">
+					<div>
+						<h3>Stay in touch with Films@59</h3>
+						<p>Infrequent mailing list. We never spam.</p>
+					</div>
+				</div>
+
 				<div class="wrapper">
 
 					<div class="footer-logo">

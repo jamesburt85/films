@@ -52,21 +52,21 @@ function cpt_kit() {
         'description' => __('This is the Kit Section') ,
 
         /* Custom Type Description */
-        'hierarchical'        => false,
+        'hierarchical'        => true,
         // 'hierarchical'        => true,
         'public'              => true,
-        'publicly_queryable'  => false,
+        'publicly_queryable'  => true,
         'exclude_from_search' => true,
         // 'taxonomies'  => array( 'category' ),
-        'has_archive'         => false,
+        'has_archive'         => true,
         'show_ui'             => true,
         'query_var'           => true,
         'menu_position'       => 5,
         'menu_icon'           => 'dashicons-video-alt',
-        // 'rewrite'             => array(
-        //     'slug' => 'team',
-        //     'with_front' => false
-        // ) ,
+        'rewrite'             => array(
+            'slug' => 'kit',
+            'with_front' => false
+        ) ,
         'capability_type'     => 'post',
         'show_in_rest'        => false, // gutenberg
         'supports'            => array(

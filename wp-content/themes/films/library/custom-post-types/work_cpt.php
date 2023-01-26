@@ -4,7 +4,7 @@
  ** Register Custom Post Type for profile posts
 */
 
-function cpt_work() {
+function work() {
 
     // creating (registering) the custom type (http://codex.wordpress.org/Function_Reference/register_post_type)
     register_post_type('work',
@@ -86,24 +86,27 @@ function cpt_work() {
 
 
 
-    // register_taxonomy('custom_tax', 'casestudy', array(
-    //     'public' => true,
-    //     'show_ui' => true,
-    //     'show_in_nav_menus' => true,
-    //     'show_admin_column' => true,
-    //     'hierarchical' => false,
-    //     'label' => __("Country of Origin", 'tcc_theme') ,
-    //     'query_var' => true,
-    //     'rewrite' => array(
-    //         'slug' => 'country',
-    //     ) ,
-    // ));
+    register_taxonomy('work_category', 'work', array(
+        'public' => true,
+        'show_ui' => true,
+        'show_in_nav_menus' => true,
+        'show_admin_column' => true,
+        'hierarchical' => true,
+        'label' => __("Work Category", 'ray_theme') ,
+        'query_var' => true,
+        'show_tagcloud' => true,
+        'rewrite' => array(
+            'slug' => 'show-category',
+            'with_front' => false,
+            'hierarchical' => true
+        ) ,
+    ));
 
 
 }
 
 // adding the function to the Wordpress init
-add_action('init', 'cpt_work');
+add_action('init', 'work');
 
 
 
