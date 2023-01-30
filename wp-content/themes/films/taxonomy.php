@@ -18,10 +18,10 @@
 			// echo "</pre>";
 
 			$the_query = new WP_Query( array(
-			    'post_type' => 'work',
+			    'post_type' => 'people',
 			    'tax_query' => array(
 			        array (
-			            'taxonomy' => 'work_category',
+			            'taxonomy' => 'people_category',
 			            'field' => 'slug',
 			            'terms' => $queried_object->slug,
 			        )

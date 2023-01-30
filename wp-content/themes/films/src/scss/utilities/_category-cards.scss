@@ -1,0 +1,14 @@
+.category-cards {
+    .category-list {
+        @extend .card-grid;
+
+        .pill {
+            width: 100%;
+            border-radius: 0px;
+        }
+    }
+
+    .category-list>* {
+        margin: 0;
+    }
+}

@@ -1,10 +1,13 @@
-
-
 <?php 
 
 // List terms in a given taxonomy using wp_list_categories (also useful as a widget if using a PHP Code plugin)
 
-$taxonomy     = $showTax ?? 'work_category';
+//$taxonomy     = $showTax ?? 'work_category';
+if ( is_post_type_archive('people') || is_tax('people_category') ) {
+  $taxonomy   = $showTax ?? 'people_category';
+} else {
+  $taxonomy   = $showTax ?? 'work_category';
+}
 // $orderby      = 'name'; 
 // $show_count   = false;
 // $pad_counts   = false;
@@ -17,7 +20,8 @@ $args = array(
   // 'show_count'   => $show_count,
   // 'pad_counts'   => $pad_counts,
   // 'hierarchical' => $hierarchical,
-  'title_li'     => $title
+  'title_li'     => $title,
+  'exclude' => 10, //Management
 );
 ?>
 
