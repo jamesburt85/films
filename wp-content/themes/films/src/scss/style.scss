@@ -137,11 +137,17 @@ th {
 // @import 'utilities/xxxx';
 // @import 'utilities/xxxx';
 // @import 'utilities/xxxx';
+// @import 'utilities/xxxx';
+// @import 'utilities/xxxx';
+// @import 'utilities/xxxx';
 
 // Utilities
 // @import 'utilities/radius';
 // @import 'utilities/splitter';
 @import 'utilities/with-sidebar';
+@import 'utilities/icon';
+// @import 'utilities/xxx';
+// @import 'utilities/xxx';
 // @import 'utilities/xxx';
 // @import 'utilities/xxx';
 // @import 'utilities/xxx';
@@ -161,6 +167,9 @@ th {
 @import 'blocks/magnific-popup';
 @import 'blocks/category-list';
 @import 'blocks/services-sidebar-list';
+// @import 'blocks/xxx';
+// @import 'blocks/xxx';
+// @import 'blocks/xxx';
 // @import 'blocks/xxx';
 // @import 'blocks/xxx';
 // @import 'blocks/xxx';
@@ -196,4 +205,11 @@ body.page-template-page-homepage {
     >* {
         margin: 0 0.5rem;
     }
+}
+
+.work-intro {
+  iframe {
+    aspect-ratio: 16 / 9;
+    width: 100%;
+  }
 }

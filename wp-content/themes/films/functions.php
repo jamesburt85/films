@@ -20,6 +20,7 @@ require_once( 'library/theme-helpers.php' );
 /** Register all navigation menus */
 require_once( 'library/nav/navigation--menu-walker.php' );
 require_once( 'library/nav/navigation.php' );
+require_once( 'library/nav/menu-walkers.php' );
 
 /** Create widget areas in sidebar and footer */
 require_once( 'library/widget-areas.php' );
@@ -189,6 +190,17 @@ function num_posts_in_archive($query) {
 
 add_filter('pre_get_posts', 'num_posts_in_archive');
 
+// SET NUM OF POSTS TO DISPLAY, ACCORDING TO POST TYPE
+
+function num_kit_posts_in_archive($query) {
+    if (!is_admin() && $query->is_archive('kit') && $query->is_main_query()) {
+            $query->set('posts_per_page', 12);
+   }
+    return $query;
+}
+
+add_filter('pre_get_posts', 'num_kit_posts_in_archive');
+
 
 // function my_query_post_type($query) {
 //     if ( is_category('factual') && ( ! isset( $query->query_vars['suppress_filters'] ) || false == $query->query_vars['suppress_filters'] ) ) {
@@ -198,3 +210,79 @@ add_filter('pre_get_posts', 'num_posts_in_archive');
 // }
 // add_filter('pre_get_posts', 'my_query_post_type');
 
+
+
+
+// services list in sidebar
+
+// class Clean_Walker extends Walker_Page {
+//     function start_lvl(&$output, $depth) {
+//         $indent = str_repeat("\t", $depth);
+//         $output .= "\n$indent<ul>\n";
+//     }
+
+//     function start_el(&$output, $page, $depth, $args, $current_page) {
+//         if ( $depth )
+//             $indent = str_repeat("\t", $depth);
+//         else
+//             $indent = '';
+//         extract($args, EXTR_SKIP);
+//         $class_attr = '';
+//         if ( !empty($current_page) ) {
+//             $_current_page = get_page( $current_page );
+//             if ( (isset($_current_page->ancestors) && in_array($page->ID, (array) $_current_page->ancestors)) || ( $page->ID == $current_page ) || ( $_current_page && $page->ID == $_current_page->post_parent ) ) {
+//                 $class_attr = 'sel';
+//             }
+//         } elseif ( (is_single() || is_archive()) && ($page->ID == get_option('page_for_posts')) ) {
+//             $class_attr = 'sel';
+//         }
+//         if ( $class_attr != '' ) {
+//             $class_attr = ' class="' . $class_attr . '"';
+//             $link_before .= '<strong>';
+//             $link_after = '</strong>' . $link_after;
+//         }
+//         $output .= $indent . '<li' . $class_attr . '><a href="' . make_href_root_relative(get_page_link($page->ID)) . '"' . $class_attr . '>' . $link_before . apply_filters( 'the_title', $page->post_title, $page->ID ) . $link_after . '</a>';
+
+//         if ( !empty($show_date) ) {
+//             if ( 'modified' == $show_date )
+//                 $time = $page->post_modified;
+//             else
+//                 $time = $page->post_date;
+//             $output .= " " . mysql2date($date_format, $time);
+//         }
+//     }
+// }
+
+function clean_wp_list_pages($menu) {
+    // echo "<pre>";
+    // print_r($menu);
+    // echo "</pre>";
+    // Remove redundant title attributes
+    // $menu = remove_title_attributes($menu);
+    // Remove protocol and domain name from href values
+    // $menu = make_href_root_relative($menu);
+    // Give the list items containing the current item or one of its ancestors a class name
+    // $menu = preg_replace('/class="(.*?)current_page(.*?)"/','class="sel"',$menu);
+    // Remove all other class names
+    // $menu = preg_replace('/ class=(["\'])(?!sel).*?\1/','',$menu);
+    // Give the current link and the links to its ancestors a class name and wrap their content in a strong element
+    // $count = 0;
+
+    // $siteUrl = get_site_url();
+    // echo "<pre>";
+    // print_r($siteUrl);
+    // echo "</pre>";
+
+    // replace url with #anchor///
+    // $menu = preg_replace('/href="(http:\/\/)?([^"]+)"/', "href=\"http://google.com/\\2\"", $menu);
+    // $menu = preg_replace('/href="('.$siteUrl.'\/\/)?([^"]+)"/', "href=\"http://google.com/\\2\"", $menu);
+
+
+    $menu = preg_replace('/<a(.*?)>(.*?)<\/a>/','<a href="#" class="sel"><strong>$2</strong></a>',$menu);
+
+    // $menu = preg_replace('<a(.*?)>','<a href="">',$menu);
+
+
+    return $menu;
+}
+add_filter( 'wp_list_pages', 'clean_wp_list_pages' );

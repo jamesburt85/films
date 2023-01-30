@@ -17,6 +17,7 @@ function getYouTubeID($video) {
 
 function getVimeoID($video) {
     // if () {
+        // print_r($video);
         $vim = substr(parse_url($video, PHP_URL_PATH), 1);
         return $vim;
     // } else {
