@@ -28,7 +28,7 @@
 					</div>
 				</div>
 
-				<div class="wrapper">
+				<div class="wrapper footer-navigation-wrapper">
 
 					<div class="[ card-grid ]">
 						<div class="footer-logo">
@@ -42,7 +42,7 @@
 					
 					<hr>
 
-					<div class="[ card-grid ]">
+					<div class="[ card-grid ] footer-small-print">
 						<?php ray_footer_menu(); ?>
 
 						Copyright &copy; <?php echo date("Y"); ?>

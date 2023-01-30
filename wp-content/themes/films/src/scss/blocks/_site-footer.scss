@@ -5,10 +5,35 @@
 	margin-top: get-size('600');
 	padding-top: get-size('600');
 	padding-bottom: get-size('600');
+
+	// temp
+	> * {
+		margin-top: 8rem;
+		margin-bottom: 8rem;
+	}
+
+	
+
+	.footer-small-print {
+		margin-top: 2rem;
+		margin-bottom: 2rem;
+	}
+
+	.footer-navigation-wrapper {
+		margin-bottom: 2rem;
+
+		hr {
+			margin-top: 8rem;
+			// margin-bottom: 8rem;
+		}
+		
+	}
+
 }
 
 .footer-logo {
 	svg {
+		max-width: 300px; // temp
 		path {
 			fill: var(--color-secondary);
 		}
