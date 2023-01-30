@@ -84,7 +84,7 @@
 					        $the_query->the_post();
 					        ?>
 
-<<<<<<< HEAD
+
 					        	<h3><?php the_title(); ?></h3>
 					        	<img src="https://picsum.photos/900/<?php echo rand(500, 700); ?>?random=1&grayscale&blur=5">
 					        	<!-- <img src="https://picsum.photos/900/<?php // echo rand(500, 700); ?>?random=1&grayscale&blur=2"> -->
@@ -112,7 +112,7 @@
 					        		
 					        		
 					        	<?php endif; ?>
-=======
+
 					        <div class="with-sidebar">
 					        	<div class="not-sidebar">
 
@@ -136,7 +136,6 @@
 					        	</div>
 
 					        </div>
->>>>>>> 0c81743fb5397f98f997ed2e5ee4c809273997b6
 
 					        <?php 
 
