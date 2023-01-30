@@ -51,6 +51,11 @@
 			// } elseif (is_post_type_archive('service_cpt')) {
 			// 	$showTax = 'service_cpt';
 			// 	include( get_template_directory() . '/template-parts/snippets/category-list.php');
+			} elseif (is_post_type_archive('kit')) {
+				include( get_template_directory() . '/template-parts/snippets/kit-category-list.php');
+			// } elseif (is_post_type_archive('service_cpt')) {
+			// 	$showTax = 'service_cpt';
+			// 	include( get_template_directory() . '/template-parts/snippets/category-list.php');
 			}
 		?>
 		
@@ -73,6 +78,55 @@
 
 		<?php /* Display navigation to next/previous pages when applicable */ ?>
 		<?php include( get_template_directory() . '/template-parts/snippets/archive-post-nav.php'); ?>
+
+
+		<?php 
+			// https://wordpress.stackexchange.com/questions/103958/custom-post-type-hierarchical-loop-in-homepage
+
+		if (is_post_type_archive('kit')) { 
+
+			$args = array(
+			    'post_type' => 'people',
+			    'posts_per_page' => -1,
+			    'tax_query' => array(
+		            array (
+		                'taxonomy' => 'people_category',
+		                'field' => 'slug',
+		                'terms' => 'kit',
+		            )
+		        ),
+			    'post_status'  => 'publish',
+			);
+			// wp_list_pages($args);
+
+			// The Query
+			$the_query = new WP_Query( $args );
+
+			// The Loop
+			if ( $the_query->have_posts() ) {
+			        echo '<h2>Our Kit Team</h2><div class="[ card-grid ]">';
+			    while ( $the_query->have_posts() ) {
+			        $the_query->the_post();
+
+			        // get_template_part( 'template-parts/cards/card', $pType );
+			        get_template_part( 'template-parts/cards/card' );
+
+			    }
+			        echo '</div>';
+			} else {
+			    // no posts found
+			}
+			/* Restore original Post Data */
+			wp_reset_postdata(); ?>
+
+
+			<h2>Our team of experts are ready to help find the perfect kit for your shoot</h2>
+			<?php gravity_form( 1, false, false, false, '', false ); ?>
+
+		<?php }
+
+		?>
+
 
 	</article>
 

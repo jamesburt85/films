@@ -1,5 +1,6 @@
 .category-list {
 	display: flex;
+	flex-wrap: wrap;
 	> * {
 		margin: var(--flow-space);
 		margin-left: 0;

@@ -13,34 +13,7 @@
 					</div>
 				</div>
 
-				<div class="wrapper [ flow ]">
-					<h2>
-						Client Logos
-					</h2>
-					<div class=" [ card-grid ] ">
-						<div class="footer-logo">
-							<a aria-label="homepage" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
-								<?php get_template_part('dist/svg_php/inline', 'f59-logo.svg'); ?>
-							</a>
-						</div>	
-						<div class="footer-logo">
-							<a aria-label="homepage" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
-								<?php get_template_part('dist/svg_php/inline', 'f59-logo.svg'); ?>
-							</a>
-						</div>	
-						<div class="footer-logo">
-							<a aria-label="homepage" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
-								<?php get_template_part('dist/svg_php/inline', 'f59-logo.svg'); ?>
-							</a>
-						</div>	
-						<div class="footer-logo">
-							<a aria-label="homepage" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
-								<?php get_template_part('dist/svg_php/inline', 'f59-logo.svg'); ?>
-							</a>
-						</div>		
-					</div>
-					
-				</div>
+				
 
 				<div class="wrapper [ card-grid ]">
 					<div>
