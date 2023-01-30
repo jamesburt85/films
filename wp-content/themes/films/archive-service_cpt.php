@@ -39,7 +39,7 @@
 			
 			</div>
 		
-			<div  class="not-sidebar">
+			<div class="not-sidebar">
 
 				<?php 
 
@@ -59,7 +59,7 @@
 
 					// The Loop
 					if ( $the_query->have_posts() ) {
-					        echo '<ul>';
+					        echo '<ul class=" [ flow ]">';
 					    while ( $the_query->have_posts() ) {
 					        $the_query->the_post();
 					        ?>
@@ -67,7 +67,30 @@
 					        	<h3><?php the_title(); ?></h3>
 					        	<img src="https://picsum.photos/900/<?php echo rand(500, 700); ?>?random=1&grayscale&blur=5">
 					        	<!-- <img src="https://picsum.photos/900/<?php // echo rand(500, 700); ?>?random=1&grayscale&blur=2"> -->
-					        	<p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>
+					        	<p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>
+
+					        	<?php $people = get_field( 'people' ); ?>
+					        	<?php if ( $people ) : ?>
+
+					        		
+				        			<h2>Team</h2>
+
+				        			<div class="[ card-grid ]">
+
+				        			<?php foreach ( $people as $post ) : ?>
+				        				<?php //setup_postdata ( $post ); ?>
+				        				<!-- <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a> -->
+
+				        				<?php get_template_part( 'template-parts/cards/card', $pType ); ?>
+
+				        			<?php endforeach; ?>
+
+				        			<?php wp_reset_postdata(); ?>
+
+				        			</div>
+					        		
+					        		
+					        	<?php endif; ?>
 
 					        <?php 
 
