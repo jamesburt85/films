@@ -2,6 +2,7 @@
 
   <?php if ($videoType == 'vimeo'): ?>
     <div class="iframe-wrapper">
+      <h1>vimeo</h1>
       <iframe class="vimeoPlayer" src="https://player.vimeo.com/video/<?php echo $vimID; ?>" frameborder="0"></iframe>
     </div>
   <?php endif; ?>

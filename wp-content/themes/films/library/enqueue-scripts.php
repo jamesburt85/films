@@ -5,7 +5,7 @@
 if ( ! function_exists( 'raygun_scripts' ) ) :
 	function raygun_scripts() {
 
-		$versionNum 	= '1.03.00';
+		$versionNum 	= '1.05.00';
 		// $versionNum 	= mt_rand(1000,9999);
 		$scriptsFolder 	= get_stylesheet_directory_uri() . '/dist/';
 
@@ -16,13 +16,13 @@ if ( ! function_exists( 'raygun_scripts' ) ) :
 		wp_enqueue_style( 'main-stylesheet',
 			$scriptsFolder . 'css/style.css',
 			array(),
-			filemtime( $scriptsFolder . 'css/style.css' )
+			$versionNum
 		);
 
 		wp_register_script( 'raygun',
 			$scriptsFolder . '/js/main.js',
 			array(), // array( 'jquery' );
-			filemtime( $scriptsFolder . 'js/main.js' ),
+			$versionNum,
 			true
 		);
 

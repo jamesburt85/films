@@ -2,11 +2,24 @@
 
 	<article class="entry-content wrapper">
 
-		<h1>Services</h1>
+		<div class="with-sidebar">
+			<div class="sidebar">
+				
+			<h1>Services</h1>
 
-		<p>Nullam quis risus eget urna mollis ornare vel eu leo. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+			<p>At Films@59, we offer an all-encompassing service for film production. From the initial planning stages to the final delivery, we handle every aspect of the process with expertise and efficiency. Our goal is to provide a seamless and stress-free experience for our clients, delivering high-quality films that bring their vision to life.</p>
 
-		<h2>We provide an end-to-end service, from planning to delivery, Films@59 can do it all</h2>
+			
+			</div>
+			<div class="not-sidebar">
+				<img src="https://picsum.photos/900/<?php echo rand(500, 700); ?>?random=1&grayscale&blur=5">
+			</div>
+		</div>
+
+		<div>
+			<h2>We provide the complete end-to-end service, from planning to delivery, Films@59 can do it all</h2>
+		</div>
+
 
 		<div class="with-sidebar ">
 			<div class="sidebar services-sidebar-list ">
@@ -17,13 +30,20 @@
 					<?php 
 						// https://wordpress.stackexchange.com/questions/103958/custom-post-type-hierarchical-loop-in-homepage
 
-						$args = array(
+						// $args = array(
+						//     'post_type'    => 'service_cpt',
+						//     'title_li' => ''
+						//     // 'post_status'  => 'publish',
+						//     // 'author' => $idutente, // must be comma separated list of IDs
+						// );
+						// wp_list_pages($args);
+
+						// $walker = new Ray_Nav_Walker();
+						wp_list_pages( array(
+						    'title_li' => '',
 						    'post_type'    => 'service_cpt',
-						    'title_li' => ''
-						    // 'post_status'  => 'publish',
-						    // 'author' => $idutente, // must be comma separated list of IDs
-						);
-						wp_list_pages($args);
+						    // 'walker' => $walker
+						    ) );
 					?>
 
 					<!-- <h3>Our Services</h3> -->
@@ -64,6 +84,7 @@
 					        $the_query->the_post();
 					        ?>
 
+<<<<<<< HEAD
 					        	<h3><?php the_title(); ?></h3>
 					        	<img src="https://picsum.photos/900/<?php echo rand(500, 700); ?>?random=1&grayscale&blur=5">
 					        	<!-- <img src="https://picsum.photos/900/<?php // echo rand(500, 700); ?>?random=1&grayscale&blur=2"> -->
@@ -91,8 +112,35 @@
 					        		
 					        		
 					        	<?php endif; ?>
+=======
+					        <div class="with-sidebar">
+					        	<div class="not-sidebar">
+
+						        	<h3><?php the_title(); ?></h3>
+						        	<!-- <img src="https://picsum.photos/900/<?php // echo rand(500, 700); ?>?random=1&grayscale&blur=2"> -->
+						        	<p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>
+
+						        	<a href="<?php the_permalink(); ?>" class="button">
+						        		<div class="with-icon">
+							        		<h4><?php the_title(); ?></h4>
+							        		<div class="icon">					        			
+								        		<?php get_template_part('dist/svg_php/inline', 'arrow-right.svg'); ?>
+							        		</div>
+						        		</div>
+						        	</a>
+
+					        	</div>
+
+					        	<div class="sidebar">
+					        		<img src="https://picsum.photos/900/<?php echo rand(500, 700); ?>?random=1&grayscale&blur=5">
+					        	</div>
+
+					        </div>
+>>>>>>> 0c81743fb5397f98f997ed2e5ee4c809273997b6
 
 					        <?php 
+
+					        $serviceParent = get_the_title();
 
 
 					        $child_lvl_1_pages = new WP_Query( array(
@@ -102,32 +150,58 @@
 					            'no_found_rows'  => true, // no pagination necessary so improve efficiency of loop
 					        ) );
 
-					        if ( $child_lvl_1_pages->have_posts() ) : while ( $child_lvl_1_pages->have_posts() ) : $child_lvl_1_pages->the_post();
-					            // Do whatever you want to do for every page. the_title(), the_permalink(), etc... ?>
+					        if ( $child_lvl_1_pages->have_posts() ) { ?>
 
-					            	<h4><?php the_title(); ?></h4>
-					            	<p>Magna Quam Ornare Commodo Ultricies</p>
+					        	<p><?php echo $serviceParent; ?> Services:</p>
 
-					            	<?php 
-					            		// $child_lvl_2_pages = new WP_Query( array(
-					            		//     'post_type'      => 'service_cpt', // set the post type to page
-					            		//     'posts_per_page' => -1, // number of posts (pages) to show
-					            		//     'post_parent'    => get_the_ID(), // enter the post ID of the parent page
-					            		//     'no_found_rows'  => true, // no pagination necessary so improve efficiency of loop
-					            		// ) );
+					        	<ul>
+					        		
+					        	
 
-					            		// if ( $child_lvl_2_pages->have_posts() ) : while ( $child_lvl_2_pages->have_posts() ) : $child_lvl_2_pages->the_post();
-					            		//     // Do whatever you want to do for every page. the_title(), the_permalink(), etc... ?>
+						        <?php while ( $child_lvl_1_pages->have_posts() ) : $child_lvl_1_pages->the_post();
+						            // Do whatever you want to do for every page. the_title(), the_permalink(), etc... ?>
+						            <li>
+							            <a href="<?php the_permalink(); ?>" class="button">
+							            	<div class="with-icon">
+								        		<h4><?php the_title(); ?></h4>
+								        		<div class="icon">					        			
+									        		<?php get_template_part('dist/svg_php/inline', 'arrow-right.svg'); ?>
+								        		</div>
+							        		</div>
+							            </a>
+						            </li>
+						            	<!-- <p>Magna Quam Ornare Commodo Ultricies</p> -->
 
-					            		     	<!-- <h4><?php // the_title(); ?></h4> -->
-					            		    	<!-- <p>Magna Quam Ornare Commodo Ultricies</p> -->
+						            	<?php 
+						            		// $child_lvl_2_pages = new WP_Query( array(
+						            		//     'post_type'      => 'service_cpt', // set the post type to page
+						            		//     'posts_per_page' => -1, // number of posts (pages) to show
+						            		//     'post_parent'    => get_the_ID(), // enter the post ID of the parent page
+						            		//     'no_found_rows'  => true, // no pagination necessary so improve efficiency of loop
+						            		// ) );
 
-					            		 <?php // endwhile; endif;  
+						            		// if ( $child_lvl_2_pages->have_posts() ) : while ( $child_lvl_2_pages->have_posts() ) : $child_lvl_2_pages->the_post();
+						            		//     // Do whatever you want to do for every page. the_title(), the_permalink(), etc... ?>
 
-					            		// wp_reset_postdata();
-					            	?>
+						            		     	<!-- <h4><?php // the_title(); ?></h4> -->
+						            		    	<!-- <p>Magna Quam Ornare Commodo Ultricies</p> -->
 
-					        <?php endwhile; endif;  
+						            		 <?php // endwhile; endif;  
+
+						            		// wp_reset_postdata();
+						            	?>
+						         	<!-- </div> -->
+
+						            <!-- <div class="sidebar">
+						            	<img src="https://picsum.photos/900/<?php echo rand(500, 700); ?>?random=1&grayscale&blur=5">
+						         	</div>
+						         </div> -->
+
+						        <?php endwhile; ?>
+
+						        </ul>
+
+					    	<?php }
 
 					        wp_reset_postdata();
 

@@ -6,7 +6,24 @@
 
 		<?php // include( get_template_directory() . '/template-parts/snippets/breadcrumbs.php'); ?>
 
-		<?php include( get_template_directory() . '/template-parts/snippets/category-list.php'); ?>
+		<?php
+			if (is_tax('work_category') || is_tax('people_category')) {
+
+				$pType = 'work';
+				include( get_template_directory() . '/template-parts/snippets/category-list.php');
+
+			} elseif (is_tax('kit_category')) {
+
+				$pType = 'kit';
+				include( get_template_directory() . '/template-parts/snippets/kit-category-list.php');
+
+			// } elseif (is_tax('people_category')) {
+
+			// 	$pType = 'people';
+			// 	include( get_template_directory() . '/template-parts/snippets/category-list.php');
+
+			}
+		?>
 		
 		<div class="[ card-grid ]">
 
@@ -17,16 +34,28 @@
 			// var_dump( $queried_object );
 			// echo "</pre>";
 
+			// if (is_tax('people_category')) {
+			// 	'people_category'
+			// } elseif (is_tax('kit_category')) {
+			// 	'people_category'
+			// } elseif (is_tax('kit_category')) {
+			// 	'people_category'
+			// }
+
 			$the_query = new WP_Query( array(
-			    'post_type' => 'people',
+			    'post_type' => $pType,
 			    'tax_query' => array(
 			        array (
-			            'taxonomy' => 'people_category',
+			            'taxonomy' => $queried_object->taxonomy,
 			            'field' => 'slug',
 			            'terms' => $queried_object->slug,
 			        )
 			    ),
 			) );
+
+			// echo "<pre>";
+			// var_dump( $the_query );
+			// echo "</pre>";
 
 			while ( $the_query->have_posts() ) :
 			    $the_query->the_post();
@@ -57,6 +86,25 @@
 
 		<?php /* Display navigation to next/previous pages when applicable */ ?>
 		<?php include( get_template_directory() . '/template-parts/snippets/archive-post-nav.php'); ?>
+
+
+		<?php if (is_tax('kit_category')) { ?>
+			<div class="with-sidebar">
+				<div class="sidebar">
+					<h1>Our Kit</h1>
+					<p>Our state-of-the-art kit room and highly skilled experts are dedicated to discovering the ultimate kit for your shoot, ensuring an unparalleled result.</p>
+				</div>
+				<div class="not-sidebar">
+					<!-- <img src="https://picsum.photos/900/<?php echo rand(500, 700); ?>?random=1&grayscale&blur=5"> -->
+					<h2>Our team of experts are ready to help find the perfect kit for your shoot</h2>
+					<?php gravity_form( 1, false, false, false, '', false ); ?>
+				</div>
+			</div>
+
+			<div>
+
+			</div>
+		<?php } ?>
 
 	</article>
 

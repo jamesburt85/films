@@ -2,11 +2,11 @@
 
 	<article class="entry-content wrapper">
 
-		<h1>People</h1>
+		<h1>Films@59 - a Family of Experts</h1>
 
 		<p>Nullam quis risus eget urna mollis ornare vel eu leo. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
 
-		<h2>View our people below.</h2>
+		<!-- <h2>View our people below.</h2> -->
 
 
 		
@@ -35,7 +35,8 @@
 			    while ( $the_query->have_posts() ) {
 			        $the_query->the_post();
 
-			        get_template_part( 'template-parts/cards/card', $pType );
+			        // get_template_part( 'template-parts/cards/card', $pType );
+			        get_template_part( 'template-parts/cards/card' );
 
 			    }
 			        echo '</div>';

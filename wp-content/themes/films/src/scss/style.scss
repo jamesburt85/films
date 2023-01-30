@@ -145,6 +145,9 @@ th {
 // @import 'utilities/splitter';
 @import 'utilities/with-sidebar';
 @import 'utilities/category-cards';
+@import 'utilities/icon';
+// @import 'utilities/xxx';
+// @import 'utilities/xxx';
 // @import 'utilities/xxx';
 // @import 'utilities/xxx';
 // @import 'utilities/xxx';
@@ -200,3 +203,11 @@ body.page-template-page-homepage {
         margin: 0 0.5rem;
     }
 }
+
+.work-intro {
+  iframe {
+    aspect-ratio: 16 / 9;
+    width: 100%;
+  }
+}
+
