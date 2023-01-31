@@ -7,6 +7,18 @@
 			<?php include( get_template_directory() . '/template-parts/logic/get_featured_img.php'); ?>
 
 			<h1><?php the_title(); ?></h1>
+
+			<div class="[ flow ] [ category-cards ]">
+				<?php
+					//if (is_post_type_archive('work')) {
+						include( get_template_directory() . '/template-parts/snippets/category-list.php');
+					// } elseif (is_post_type_archive('service_cpt')) {
+					// 	$showTax = 'service_cpt';
+					// 	include( get_template_directory() . '/template-parts/snippets/category-list.php');
+					//}
+				?>
+			</div>
+
 			<?php the_content();?>
 			
 			<?php // include( get_template_directory() . '/template-parts/snippets/share-bar.php'); ?>

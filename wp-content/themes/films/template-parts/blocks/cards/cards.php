@@ -43,7 +43,7 @@ if ( ! empty( $block['align'] ) ) {
     }
 </style>
 
-<div id="<?php echo esc_attr( $id ); ?>" class="<?php echo esc_attr( $classes ); ?> [ wrapper ]">
+<div id="<?php echo esc_attr( $id ); ?>" class="<?php echo esc_attr( $classes ); ?> [ wrapper ] [ flow ]">
 
     <?php if ( $title ) : ?>
         <h1><?php echo $title; ?></h1>
