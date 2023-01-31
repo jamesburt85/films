@@ -1,12 +1,19 @@
 <?php get_header(); ?>
 <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+
+	<div class="hero-image">	
+		<?php include( get_template_directory() . '/template-parts/logic/get_featured_img.php'); ?>
+	</div>
 	
-	<article class="entry-content wrapper">
+	<article class="entry-content">
 			<?php // include( get_template_directory() . '/template-parts/snippets/breadcrumbs.php'); ?>
 
-			<?php include( get_template_directory() . '/template-parts/logic/get_featured_img.php'); ?>
+			<div class="wrapper">
+				<h1><?php the_title(); ?></h1>
+			</div>
 
-			<h1><?php the_title(); ?></h1>
+
+
 			<?php the_content();?>
 			
 			<?php // include( get_template_directory() . '/template-parts/snippets/share-bar.php'); ?>

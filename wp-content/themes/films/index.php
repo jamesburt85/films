@@ -44,7 +44,7 @@
 						<p>Our state-of-the-art kit room and highly skilled experts are dedicated to discovering the ultimate kit for your shoot, ensuring an unparalleled result.</p>
 					</div>
 					<div class="not-sidebar">
-						<img src="https://picsum.photos/900/<?php echo rand(500, 700); ?>?random=1&grayscale&blur=5">
+						<img src="https://localhost:3000/wp-content/uploads/2016/03/hire_9.jpg">
 					</div>
 				</div>
 
@@ -96,6 +96,8 @@
 
 		if (is_post_type_archive('kit')) { 
 
+			include( get_template_directory() . '/template-parts/snippets/kit-contact.php');
+
 			$args = array(
 			    'post_type' => 'people',
 			    'posts_per_page' => -1,
@@ -132,7 +134,7 @@
 
 
 
-			include( get_template_directory() . '/template-parts/snippets/kit-contact.php');
+			
 
 
 			?>

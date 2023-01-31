@@ -43,7 +43,7 @@ body {
 // [ 3rd Party CSS ] //
 
 // off canvas nav
-@import '../../node_modules/offside-js/dist/offside.css';
+@import '../../node_modules/offside-js/dist/offside';
 
 // hamburger
 @import './configs/hamburgers_config.scss';
@@ -59,7 +59,7 @@ body {
 @import "node_modules/magnific-popup/src/css/main.scss";
 
 // photoswipe
-@import '../../node_modules/photoswipe/dist/photoswipe.css';
+@import '../../node_modules/photoswipe/dist/photoswipe';
 
 // [ 3rd Party CSS end ] //
 
@@ -137,6 +137,11 @@ th {
 @import 'utilities/desktop-only';
 @import 'utilities/is-sticky';
 @import 'utilities/highlighted-copy';
+@import 'utilities/highlighted-box';
+// @import 'utilities/xxxx';
+// @import 'utilities/xxxx';
+// @import 'utilities/xxxx';
+// @import 'utilities/xxxx';
 // @import 'utilities/xxxx';
 // @import 'utilities/xxxx';
 
@@ -147,7 +152,7 @@ th {
 @import 'utilities/category-cards';
 @import 'utilities/icon';
 @import 'utilities/responsive-video';
-// @import 'utilities/xxx';
+@import 'utilities/image-gallery-grid';
 // @import 'utilities/xxx';
 // @import 'utilities/xxx';
 // @import 'utilities/xxx';
@@ -210,4 +215,61 @@ body.page-template-page-homepage {
         aspect-ratio: 16 / 9;
         width: 100%;
     }
+}
+
+.primary-nav,
+.secondary-navigation {
+    a {
+        text-decoration: none;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+    .current_page_item {
+        font-weight: bold;
+    }
+}
+
+.secondary-navigation {
+    // font-size: 1.6rem;
+}
+
+.primary-nav {
+    font-size: 1.6rem;
+}
+
+body.single {
+    .hero-image {
+        // aspect-ratio: 16 / 9;
+        height: 400px;
+        width: 100%;
+        overflow: hidden;
+        position: relative;
+        picture, img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    }
+}
+
+.kit-contact {
+    text-align: center;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.services_list {
+    .is-sticky {
+        padding-top: 5rem;
+    }
+    position: relative;
+}
+
+.service_content {
+    padding-top: 7rem;
 }

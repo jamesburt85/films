@@ -1,0 +1,14 @@
+.image-gallery-grid {
+	// display: grid;
+	// .cluster {
+	  display: flex;
+	  flex-wrap: wrap;
+	  gap: var(--space, 1rem);
+	  justify-content: flex-start;
+	    align-items: center;
+	// }
+	> * {
+	    margin: 0;
+	    max-width: 400px;
+	  }
+}

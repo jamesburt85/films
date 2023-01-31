@@ -64,7 +64,7 @@ function cpt_service() {
         'menu_position'       => 5,
         'menu_icon'           => 'dashicons-media-interactive',
         'rewrite'             => array(
-            'slug' => 'services',
+            'slug' => 'disabled-services',
             'with_front' => false
         ) ,
         'capability_type'     => 'post',
