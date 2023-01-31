@@ -33,7 +33,7 @@
         ]
     ],
     "menu_order": 0,
-    "position": "acf_after_title",
+    "position": "side",
     "style": "seamless",
     "label_placement": "top",
     "instruction_placement": "label",
@@ -41,5 +41,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1675161579
+    "modified": 1675178241
 }

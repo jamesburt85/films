@@ -103,11 +103,12 @@ $services_list = get_field( 'services_list' ) ?? null;
 									</p>
 								<?php }	?>
 								<?php if (!empty($sub_services)) { ?>
-									<h4><?php echo $service_name; ?> includes:</h4>
+									<br/>
+									<h5>including:</h5>
 									<ul>
 										<?php foreach ($sub_services as $sub_service) { ?>	
 											<li>
-												<h3><?php echo $sub_service['sub_service_name']; ?></h3>
+												<h4><?php echo $sub_service['sub_service_name']; ?></h4>
 											</li>
 										<?php }	?>
 									</ul>

@@ -27,7 +27,7 @@
 
 			<?php } ?>
 
-			<div class="wrapper">
+			<div class="wrapper flow">
 
 				<?php the_content();?>
 
