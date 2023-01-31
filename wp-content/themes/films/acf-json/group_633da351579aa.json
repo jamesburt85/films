@@ -124,7 +124,8 @@
                 "post": "Blog Posts",
                 "team": "Team Members",
                 "careers": "Jobs\/Careers",
-                "kit": "Kit"
+                "kit": "Kit",
+                "work": "Work"
             },
             "default_value": "post",
             "return_format": "value",
@@ -159,7 +160,8 @@
             "post_type": [
                 "post",
                 "people",
-                "kit"
+                "kit",
+                "work"
             ],
             "taxonomy": "",
             "filters": [
@@ -213,5 +215,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1675173955
+    "modified": 1675179526
 }
