@@ -1,0 +1,45 @@
+{
+    "key": "group_63d8ef5ebcc08",
+    "title": "Case Study Settings",
+    "fields": [
+        {
+            "key": "field_63d8ef60a7aa0",
+            "label": "Active Case Study",
+            "name": "active_case_study",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui_on_text": "Active Case Study",
+            "ui_off_text": "Just a listing",
+            "ui": 1
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "work"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "acf_after_title",
+    "style": "seamless",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1675161579
+}

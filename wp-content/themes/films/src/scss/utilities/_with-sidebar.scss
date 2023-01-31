@@ -4,6 +4,7 @@
   flex-direction: row;
   min-height: 100%;
   align-items: stretch;
+  gap: var(--flow-space, 2rem);
 }
 
 .sidebar {

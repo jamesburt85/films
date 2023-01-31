@@ -37,7 +37,13 @@
 							</a>
 						</div>
 
-						<?php ray_top_bar(); ?>
+						<div class="primary-navigation">
+							<?php ray_primary_nav(); ?>
+						</div>
+						<div class="secondary-navigation">
+							<?php ray_secondary_nav(); ?>
+						</div>
+						
 					</div>
 					
 					<hr>

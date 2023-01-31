@@ -95,9 +95,7 @@
 					<p>Our state-of-the-art kit room and highly skilled experts are dedicated to discovering the ultimate kit for your shoot, ensuring an unparalleled result.</p>
 				</div>
 				<div class="not-sidebar">
-					<!-- <img src="https://picsum.photos/900/<?php echo rand(500, 700); ?>?random=1&grayscale&blur=5"> -->
-					<h2>Our team of experts are ready to help find the perfect kit for your shoot</h2>
-					<?php gravity_form( 1, false, false, false, '', false ); ?>
+					<?php include( get_template_directory() . '/template-parts/snippets/kit-contact.php'); ?>
 				</div>
 			</div>
 

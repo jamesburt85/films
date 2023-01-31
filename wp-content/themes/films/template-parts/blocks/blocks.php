@@ -6,8 +6,13 @@
  */
 function be_gutenberg_scripts() {
   // wp_enqueue_style( 'theme-fonts', be_theme_fonts_url() );
-  wp_enqueue_script( 'theme-editor', get_stylesheet_directory_uri() . '/template-parts/blocks/editor.js', array( 'wp-blocks', 'wp-dom' ), filemtime( get_stylesheet_directory_uri() . '/template-parts/blocks/editor.js' ),
-  true );
+  wp_enqueue_script(
+    'theme-editor',
+    get_stylesheet_directory_uri() . '/template-parts/blocks/editor.js', array( 'wp-blocks', 'wp-dom' ),
+    // filemtime( get_stylesheet_directory_uri() . '/template-parts/blocks/editor.js' ),
+    '1.05.00',
+    true
+  );
 }
 add_action( 'enqueue_block_editor_assets', 'be_gutenberg_scripts' );
 

@@ -9,7 +9,8 @@
 
 register_nav_menus(
 	array(
-		'top-bar'  => esc_html__( 'Top Bar', 'foundationpress' ),
+		'primary-nav'  => esc_html__( 'Primary Nav', 'foundationpress' ),
+		'secondary-nav'  => esc_html__( 'Secondary Nav', 'foundationpress' ),
 		'off-canvas' => esc_html__( 'Off Canvas', 'foundationpress' ),
 		'footer-menu' => esc_html__( 'Footer Menu', 'foundationpress' ),
 	)
@@ -21,14 +22,35 @@ register_nav_menus(
  *
  * @link http://codex.wordpress.org/Function_Reference/wp_nav_menu
  */
-if ( ! function_exists( 'ray_top_bar' ) ) {
-	function ray_top_bar() {
+if ( ! function_exists( 'ray_primary_nav' ) ) {
+	function ray_primary_nav() {
 		wp_nav_menu(	
 			array(
 				'container'      => false,
-				'menu_class'     => 'dropdown menu',
+				'menu_class'     => 'menu primary-nav',
 				'items_wrap'     => '<ul id="%1$s" class="%2$s desktop-menu">%3$s</ul>',
-				'theme_location' => 'top-bar',
+				'theme_location' => 'primary-nav',
+				'depth'          => 3,
+				'fallback_cb'    => false,
+				'walker'         => new Ray_Nav_Walker(),
+			)
+		);
+	}
+}
+
+/**
+ * Desktop navigation - right top bar
+ *
+ * @link http://codex.wordpress.org/Function_Reference/wp_nav_menu
+ */
+if ( ! function_exists( 'ray_secondary_nav' ) ) {
+	function ray_secondary_nav() {
+		wp_nav_menu(	
+			array(
+				'container'      => false,
+				'menu_class'     => 'menu secondary-nav',
+				'items_wrap'     => '<ul id="%1$s" class="%2$s desktop-menu">%3$s</ul>',
+				'theme_location' => 'secondary-nav',
 				'depth'          => 3,
 				'fallback_cb'    => false,
 				'walker'         => new Ray_Nav_Walker(),

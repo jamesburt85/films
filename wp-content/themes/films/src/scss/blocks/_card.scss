@@ -12,4 +12,13 @@
   //   --flow-space: #{get-size('300')};
   // }
 
+  // work single card is active and clickable!
+  &[data-status='clickable'] {
+    background-color: var(--color-tertiary);
+  }
+
+  svg {
+    width: 80px;
+  }
+
 }

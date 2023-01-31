@@ -169,7 +169,8 @@ function my_block_plugin_editor_scripts() {
         get_stylesheet_directory_uri() . '/dist/css/style.css',
         // plugins_url( '/blocks/custom-block/editor-styles.css', __FILE__ ),
         [ 'wp-edit-blocks' ],
-        filemtime( get_stylesheet_directory_uri() . '/dist/css/style.css' )  
+        // filemtime( get_stylesheet_directory_uri() . '/dist/css/style.css' )  
+        '1.05.00' 
     );
 
 }

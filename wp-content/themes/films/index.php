@@ -40,13 +40,11 @@
 			if (is_post_type_archive('kit')) { ?>
 				<div class="work-intro with-sidebar">
 					<div class="sidebar">
-						<h1>Our Kit</h1>
+						<h1>Everything your shoot needs</h1>
 						<p>Our state-of-the-art kit room and highly skilled experts are dedicated to discovering the ultimate kit for your shoot, ensuring an unparalleled result.</p>
 					</div>
 					<div class="not-sidebar">
-						<!-- <img src="https://picsum.photos/900/<?php echo rand(500, 700); ?>?random=1&grayscale&blur=5"> -->
-						<h2>Our team of experts are ready to help find the perfect kit for your shoot</h2>
-						<?php gravity_form( 1, false, false, false, '', false ); ?>
+						<img src="https://picsum.photos/900/<?php echo rand(500, 700); ?>?random=1&grayscale&blur=5">
 					</div>
 				</div>
 
@@ -64,9 +62,8 @@
 			// 	include( get_template_directory() . '/template-parts/snippets/category-list.php');
 			} elseif (is_post_type_archive('kit')) {
 				include( get_template_directory() . '/template-parts/snippets/kit-category-list.php');
-			// } elseif (is_post_type_archive('service_cpt')) {
-			// 	$showTax = 'service_cpt';
-			// 	include( get_template_directory() . '/template-parts/snippets/category-list.php');
+			} elseif (is_home() || is_category()) {
+				include( get_template_directory() . '/template-parts/snippets/post-category-list.php');
 			}
 		?>
 		
@@ -76,12 +73,15 @@
 
 			while ( have_posts() ) : the_post();
 				
-				// $pType = get_post_type();
-				// if (!$pType) {
-				// 	$pType = 'work_cpt';
-				// }
-				// get_template_part( 'template-parts/cards/card', $pType );
-				get_template_part( 'template-parts/cards/card' );
+				$pType = get_post_type($post->ID);
+				// echo "<pre>";
+				// print_r($pType);
+				// echo "</pre>";
+				if (empty($pType)) {
+					$pType = '';
+				}
+				get_template_part( 'template-parts/cards/card', $pType );
+				// get_template_part( 'template-parts/cards/card' );
 
 			endwhile; ?>
 
@@ -128,11 +128,15 @@
 			    // no posts found
 			}
 			/* Restore original Post Data */
-			wp_reset_postdata(); ?>
+			wp_reset_postdata();
 
 
-			<h2>Our team of experts are ready to help find the perfect kit for your shoot</h2>
-			<?php gravity_form( 1, false, false, false, '', false ); ?>
+
+			include( get_template_directory() . '/template-parts/snippets/kit-contact.php');
+
+
+			?>
+
 
 		<?php }
 

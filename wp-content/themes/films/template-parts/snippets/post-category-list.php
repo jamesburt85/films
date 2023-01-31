@@ -6,7 +6,7 @@
 // if ( is_post_type_archive('people') || is_tax('people_category') ) {
 //   $taxonomy   = $showTax ?? 'people_category';
 // } elseif ( is_post_type_archive('kit') || is_tax('kit_category') ) {
-  $taxonomy   = $showTax ?? 'kit_category';
+  $taxonomy   = $showTax ?? 'category';
 // } else {
 //   $taxonomy   = $showTax ?? 'work_category';
 // }
@@ -29,7 +29,7 @@ $args = array(
 
 <ul class="category-list">
 	<?php // wp_list_categories( $args ); ?>
-  
+  <li><a class="button pill" href="<?php echo get_post_type_archive_link('post'); ?>">All</a></li>
   <?php 
     $categories = get_categories($args);
     foreach($categories as $category) { 
