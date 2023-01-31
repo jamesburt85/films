@@ -68,7 +68,7 @@ function cpt_careers() {
         //     'with_front' => false
         // ) ,
         'capability_type'     => 'post',
-        'show_in_rest'        => false, // gutenberg
+        'show_in_rest'        => true, // gutenberg
         'supports'            => array(
             'title',
             'thumbnail',

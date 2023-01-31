@@ -6,6 +6,7 @@
             "key": "field_633da3515e983",
             "label": "Title",
             "name": "title",
+            "aria-label": "",
             "type": "text",
             "instructions": "",
             "required": 0,
@@ -25,6 +26,7 @@
             "key": "field_633da3515e98b",
             "label": "Copy",
             "name": "copy",
+            "aria-label": "",
             "type": "textarea",
             "instructions": "",
             "required": 0,
@@ -44,6 +46,7 @@
             "key": "field_633da3515e99a",
             "label": "Cards to Show",
             "name": "cards_to_show",
+            "aria-label": "",
             "type": "select",
             "instructions": "",
             "required": 0,
@@ -69,6 +72,7 @@
             "key": "field_633da3b06aea9",
             "label": "number of posts to show",
             "name": "number_of_posts_to_show",
+            "aria-label": "",
             "type": "number",
             "instructions": "",
             "required": 0,
@@ -98,6 +102,7 @@
             "key": "field_633da4446aeaa",
             "label": "Post Type to Show",
             "name": "post_type_to_show",
+            "aria-label": "",
             "type": "select",
             "instructions": "",
             "required": 0,
@@ -117,7 +122,9 @@
             },
             "choices": {
                 "post": "Blog Posts",
-                "team": "Team Members"
+                "team": "Team Members",
+                "careers": "Jobs\/Careers",
+                "kit": "Kit"
             },
             "default_value": "post",
             "return_format": "value",
@@ -131,6 +138,7 @@
             "key": "field_633da5146aeab",
             "label": "Select Posts",
             "name": "select_posts",
+            "aria-label": "",
             "type": "relationship",
             "instructions": "",
             "required": 0,
@@ -150,7 +158,8 @@
             },
             "post_type": [
                 "post",
-                "team_cpt"
+                "people",
+                "kit"
             ],
             "taxonomy": "",
             "filters": [
@@ -167,6 +176,7 @@
             "key": "field_633da3515e990",
             "label": "CTAs",
             "name": "ctas",
+            "aria-label": "",
             "type": "clone",
             "instructions": "",
             "required": 0,
@@ -203,5 +213,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1664986029
+    "modified": 1675173955
 }
