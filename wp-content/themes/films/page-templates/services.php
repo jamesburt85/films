@@ -17,12 +17,12 @@ $services_list = get_field( 'services_list' ) ?? null;
 		while ( have_posts() ) : the_post(); ?>
 			<article class="entry-content [ wrapper ]">
 
-				<div class="with-sidebar">
-					<div class="not-sidebar">
+				<div class="with-sidebar ">
+					<div class="not-sidebar flow">
 						
-					<h1>We provide the complete end-to-end service, from planning to delivery, Films@59 can do it all</h1>
+						<h1>We provide the complete end-to-end service, from planning to delivery, Films@59 can do it all</h1>
 
-					<p>At Films@59, we offer an all-encompassing service for film production. From the initial planning stages to the final delivery, we handle every aspect of the process with expertise and efficiency. Our goal is to provide a seamless and stress-free experience for our clients, delivering high-quality films that bring their vision to life.</p>
+						<p>At Films@59, we offer an all-encompassing service for film production. From the initial planning stages to the final delivery, we handle every aspect of the process with expertise and efficiency. Our goal is to provide a seamless and stress-free experience for our clients, delivering high-quality films that bring their vision to life.</p>
 
 					
 					</div>
@@ -87,7 +87,7 @@ $services_list = get_field( 'services_list' ) ?? null;
 							$anchor = strtolower($anchor);
 						?>
 
-							<div id="<?php echo $anchor; ?>" class="service_content">
+							<div id="<?php echo $anchor; ?>" class="service_content flow">
 								<?php if (!empty($service_name)) { ?>
 									<h3>						
 										<?php echo $service_name; ?>

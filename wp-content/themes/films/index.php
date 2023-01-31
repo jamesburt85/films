@@ -18,7 +18,7 @@
 					 if ($current_page == 0){ ?>
 					     
 					     <div class="work-intro with-sidebar">
-					     	<div class="sidebar">
+					     	<div class="sidebar flow">
 					     		<h1>Our Portfolio</h1>
 					     		<p>For over 25 years we have provided a range of award-winning services to producers across the globe. Supplying location kit hire, rushes management, vision & sound post, and freelancer crew & editor diaries.</p>
 					     	</div>

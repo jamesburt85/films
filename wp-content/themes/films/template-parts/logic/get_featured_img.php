@@ -2,10 +2,13 @@
 
 $imgClasses = ''; // lazyload, lazy
 
-if ( has_post_thumbnail( $post->ID ) ) {
+// if (!empty($post->ID)) {
+// }
+
+if ( has_post_thumbnail() ) { // $post->ID
 
 	// get thumb ID
-	$thumbID = get_post_thumbnail_id( $post->ID );
+	$thumbID = get_post_thumbnail_id(); // $post->ID
 	// get all image sizes (custom function in library/responsive-images)
 	$img = get_all_image_sizes($thumbID);
 	    

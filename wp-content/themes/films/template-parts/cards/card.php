@@ -32,6 +32,7 @@ if (!empty($acf_fields)) {
     <?php
 
         $categories = wp_get_object_terms( $id, 'work_category');
+        // $categories = wp_get_object_terms( $post->ID, 'work_category');
         // echo "<pre>";
         // print_r($categories);
         // echo "</pre>";
