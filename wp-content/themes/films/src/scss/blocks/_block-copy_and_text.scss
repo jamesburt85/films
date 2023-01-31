@@ -1,0 +1,33 @@
+.block-copy_and_text {
+
+  .copy-and-text--row {
+    @include media-query('md') {
+      --huge-space: 8rem;
+    }
+    margin: var(--huge-space) 0;
+
+    @include media-query('md') {
+      .desktop-only {
+        display: flex;
+        align-items: center;
+      }
+    }
+
+  }
+
+  .copy-and-text--text {
+    --flow-space: 2rem;
+    @include media-query('md') {
+      padding-left: var(--big-space);
+    }
+  }
+  
+  div[data-state=reversed] {
+    .copy-and-text--text {
+      @include media-query('md') {
+        padding-left: 0;
+        padding-right: var(--big-space);
+      }
+    }
+  }
+}
