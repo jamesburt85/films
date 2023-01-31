@@ -1,8 +1,12 @@
 <?php get_header(); ?>
 
-	<article class="entry-content wrapper">
+	<article class="entry-content">
 
 		<?php // include( get_template_directory() . '/template-parts/snippets/breadcrumbs.php'); ?>
+
+		<div class="wrapper">
+			
+		
 
 		<?php
 			if (is_post_type_archive('work')) { ?>
@@ -52,6 +56,8 @@
 			<?php }
 		?>
 
+
+
 		<?php
 			if (is_post_type_archive('work')) {
 				include( get_template_directory() . '/template-parts/snippets/category-list.php');
@@ -64,8 +70,10 @@
 				include( get_template_directory() . '/template-parts/snippets/post-category-list.php');
 			}
 		?>
+
+		</div>
 		
-		<div class="[ card-grid ]">
+		<div class="[ card-grid ] wrapper">
 
 			<?php // $i = 0; // styling some cards...
 
@@ -83,11 +91,11 @@
 
 			endwhile; ?>
 
-		</div>
 
 		<?php /* Display navigation to next/previous pages when applicable */ ?>
 		<?php include( get_template_directory() . '/template-parts/snippets/archive-post-nav.php'); ?>
 
+		</div>
 
 		<?php 
 
@@ -160,7 +168,7 @@
 
 			// The Loop
 			if ( $the_query->have_posts() ) {
-			        echo '<h2>Our Kit Team</h2><div class="[ card-grid ]">';
+			        echo '<div class="wrapper flow"><h2>Our Kit Team</h2><div class="[ card-grid ]">';
 			    while ( $the_query->have_posts() ) {
 			        $the_query->the_post();
 
@@ -168,6 +176,7 @@
 			        get_template_part( 'template-parts/cards/card' );
 
 			    }
+			        echo '</div>';
 			        echo '</div>';
 			} else {
 			    // no posts found

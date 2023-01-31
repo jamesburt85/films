@@ -1,6 +1,9 @@
 .card-grid {
 	display: grid;
 	grid-gap: 1rem;
+	> * {
+		max-width: 700px;
+	}
 }
 @supports (width: min(250px, 100%)) {
 	.card-grid {

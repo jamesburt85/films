@@ -90,7 +90,7 @@ if ( ! empty( $orientation ) ) {
                                 <?php echo $copy; ?>
                             <?php endif; ?>
 
-                            <?php if ( $ctas ) :
+                            <?php if ( !empty($ctas) ) :
                               foreach ($ctas as $link):
                                 $link = $link['cta'];
                                 $linkClasses = 'large';
