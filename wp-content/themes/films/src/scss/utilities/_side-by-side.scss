@@ -1,0 +1,16 @@
+.side-by-side {
+    // display: flex;
+
+    // &>div {
+    //     width: 50%;
+    // }
+
+    display: grid;
+    grid-gap: 1rem;
+
+    @supports (width: min(350px, 100%)) {
+
+        grid-template-columns: repeat(auto-fit, minmax(min(350px, 100%), 1fr));
+
+    }
+}

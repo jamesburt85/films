@@ -51,32 +51,43 @@ if ( ! empty( $orientation ) ) {
         $i = 0;
         // echo "<pre>"; print_r($copy_and_text_blocks); echo "</pre>";
         foreach ($copy_and_text_blocks as $b) {
-            $title              = $b['content_title'] ?? null;
-            $copy               = $b['content_copy'] ?? null;
-            $optional_image     = $b['content_optional_image'] ?? null;
-            $ctas               = $b['content_ctas_ctas_ctas'] ?? null;
+            //$title        = $b['content_title'] ?? null;
+            $copy         = $b['content_copy'] ?? null;
+            $image_or_map = $b['image_or_map'] ?? null;
+            $image        = $b['image'] ?? null;
+            $map          = $b['map'] ?? null;
+            //$ctas      = $b['content_ctas_ctas_ctas'] ?? null;
 
             $i++;
             ?>
                 
                 <div class="[ wrapper ]">
 
-                    <div class="copy-and-text--row side-by-side" <?php if ($i % 2 == 0) { echo 'data-state="reversed"'; } ?>>
-                        <div class="desktop-only"> 
-                            <?php if (!empty($optional_image)) : ?>
-                            <?php $img = $optional_image; ?>
-                            <?php $imgModifiers = 'curved-corners overflow-hidden'; ?>
-                                <?php include( get_template_directory() . '/template-parts/snippets/img.php'); ?>
-                            <?php endif; ?>
+                    <div class="copy-and-text--row [ side-by-side ]" <?php if ($i % 2 == 0) { echo 'data-state="reversed"'; } ?>>
+                        <div class="desktop-only">
+
+                            <?php
+                                if ( $image_or_map == "image") {
+
+                                    if (!empty($image)) {
+                                        $img = $image;
+                                        //$imgModifiers = 'curved-corners overflow-hidden';
+                                        include( get_template_directory() . '/template-parts/snippets/img.php');
+                                    } else {
+                                       include( get_template_directory() . '/template-parts/logic/default-img.php');
+                                       include( get_template_directory() . '/template-parts/snippets/img.php');
+                                    }
+                                } else if ( $image_or_map == "map") {
+                                    echo $map;
+                                }
+                            ?>
+                            
                         </div>
 
                         <div class="copy-and-text--text big-padding-top-bottom flow">
-                            <?php if ( $title ) : ?>
-                                <h3 class="h2 semibold"><?php echo $title; ?></h3>
-                            <?php endif; ?>
 
                             <?php if ( $copy ) : ?>
-                                <p><?php echo $copy; ?></p>
+                                <?php echo $copy; ?>
                             <?php endif; ?>
 
                             <?php if ( $ctas ) :
@@ -93,8 +104,8 @@ if ( ! empty( $orientation ) ) {
 
 
                 <div class="mobile-only"> 
-                    <?php if (!empty($optional_image)) : ?>
-                    <?php $img = $optional_image; ?>
+                    <?php if (!empty($image)) : ?>
+                    <?php $img = $image; ?>
                         <?php include( get_template_directory() . '/template-parts/snippets/img.php'); ?>
                     <?php endif; ?>
                 </div>
