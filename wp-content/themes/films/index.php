@@ -8,22 +8,33 @@
 
 		<?php
 			if (is_post_type_archive('work')) { ?>
-				<div class="work-intro with-sidebar">
-					<div class="sidebar">
-						<h1>Our Portfolio</h1>
-						<p>For over 25 years we have provided a range of award-winning services to producers across the globe. Supplying location kit hire, rushes management, vision & sound post, and freelancer crew & editor diaries.</p>
-					</div>
-					<div class="not-sidebar">
-						<?php 
-							$video_url 	= 'https://vimeo.com/676353092';
-							$vimID      = getVimeoID($video_url);
-							// print_r($vimID);
-							// $videoType = getVideoType($url);
-							$videoType = 'vimeo';
-							include( get_template_directory() . '/template-parts/snippets/video.php');
-						?>
-					</div>
-				</div>
+				<?php 
+					//Get the current page number, default is 1
+					 $current_page = get_query_var('paged', 1);
+					 // print_r($current_page);
+
+					 if ($current_page == 0){ ?>
+					     
+					     <div class="work-intro with-sidebar">
+					     	<div class="sidebar">
+					     		<h1>Our Portfolio</h1>
+					     		<p>For over 25 years we have provided a range of award-winning services to producers across the globe. Supplying location kit hire, rushes management, vision & sound post, and freelancer crew & editor diaries.</p>
+					     	</div>
+					     	<div class="not-sidebar">
+					     		<?php 
+					     			$video_url 	= 'https://vimeo.com/676353092';
+					     			$vimID      = getVimeoID($video_url);
+					     			// print_r($vimID);
+					     			// $videoType = getVideoType($url);
+					     			$videoType = 'vimeo';
+					     			include( get_template_directory() . '/template-parts/snippets/video.php');
+					     		?>
+					     	</div>
+					     </div>
+
+					<?php  }
+				?>
+				
 			<?php }
 
 			if (is_post_type_archive('kit')) { ?>

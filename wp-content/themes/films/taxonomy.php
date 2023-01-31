@@ -7,7 +7,7 @@
 		<?php // include( get_template_directory() . '/template-parts/snippets/breadcrumbs.php'); ?>
 
 		<?php
-			if (is_tax('work_category') || is_tax('people_category')) {
+			if (is_tax('work_category') ) {
 
 				$pType = 'work';
 				include( get_template_directory() . '/template-parts/snippets/category-list.php');
@@ -17,10 +17,10 @@
 				$pType = 'kit';
 				include( get_template_directory() . '/template-parts/snippets/kit-category-list.php');
 
-			// } elseif (is_tax('people_category')) {
+			} elseif (is_tax('people_category')) {
 
-			// 	$pType = 'people';
-			// 	include( get_template_directory() . '/template-parts/snippets/category-list.php');
+				$pType = 'people';
+				include( get_template_directory() . '/template-parts/snippets/category-list.php');
 
 			}
 		?>
