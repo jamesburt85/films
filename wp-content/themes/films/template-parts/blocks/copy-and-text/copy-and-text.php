@@ -69,11 +69,14 @@ if ( ! empty( $orientation ) ) {
                             <?php
                                 if ( $image_or_map == "image") {
 
-                                    if (!empty($image)) :
-                                    $img = $image;
-                                    //$imgModifiers = 'curved-corners overflow-hidden';
-                                    include( get_template_directory() . '/template-parts/snippets/img.php');
-                                    endif;
+                                    if (!empty($image)) {
+                                        $img = $image;
+                                        //$imgModifiers = 'curved-corners overflow-hidden';
+                                        include( get_template_directory() . '/template-parts/snippets/img.php');
+                                    } else {
+                                       include( get_template_directory() . '/template-parts/logic/default-img.php');
+                                       include( get_template_directory() . '/template-parts/snippets/img.php');
+                                    }
                                 } else if ( $image_or_map == "map") {
                                     echo $map;
                                 }
