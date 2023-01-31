@@ -21,9 +21,15 @@
 							Get in touch
 						</h2>
 					</div>
-					<div>
+					<div class="[ flow ]">
 						<p>
-							Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+							We’re ideally placed to serve the South West and Wales media hub.  We are only 90-minutes from Central London by fast train.
+						</p>
+						<p>
+							Email: <a href="mailto:info@filmsat59.com">info@filmsat59.com</a>
+						</p>
+						<p>
+							Tel:  0117 906 4300
 						</p>
 					</div>
 				</div>
