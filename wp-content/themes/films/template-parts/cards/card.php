@@ -43,5 +43,4 @@ if (!empty($acf_fields)) {
 
     ?>
 
-
 </article>

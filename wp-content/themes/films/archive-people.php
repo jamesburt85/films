@@ -6,10 +6,6 @@
 
 		<p>Nullam quis risus eget urna mollis ornare vel eu leo. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
 
-		<!-- <h2>View our people below.</h2> -->
-
-
-		
 		<?php 
 			// https://wordpress.stackexchange.com/questions/103958/custom-post-type-hierarchical-loop-in-homepage
 
@@ -19,7 +15,7 @@
 		            array (
 		                'taxonomy' => 'people_category',
 		                'field' => 'slug',
-		                'terms' => 'management',
+		                'terms' => 'craft',
 		            )
 		        ),
 			    'post_status'  => 'publish',
@@ -31,7 +27,7 @@
 
 			// The Loop
 			if ( $the_query->have_posts() ) {
-			        echo '<h2>Management</h2><div class="[ card-grid ]">';
+			        echo '<h2>Craft</h2><div class="[ card-grid ]">';
 			    while ( $the_query->have_posts() ) {
 			        $the_query->the_post();
 

@@ -21,7 +21,7 @@ $args = array(
   // 'pad_counts'   => $pad_counts,
   // 'hierarchical' => $hierarchical,
   'title_li'     => $title,
-  'exclude' => 14, //Management
+  'exclude' => 10, // Craft
 );
 ?>
 

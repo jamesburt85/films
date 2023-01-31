@@ -146,6 +146,7 @@ th {
 @import 'utilities/with-sidebar';
 @import 'utilities/category-cards';
 @import 'utilities/icon';
+@import 'utilities/responsive-video';
 // @import 'utilities/xxx';
 // @import 'utilities/xxx';
 // @import 'utilities/xxx';
@@ -205,9 +206,8 @@ body.page-template-page-homepage {
 }
 
 .work-intro {
-  iframe {
-    aspect-ratio: 16 / 9;
-    width: 100%;
-  }
+    iframe {
+        aspect-ratio: 16 / 9;
+        width: 100%;
+    }
 }
-

@@ -22,6 +22,8 @@ function register_acf_blocks() {
     register_block_type( __DIR__ . '/logowall' );
     register_block_type( __DIR__ . '/sitewide' );
     register_block_type( __DIR__ . '/psgallery' );
+    register_block_type( __DIR__ . '/people' );
+    register_block_type( __DIR__ . '/video' );
 }
 
 // add_action('acf/init', 'my_acf_blocks_init');

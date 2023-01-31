@@ -48,14 +48,14 @@ else : /* rendering in editor body */
       <?php if(!empty($video_url)):?>
 
         <?php if ($videoType == 'vimeo'): ?>
-          <div class="iframe-wrapper">
+          <div class="iframe-wrapper [ responsive-video ]">
             <iframe class="vimeoPlayer" src="https://player.vimeo.com/video/<?php echo $vimID; ?>" frameborder="0"></iframe>
           </div>
         <?php endif; ?>
 
         <?php // YOUTUBE ?>
         <?php if ($videoType == 'youtube'): ?>
-          <div class="iframe-wrapper">
+          <div class="iframe-wrapper [ responsive-video ]">
             <iframe class="ytplayer" type="text/html"
               src="https://www.youtube.com/embed/<?php echo $YtID; ?>?rel=0&showinfo=0"
               frameborder="0" allowfullscreen></iframe>
