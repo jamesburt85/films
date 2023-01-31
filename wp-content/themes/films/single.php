@@ -12,26 +12,32 @@
 				<h1><?php the_title(); ?></h1>
 			</div>
 
-			<h1><?php the_title(); ?></h1>
+			<?php if (get_post_type() == 'kit') { ?>
 
-			<div class="[ flow ] [ category-cards ]">
-				<?php
-					//if (is_post_type_archive('work')) {
-						include( get_template_directory() . '/template-parts/snippets/category-list.php');
-					// } elseif (is_post_type_archive('service_cpt')) {
-					// 	$showTax = 'service_cpt';
-					// 	include( get_template_directory() . '/template-parts/snippets/category-list.php');
-					//}
-				?>
+				<div class="[ flow ] [ category-cards ] wrapper">
+					<?php
+						//if (is_post_type_archive('work')) {
+							include( get_template_directory() . '/template-parts/snippets/category-list.php');
+						// } elseif (is_post_type_archive('service_cpt')) {
+						// 	$showTax = 'service_cpt';
+						// 	include( get_template_directory() . '/template-parts/snippets/category-list.php');
+						//}
+					?>
+				</div>
+
+			<?php } ?>
+
+			<div class="wrapper">
+
+				<?php the_content();?>
+
 			</div>
-
-			<?php the_content();?>
 			
 			<?php // include( get_template_directory() . '/template-parts/snippets/share-bar.php'); ?>
 
 			<?php if (get_post_type() == 'kit') { ?>
 
-				<div class="with-sidebar">
+				<div class="with-sidebar wrapper">
 					<div class="sidebar">
 						<h1>Our Kit</h1>
 						<p>Our state-of-the-art kit room and highly skilled experts are dedicated to discovering the ultimate kit for your shoot, ensuring an unparalleled result.</p>
