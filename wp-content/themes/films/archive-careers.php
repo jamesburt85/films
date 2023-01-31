@@ -4,18 +4,11 @@
 
 		<h1>Careers</h1>
 
-		<?php the_content(); ?>
+		<p>
+			Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+		</p>
 
-		<?php // include( get_template_directory() . '/template-parts/snippets/breadcrumbs.php'); ?>
-
-		<?php
-			if (is_post_type_archive('work')) {
-				include( get_template_directory() . '/template-parts/snippets/category-list.php');
-			// } elseif (is_post_type_archive('service_cpt')) {
-			// 	$showTax = 'service_cpt';
-			// 	include( get_template_directory() . '/template-parts/snippets/category-list.php');
-			}
-		?>
+		<?php //the_content(); ?>
 		
 		<div class="[ card-grid ]">
 
