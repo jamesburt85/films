@@ -3,10 +3,12 @@
 // List terms in a given taxonomy using wp_list_categories (also useful as a widget if using a PHP Code plugin)
 
 //$taxonomy     = $showTax ?? 'work_category';
-if ( 'people' == get_post_type() ) {
+if ( ('people' == get_post_type()) || is_tax('people_category') ) {
   $taxonomy   = $showTax ?? 'people_category';
-} elseif ( 'kit' == get_post_type() ) {
+} elseif ( ('kit' == get_post_type()) || is_tax('kit_category') ) {
   $taxonomy   = $showTax ?? 'kit_category';
+} elseif ( ('work' == get_post_type()) || is_tax('work_category') ) {
+    $taxonomy   = $showTax ?? 'work_category';
 } else {
   $taxonomy   = $showTax ?? 'kit_category';
 }

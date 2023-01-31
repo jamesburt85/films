@@ -119,7 +119,11 @@ th {
 }
 
 .entry-content {
-    --flow-space: 1rem;
+
+    --flow-space: 2rem;
+
+    // margin-top: var(--flow-space);
+    margin-top: 1rem;
 
     // image immediately after gutenberg container
     >.wp-block-image {
@@ -272,4 +276,11 @@ body.single {
 
 .service_content {
     padding-top: 7rem;
+}
+
+.post-type-archive-people {
+    .entry-content .category-list a {
+        font-size: 2rem;
+        padding: 3rem 0;
+    }
 }

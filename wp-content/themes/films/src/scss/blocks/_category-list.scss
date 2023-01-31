@@ -1,8 +1,14 @@
+ul.category-list,
 .category-list {
+
+	--flow-space: 0.5rem;
+
+	padding: 1rem 0 0.5rem;
+
 	display: flex;
 	flex-wrap: wrap;
 	> * {
-		margin: var(--flow-space);
+		margin: var(--flow-space) var(--flow-space) 0;
 		margin-left: 0;
 	}
 }

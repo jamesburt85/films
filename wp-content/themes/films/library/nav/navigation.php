@@ -129,16 +129,22 @@ if ( ! function_exists( 'ray_footer_menu' ) ) {
 // ----------------------------------------
 function custom_menu_item_classes($classes = array(), $menu_item = false){
 
+    if( (is_singular('work') || is_category('work_category') || is_post_type_archive('work')) && $menu_item->ID == 5566 ) { // is_tax( 'industry' ) || 
+        $classes[] = 'current-menu-item current_page_item active';
+    }
+   
+    if( (is_singular('kit') || is_category('kit_category') || is_post_type_archive('kit')) && $menu_item->ID == 5565 ) { // is_tax( 'industry' ) || 
+        $classes[] = 'current-menu-item current_page_item active';
+    }
 
-    // team
-    if( (is_singular('cpt_work') || is_category('') || is_post_type_archive('cpt_work'))  && $menu_item->ID == 17 ) { // is_tax( 'industry' ) || 
-        $classes[] = 'current-menu-item active';
+    if( (is_singular('people') || is_category('people_category') || is_post_type_archive('people')) && $menu_item->ID == 23 ) { // is_tax( 'industry' ) || 
+        $classes[] = 'current-menu-item current_page_item active';
     }
 
 
     return $classes;
 }
 
-// add_filter( 'nav_menu_css_class', 'custom_menu_item_classes', 10, 2 );
+add_filter( 'nav_menu_css_class', 'custom_menu_item_classes', 10, 2 );
 
 

@@ -6,6 +6,7 @@
             "key": "field_6348358fac8f2",
             "label": "General Settings",
             "name": "",
+            "aria-label": "",
             "type": "tab",
             "instructions": "",
             "required": 0,
@@ -22,6 +23,7 @@
             "key": "field_63483584ac8f1",
             "label": "Default Image",
             "name": "default_image",
+            "aria-label": "",
             "type": "image",
             "instructions": "",
             "required": 0,
@@ -46,6 +48,7 @@
             "key": "field_5f91936555907",
             "label": "Social Media URLs",
             "name": "",
+            "aria-label": "",
             "type": "tab",
             "instructions": "",
             "required": 0,
@@ -62,6 +65,7 @@
             "key": "field_5f91937b55908",
             "label": "Twitter URL",
             "name": "twitter_url",
+            "aria-label": "",
             "type": "url",
             "instructions": "",
             "required": 0,
@@ -78,6 +82,7 @@
             "key": "field_5f91939b55909",
             "label": "Instagram URL",
             "name": "instagram_url",
+            "aria-label": "",
             "type": "url",
             "instructions": "",
             "required": 0,
@@ -94,6 +99,7 @@
             "key": "field_5f9193a55590a",
             "label": "Facebook URL",
             "name": "facebook_url",
+            "aria-label": "",
             "type": "url",
             "instructions": "",
             "required": 0,
@@ -110,6 +116,7 @@
             "key": "field_5f9193af5590b",
             "label": "Linked In URL",
             "name": "linked_in_url",
+            "aria-label": "",
             "type": "url",
             "instructions": "",
             "required": 0,
@@ -126,6 +133,7 @@
             "key": "field_5f9193c25590c",
             "label": "Developer Settings",
             "name": "",
+            "aria-label": "",
             "type": "tab",
             "instructions": "",
             "required": 0,
@@ -137,6 +145,75 @@
             },
             "placement": "top",
             "endpoint": 0
+        },
+        {
+            "key": "field_63d93e2c3ea26",
+            "label": "Kit Archive",
+            "name": "kit_archive",
+            "aria-label": "",
+            "type": "post_object",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "page"
+            ],
+            "taxonomy": "",
+            "return_format": "object",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 1
+        },
+        {
+            "key": "field_63d93e503ea27",
+            "label": "People Archive",
+            "name": "people_archive",
+            "aria-label": "",
+            "type": "post_object",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "page"
+            ],
+            "taxonomy": "",
+            "return_format": "object",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 1
+        },
+        {
+            "key": "field_63d93e5f3ea28",
+            "label": "Work Archive",
+            "name": "work_archive",
+            "aria-label": "",
+            "type": "post_object",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "page"
+            ],
+            "taxonomy": "",
+            "return_format": "object",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 1
         }
     ],
     "location": [
@@ -157,5 +234,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1665676727
+    "modified": 1675181677
 }

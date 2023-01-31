@@ -18,22 +18,22 @@ $services_list = get_field( 'services_list' ) ?? null;
 			<article class="entry-content [ wrapper ]">
 
 				<div class="with-sidebar">
-					<div class="sidebar">
+					<div class="not-sidebar">
 						
-					<h1>Services</h1>
+					<h1>We provide the complete end-to-end service, from planning to delivery, Films@59 can do it all</h1>
 
 					<p>At Films@59, we offer an all-encompassing service for film production. From the initial planning stages to the final delivery, we handle every aspect of the process with expertise and efficiency. Our goal is to provide a seamless and stress-free experience for our clients, delivering high-quality films that bring their vision to life.</p>
 
 					
 					</div>
-					<div class="not-sidebar">
+					<div class="sidebar">
 						<img src="https://picsum.photos/900/<?php echo rand(500, 700); ?>?random=1&grayscale&blur=5">
 					</div>
 				</div>
 
-				<div>
+				<!-- <div>
 					<h2>We provide the complete end-to-end service, from planning to delivery, Films@59 can do it all</h2>
-				</div>
+				</div> -->
 
 				<div class="with-sidebar services_list">
 					

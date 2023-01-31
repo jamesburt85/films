@@ -16,10 +16,10 @@
 
 			while ( have_posts() ) : the_post();
 				
-				// $pType = get_post_type();
-				// if (!$pType) {
-				// 	$pType = 'work_cpt';
-				// }
+				$pType = get_post_type();
+				if (!$pType) {
+					$pType = 'work_cpt';
+				}
 				get_template_part( 'template-parts/cards/card', $pType );
 
 			endwhile; ?>

@@ -59,7 +59,12 @@
 
 			while ( $the_query->have_posts() ) :
 			    $the_query->the_post();
-			    get_template_part( 'template-parts/cards/card' );
+			    $pType = get_post_type($post->ID);
+			    // get_template_part( 'template-parts/cards/card' );
+			    if (empty($pType)) {
+			    	$pType = '';
+			    }
+			    get_template_part( 'template-parts/cards/card', $pType );
 			    // Show Posts ...
 			endwhile;
 

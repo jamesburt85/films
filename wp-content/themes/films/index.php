@@ -2,8 +2,6 @@
 
 	<article class="entry-content wrapper">
 
-		<h1><?php // the_title(); ?></h1>
-
 		<?php // include( get_template_directory() . '/template-parts/snippets/breadcrumbs.php'); ?>
 
 		<?php
@@ -44,7 +42,7 @@
 						<p>Our state-of-the-art kit room and highly skilled experts are dedicated to discovering the ultimate kit for your shoot, ensuring an unparalleled result.</p>
 					</div>
 					<div class="not-sidebar">
-						<img src="https://localhost:3000/wp-content/uploads/2016/03/hire_9.jpg">
+						<img src="<?php echo get_site_url(); ?>/wp-content/uploads/2016/03/hire_9.jpg">
 					</div>
 				</div>
 
@@ -92,7 +90,52 @@
 
 
 		<?php 
+
+			// set archives in site settings, then pull in content from that page
+			if (is_post_type_archive('kit')) { 
+				$post = get_field('kit_archive', 'option');
+				if (!empty($post)) {
+					// echo "<pre>";
+					// print_r($post);
+					// echo "</pre>";
+					setup_postdata($post);
+					the_content();
+				}
+				wp_reset_postdata();
+			}
+
+			// // set archives in site settings, then pull in content from that page
+			// if (is_post_type_archive('people')) { 
+			// 	$post = get_field('people_archive', 'option');
+			// 	if (!empty($post)) {
+			// 		// echo "<pre>";
+			// 		// print_r($post);
+			// 		// echo "</pre>";
+			// 		setup_postdata($post);
+			// 		the_content();
+			// 	}
+			// 	wp_reset_postdata();
+			// }
+
+			// set archives in site settings, then pull in content from that page
+			if (is_post_type_archive('work')) { 
+				$post = get_field('work_archive', 'option');
+				if (!empty($post)) {
+					// echo "<pre>";
+					// print_r($post);
+					// echo "</pre>";
+					setup_postdata($post);
+					the_content();
+				}
+				wp_reset_postdata();
+			}
+
+		?>
+
+		<?php 
 			// https://wordpress.stackexchange.com/questions/103958/custom-post-type-hierarchical-loop-in-homepage
+
+
 
 		if (is_post_type_archive('kit')) { 
 

@@ -4,24 +4,44 @@
 	<article class="entry-content wrapper">
 			<?php // include( get_template_directory() . '/template-parts/snippets/breadcrumbs.php'); ?>
 
-			<?php include( get_template_directory() . '/template-parts/logic/get_featured_img.php'); ?>
-
 			<h1><?php the_title(); ?></h1>
+
+			<div class="with-sidebar">
+				
+				<div class="sidebar">
+					
+					
+
+					<?php include( get_template_directory() . '/template-parts/logic/get_featured_img.php'); ?>
+
+					<?php $terms = get_the_terms( $post->ID, 'people_category' );
+
+					if (!empty($terms)) { ?>
+
+						<ul>
+
+							<?php foreach ( $terms as $term ) { ?>
+								<li>
+									<?php echo $term->name; ?>
+								</li>
+							<?php } ?>
+
+						</ul>
+
+					<?php } ?>
+
+				</div>
+
+
+				<div class="not-sidebar flow">
 			
-			<?php
-				$terms = get_the_terms( $post->ID, 'people_category' );
-				foreach ( $terms as $term ) {
-			?>
-					<p>
-						<?php echo $term->name; ?>
-					</p>
-			<?php
-		        }
-			?>
+					<?php the_content();?>
+
+				</div>
+
+			</div>
 			
-			<?php the_content();?>
-			
-			<?php include( get_template_directory() . '/template-parts/snippets/share-bar.php'); ?>
+			<?php // include( get_template_directory() . '/template-parts/snippets/share-bar.php'); ?>
 	</article>
 
 <?php 
