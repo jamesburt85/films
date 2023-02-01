@@ -1,16 +1,23 @@
 .block-logowall {
-	display: grid;
-	grid-gap: 1rem;
+    display: grid;
+    grid-gap: 1rem;
+    align-items: center;
 
-	> * {
-		aspect-ratio: 3/2;
-		object-fit: contain;
-		mix-blend-mode: color-burn;
-	}
-	
+    >* {
+        aspect-ratio: 3/2;
+        object-fit: contain;
+        max-height: 200px;
+        max-width: 200px;
+        margin: 0 auto;
+        align-items: center;
+        display: flex;
+        //mix-blend-mode: color-burn;
+    }
+
 }
+
 @supports (width: min(250px, 100%)) {
-	.block-logowall {
-		grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));
-	}
+    .block-logowall {
+        grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));
+    }
 }

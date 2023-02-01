@@ -13,7 +13,7 @@
 // $orderby      = 'name'; 
 // $show_count   = false;
 // $pad_counts   = false;
-// $hierarchical = true;
+$hierarchical = true;
 $title        = '';
 
 $args = array(
@@ -21,9 +21,8 @@ $args = array(
   // 'orderby'      => $orderby,
   // 'show_count'   => $show_count,
   // 'pad_counts'   => $pad_counts,
-  // 'hierarchical' => $hierarchical,
+  'hierarchical' => $hierarchical,
   'title_li'     => $title,
-  // 'exclude' => 10, //Management
 );
 ?>
 

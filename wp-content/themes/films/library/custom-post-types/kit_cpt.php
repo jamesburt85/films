@@ -64,7 +64,7 @@ function cpt_kit() {
         'menu_position'       => 5,
         'menu_icon'           => 'dashicons-video-alt',
         'rewrite'             => array(
-            'slug' => 'kit',
+            'slug' => 'kit-hire',
             'with_front' => false
         ) ,
         'capability_type'     => 'post',
