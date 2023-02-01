@@ -10,13 +10,14 @@
 	// echo "</pre>";
 
 	$pType = get_post_type();
-	$i++;
+	// $i++;
 	
 
 	if ( $loop->have_posts() ) { ?>
-		<div class="related-posts">
-			<h6 class=""><?php the_field('related_posts_heading', 'option'); ?></h6>
-			<div class="cards-container">
+		<div class="related-posts wrapper flow">
+			<!-- <h6 class=""><?php // the_field('related_posts_heading', 'option'); ?></h6> -->
+			<h3 class="">Related Posts</h3>
+			<div class="cards-container card-grid">
 				<?php
 
 					while ( $loop->have_posts() ) {
