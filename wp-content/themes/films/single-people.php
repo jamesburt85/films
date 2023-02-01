@@ -4,6 +4,8 @@
 	<article class="entry-content wrapper">
 			<?php // include( get_template_directory() . '/template-parts/snippets/breadcrumbs.php'); ?>
 
+			<a href="<?php echo get_post_type_archive_link( 'people' ); ?>">Back to People</a>
+
 			<h1><?php the_title(); ?></h1>
 
 			<div class="with-sidebar">

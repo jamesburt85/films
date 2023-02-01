@@ -4,9 +4,24 @@
 	<div class="hero-image">	
 		<?php include( get_template_directory() . '/template-parts/logic/get_featured_img.php'); ?>
 	</div>
+
+	
 	
 	<article class="entry-content">
 			<?php // include( get_template_directory() . '/template-parts/snippets/breadcrumbs.php'); ?>
+
+			<div class="wrapper">
+				
+			<?php 
+				if (get_post_type() == 'post') { ?>
+					<a href="<?php echo get_post_type_archive_link( 'post' ); ?>">Back to Latest</a>
+				<?php } elseif (get_post_type() == 'kit') { ?>
+					<a href="<?php echo get_post_type_archive_link( 'kit' ); ?>">Back to Kit</a>
+				<?php } elseif (get_post_type() == 'people') { ?>
+					<a href="<?php echo get_post_type_archive_link( 'people' ); ?>">Back to People</a>
+				<?php }
+			?>
+			</div>
 
 			<div class="wrapper">
 				<h1><?php the_title(); ?></h1>
@@ -51,6 +66,12 @@
 
 				</div>
 			<?php } ?>
+
+			<?php 
+				if (get_post_type() == 'post') {
+					include( get_template_directory() . '/template-parts/snippets/related_posts.php');
+				}
+			?>
 
 	</article>
 
