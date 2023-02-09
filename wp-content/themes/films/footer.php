@@ -11,7 +11,7 @@
 								Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
 							</p>
 							<p>
-								<a href="<?php echo site_url(); ?>/contact">Contact</a>
+								<a href="<?php echo site_url(); ?>/find-us/">Contact</a>
 							</p>
 						</div>
 					</div>
