@@ -7,6 +7,9 @@
 			<a href="<?php echo get_post_type_archive_link( 'people' ); ?>">Back to People</a>
 
 			<h1><?php the_title(); ?></h1>
+			<?php
+				echo get_field('role');
+			?>
 
 			<div class="with-sidebar">
 				

@@ -1,3 +1,22 @@
+			<div class="footer-cta [ bg-light-shade ] [ ]">
+				<div class="wrapper">
+					<div class="[ card-grid ]">
+						<div>
+							<h2>
+								Work with Us
+							</h2>
+						</div>
+						<div class="[ flow ]">
+							<p>
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+							</p>
+							<p>
+								<a href="<?php echo site_url(); ?>/contact">Contact</a>
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
 			<footer class="[ site-footer ] [ flow ]">
 
 				<div class="wrapper">
@@ -49,6 +68,8 @@
 						<div class="secondary-navigation">
 							<?php ray_secondary_nav(); ?>
 						</div>
+
+						<?php get_template_part('template-parts/snippets/socials'); ?>
 						
 					</div>
 					

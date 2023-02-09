@@ -4,7 +4,7 @@
     "fields": [
         {
             "key": "field_63d8ef60a7aa0",
-            "label": "Active Case Study",
+            "label": "Active Post?",
             "name": "active_case_study",
             "aria-label": "",
             "type": "true_false",
@@ -18,7 +18,7 @@
             },
             "message": "",
             "default_value": 0,
-            "ui_on_text": "Active Case Study",
+            "ui_on_text": "Active Post",
             "ui_off_text": "Just a listing",
             "ui": 1
         }
@@ -29,6 +29,13 @@
                 "param": "post_type",
                 "operator": "==",
                 "value": "work"
+            }
+        ],
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "people"
             }
         ]
     ],
@@ -41,5 +48,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1675178241
+    "modified": 1675940866
 }

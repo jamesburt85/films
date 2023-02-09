@@ -27,14 +27,19 @@ $args = array(
 ?>
 
 <ul class="category-list">
-	<?php // wp_list_categories( $args ); ?>
-  
-  <?php 
-    $categories = get_categories($args);
-    foreach($categories as $category) { 
+  <?php
+    foreach( get_terms( 'kit_category', array( 'hide_empty' => true, 'parent' => 0 ) ) as $parent_term ) {
+      // display top level term name
       echo '<li>
-        <a class="button pill" href="' . get_category_link( $category->term_id ) . '" title="' . sprintf( __( "View all posts in %s" ), $category->name ) . '" ' . '>' . $category->name.'</a>
+        <a class="button pill parent" href="' . get_category_link( $parent_term->term_id ) . '" title="' . sprintf( __( "View all posts in %s" ), $parent_term->name ) . '" ' . '>' . $parent_term->name.'</a>
         </li>';
-      } 
+
+      foreach( get_terms( 'kit_category', array( 'hide_empty' => true, 'parent' => $parent_term->term_id ) ) as $child_term ) {
+        // display name of all childs of the parent term
+        echo  '<li>
+        <a class="button pill child" href="' . get_category_link( $child_term->term_id ) . '" title="' . sprintf( __( "View all posts in %s" ), $child_term->name ) . '" ' . '>' . $child_term->name.'</a>
+        </li>';
+      }
+    }
   ?>
 </ul>

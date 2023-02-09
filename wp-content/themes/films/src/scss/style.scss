@@ -179,6 +179,7 @@ th {
 @import 'blocks/magnific-popup';
 @import 'blocks/category-list';
 @import 'blocks/services-sidebar-list';
+@import 'blocks/socials';
 // @import 'blocks/xxx';
 // @import 'blocks/xxx';
 // @import 'blocks/xxx';
@@ -224,13 +225,18 @@ body.page-template-page-homepage {
 }
 
 .primary-nav,
-.secondary-navigation {
+.secondary-navigation,
+.site-header--inner {
     a {
         text-decoration: none;
 
         &:hover {
             text-decoration: underline;
         }
+    }
+
+    .js-toggle-secondary-navigation {
+        margin-right: 1rem;
     }
 
     .current_page_item {

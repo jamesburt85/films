@@ -1,0 +1,29 @@
+.socials {
+    display: flex;
+
+    a {
+        text-decoration: none;
+        margin-right: calc(var(--flow-space)/2);
+
+        &:last-of-type {
+            margin-right: 0;
+        }
+
+        svg {
+            height: 20px;
+        }
+    }
+}
+
+footer {
+    .socials {
+        svg {
+            height: 20px;
+
+            path,
+            circle {
+                fill: var(--color-white);
+            }
+        }
+    }
+}

@@ -2,7 +2,11 @@
 // import '../../node_modules/offside-js/dist/offside';
 import offside from "offside-js";
 import './components/offside.js';
+import './components/secondary-nav-toggle.js';
 
+$(".js-toggle-secondary-navigation").click(function() {
+    $(".secondary-navigation").toggleClass("active");
+});
 // // jQuery
 // import '../../node_modules/jquery/dist/jquery';
 import jquery from "jquery";

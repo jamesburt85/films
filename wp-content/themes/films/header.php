@@ -55,7 +55,7 @@
 
 			<header class="site-header [ bg-secondary ]">
 
-				<div class="wrapper site-header--inner">
+				<div class="wrapper site-header--inner [ bg-secondary ]">
 						
 					<div class="site-header--left">
 						<div class="site-header--logo">
@@ -70,9 +70,11 @@
 						<div class="site-header-desktop-menu">
 							<div class="primary-navigation">
 								<?php ray_primary_nav(); ?>
-							</div>
-							<div class="secondary-navigation">
-								<?php ray_secondary_nav(); ?>
+								<a href="#" class="js-toggle-secondary-navigation">
+									More
+								</a>
+								
+								<?php get_template_part('template-parts/snippets/socials'); ?>
 							</div>
 						</div>
 
@@ -93,5 +95,10 @@
 
 				</div>
 
-			</header>
+				<div class="secondary-navigation">
+					<div class="wrapper">
+						<?php ray_secondary_nav(); ?>
+					</div>
+				</div>
 
+			</header>

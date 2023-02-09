@@ -99,7 +99,7 @@ function cpt_kit() {
             'slug' => 'kit-category',
             'with_front' => false,
             'hierarchical' => true
-        ) ,
+        ),
     ));
 
 

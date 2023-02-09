@@ -6,8 +6,6 @@
 
 		<div class="wrapper">
 			
-		
-
 		<?php
 			if (is_post_type_archive('work')) { ?>
 				<?php 

@@ -1,15 +1,17 @@
 .site-header {
-    padding: 0.8rem 0;
 
     position: sticky;
     top: 0;
     z-index: 10;
 
     &--inner {
+        padding: 0.8rem 0;
         display: flex;
         flex-wrap: wrap;
         align-items: center;
         justify-content: space-between;
+        z-index: 10;
+        position: relative;
     }
 
     &--logo {
@@ -21,14 +23,48 @@
 }
 
 .site-header-desktop-menu {
+    .primary-navigation {
+        display: flex;
+        align-items: baseline;
+    }
+
     ul {
         display: flex;
         flex-direction: row;
     }
 
     // Temp
-    ul.sub-menu {
-        flex-direction: column;
+    // ul.sub-menu {
+    //     flex-direction: column;
+    // }
+}
+
+.secondary-navigation {
+    z-index: 0;
+    transform: translateY(-100%);
+    position: absolute;
+    visibility: hidden;
+    transition: 0.3s;
+    width: 100%;
+    left: 0;
+
+    .wrapper {
+        padding: 0.5rem;
+        background: #aaaaaa;
+    }
+
+    ul li {
+        display: inline;
+    }
+
+    &.active {
+        transform: translate(0, 0%);
+        visibility: visible;
+    }
+
+    ul {
+        display: flex;
+        justify-content: right;
     }
 }
 

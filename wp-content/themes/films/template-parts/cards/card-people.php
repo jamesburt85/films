@@ -13,8 +13,8 @@ $acf_fields = get_fields();
 
 if (!empty($acf_fields)) {
 
-	// echo "<pre>"; print_r($acf_fields); echo "</pre>";
-	// $post_author		= $acf_fields['post_author'] ?? null;
+    // echo "<pre>"; print_r($acf_fields); echo "</pre>";
+    $active_case_study = $acf_fields['active_case_study'] ?? null;
 
 }
 
@@ -22,18 +22,23 @@ if (!empty($acf_fields)) {
 
 <article class="[ card ] [ flow ] [ bg-secondary ]">
     
-    <a href="<?php the_permalink();?>">
+    <?php if ($active_case_study) { ?>
+        <a href="<?php the_permalink();?>">
+    <?php } ?>
         <?php include( get_template_directory() . '/template-parts/logic/get_featured_img.php'); ?>
-    </a>
-
+    <?php if ($active_case_study) { ?>
+        </a>
+    <?php } ?>
     
     <?php the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );  ?>
 
     <?php
-        if (is_post_type_archive('people')) {
-            echo get_field('role');
-        }
+        echo get_field('role');
     ?>
+
+    <?php if ($active_case_study) { ?>
+        <?php get_template_part('dist/svg_php/inline', 'arrow-right.svg'); ?>
+    <?php } ?>
 
     <?php
 

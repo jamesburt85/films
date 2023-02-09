@@ -16,7 +16,7 @@ if ( ('people' == get_post_type()) || is_tax('people_category') ) {
 // $show_count   = false;
 // $pad_counts   = false;
 // $hierarchical = true;
-$title        = '';
+$title = '';
 
 $args = array(
   'taxonomy'     => $taxonomy,

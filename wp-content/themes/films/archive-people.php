@@ -60,7 +60,7 @@
 				        $the_query->the_post();
 
 				        // get_template_part( 'template-parts/cards/card', $pType );
-				        get_template_part( 'template-parts/cards/card' );
+				        get_template_part( 'template-parts/cards/card-people' );
 
 				    }
 				        echo '</div>';
