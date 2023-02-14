@@ -1,6 +1,6 @@
-.block-copy_and_text {
+.block-img_and_text {
 
-    .copy-and-text--row {
+    .image-and-text--row {
         @include media-query('md') {
             --huge-space: 8rem;
         }
@@ -16,7 +16,7 @@
 
     }
 
-    .copy-and-text--text {
+    .image-and-text--text {
         --flow-space: 2rem;
 
         @include media-query('md') {

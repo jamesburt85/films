@@ -21,6 +21,7 @@
 					<a href="<?php echo get_post_type_archive_link( 'people' ); ?>">Back to People</a>
 				<?php }
 			?>
+			
 			</div>
 
 			<div class="wrapper">
