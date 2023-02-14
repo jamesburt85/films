@@ -39,34 +39,55 @@
     // }
 }
 
-.secondary-navigation {
+.secondary-navigation--container {
     z-index: 0;
     transform: translateY(-100%);
     position: absolute;
-    visibility: hidden;
+    //visibility: hidden;
     transition: 0.3s;
-    width: 100%;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
     left: 0;
+    background: #aaaaaa;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9;
+
+    &.active {
+        transform: translate(0, 0%);
+        //visibility: visible;
+    }
+
+    //.secondary-navigation {
 
     .wrapper {
         padding: 0.5rem;
-        background: #aaaaaa;
+
+        a {
+            text-decoration: none;
+        }
+
+        .socials {
+            margin-top: 2rem;
+            justify-content: center;
+        }
     }
 
     ul li {
         display: inline;
     }
 
-    &.active {
-        transform: translate(0, 0%);
-        visibility: visible;
-    }
-
     ul {
         display: flex;
         justify-content: right;
     }
+
+    //}
 }
+
 
 .site-header-desktop-menu {
     display: none;

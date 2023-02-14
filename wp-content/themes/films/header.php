@@ -73,8 +73,6 @@
 								<a href="#" class="js-toggle-secondary-navigation">
 									More
 								</a>
-								
-								<?php get_template_part('template-parts/snippets/socials'); ?>
 							</div>
 						</div>
 
@@ -95,9 +93,10 @@
 
 				</div>
 
-				<div class="secondary-navigation">
+				<div class="secondary-navigation--container">
 					<div class="wrapper">
 						<?php ray_secondary_nav(); ?>
+						<?php get_template_part('template-parts/snippets/socials'); ?>
 					</div>
 				</div>
 
