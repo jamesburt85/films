@@ -54,19 +54,19 @@ function cpt_service() {
         /* Custom Type Description */
         'hierarchical'        => true,
         // 'hierarchical'        => true,
-        'public'              => true,
-        'publicly_queryable'  => true,
+        'public'              => false,
+        'publicly_queryable'  => false,
         'exclude_from_search' => true,
         // 'taxonomies'  => array( 'category' ),
-        'has_archive'         => true,
+        'has_archive'         => false,
         'show_ui'             => true,
         'query_var'           => true,
         'menu_position'       => 5,
         'menu_icon'           => 'dashicons-media-interactive',
-        'rewrite'             => array(
-            'slug' => 'disabled-services',
-            'with_front' => false
-        ) ,
+        // 'rewrite'             => array(
+        //     'slug' => 'disabled-services',
+        //     'with_front' => false
+        // ) ,
         'capability_type'     => 'post',
         'show_in_rest'        => false, // gutenberg
         'supports'            => array(

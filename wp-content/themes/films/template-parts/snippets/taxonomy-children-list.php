@@ -5,12 +5,16 @@
 	// Check if the queried object is a term
 	if ($current_term instanceof WP_Term) {
 
-		echo '<ul class="category-list">';
+		echo '<ul class="category-list capitalize">';
 
 			// Display the current term name
 			echo '<li class="medium tiny color-grey">' . $current_term->name . '</li>';
 
-			echo '<li class="medium tiny no-underline"><a href="/work/#our-work">All</a></li>';
+			if (is_tax('people_category') ) {
+				echo '<li class="medium tiny no-underline"><a href="/people/#our-people">All</a></li>';
+			} else {
+				echo '<li class="medium tiny no-underline"><a href="/work/#our-work">All</a></li>';
+			}
 
 		    // Check if the current term has children
 		    $term_children = get_term_children($current_term->term_id, $current_term->taxonomy);

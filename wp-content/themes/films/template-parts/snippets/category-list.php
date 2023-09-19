@@ -38,7 +38,7 @@ $args = array(
   <?php } ?>
 
   <div>
-    <ul class="category-list__wrapper category-list flex">
+    <ul class="category-list__wrapper category-list flex capitalize">
       <?php // wp_list_categories( $args ); ?>
      
       <?php //$queried_object = get_queried_object();?>

@@ -1,14 +1,18 @@
 .single {
+    // .block-copy p {
+    //     @extend .body;
+    // }
+
     &.single-work {
 
         // .single-content p:first-child {
         //     @extend .body--large;
         // }
-        .block-copy:first-of-type {
-            p:first-child {
-                @extend .body--large;
-            }
-        }
+        // .block-copy:first-of-type {
+        //     p:first-child {
+        //         @extend .body--large;
+        //     }
+        // }
     }
 
     article.entry-content>*+* {

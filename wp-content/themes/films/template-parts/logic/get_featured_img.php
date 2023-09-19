@@ -23,6 +23,10 @@ if ( has_post_thumbnail() ) { // $post->ID
 	}
 }
 
-include( get_template_directory() . '/template-parts/snippets/img.php');
+if ( get_post_type('people') || is_post_type_archive('people') ) {
+	include( get_template_directory() . '/template-parts/snippets/img-people.php');
+} else {
+	include( get_template_directory() . '/template-parts/snippets/img.php');
+}
 
 ?>

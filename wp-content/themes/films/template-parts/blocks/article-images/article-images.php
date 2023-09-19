@@ -44,13 +44,21 @@ if ( ! empty( $block['align'] ) ) {
   }
 ?>
 
-<div id="<?php echo esc_attr( $id ); ?>" class="<?php echo esc_attr( $classes ); ?> [ flow--medium ]">
+<div id="<?php echo esc_attr( $id ); ?>" class="<?php echo esc_attr( $classes ); ?> [ flow--medium ] overlap">
 
   <?php if ( $images ) : ?>
     <div class="wrapper article-images--wrapper <?php echo $parent_div_class; ?>">
       <?php foreach ( $images as $img ): ?>
         
-        <?php include( get_template_directory() . '/template-parts/snippets/img.php'); ?>
+        <div class="card">
+          <?php include( get_template_directory() . '/template-parts/snippets/img.php'); ?>
+
+          <div class="card--lower">
+            <p class="tiny medium">
+              <?php echo esc_html( $img['caption'] ); ?>
+            </p>
+          </div>
+        </div>
         
       <?php endforeach; ?>
     </div>

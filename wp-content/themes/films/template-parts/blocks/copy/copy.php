@@ -50,7 +50,7 @@ if ( ! empty( $orientation ) ) {
 </style>
 
 <div class="[ wrapper ]">
-    <div id="<?php echo esc_attr( $id ); ?>" class="<?php echo esc_attr( $classes ); ?><?php if($options){ echo ' '.implode(" ", $options); } ?>">
+    <div id="<?php echo esc_attr( $id ); ?>" class="block-copy <?php //echo esc_attr( $classes ); ?><?php if($options){ echo ' '.implode(" ", $options); } ?>">
 
         <?php if ( $header ) { ?>
             <h2>

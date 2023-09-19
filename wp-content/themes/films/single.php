@@ -185,7 +185,7 @@
 									Related Kit
 								</h2>
 
-								<div class="card-grid three-columns">
+								<div class="card-grid four-columns kit-columns">
 									<?php foreach ( $related_kit as $post ) : ?>
 										<?php setup_postdata ( $post ); ?>
 											<?php get_template_part( 'template-parts/cards/card' );

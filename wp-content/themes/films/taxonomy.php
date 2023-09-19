@@ -33,7 +33,7 @@
 			?>
 
 			<div class="flex-space-between">
-				<?php if (is_tax('kit_category') || is_tax('work_category') || is_tax('work_department') || is_single('kit')) { ?>
+				<?php if (is_tax('kit_category') || is_tax('people_category') || is_tax('work_category') || is_tax('work_department') || is_single('kit')) { ?>
 					<?php
 					// Get the current taxonomy term
 					$current_term = get_queried_object();
@@ -42,7 +42,7 @@
 					if ($current_term instanceof WP_Term) {
 					?>
 
-						<h1 class="body--large">
+						<h1 class="body--large capitalize">
 							<?php
 							    // Echo the name of the current taxonomy term
 							    echo $current_term->name;
@@ -90,9 +90,13 @@
 			// } elseif (is_tax('kit_category')) {
 			// 	'people_category'
 			// }
-
+			$order = '';
+			if (is_tax('people_category') ) {
+				$order = 'rand';
+			}
 			$the_query = new WP_Query( array(
 			    'post_type' => $pType,
+			    'orderby'  => $order,
 			    'tax_query' => array(
 			        array (
 			            'taxonomy' => $queried_object->taxonomy,

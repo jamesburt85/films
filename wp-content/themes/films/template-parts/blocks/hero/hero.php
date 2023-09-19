@@ -164,11 +164,11 @@ if ( ! empty( $block['align'] ) ) {
 
                         // Replace 'your_taxonomy_slug' with the actual taxonomy slug
                         if ($terms && !is_wp_error($terms)) {
-                            echo '<p class="tiny color-grey medium">';
+                            echo '<span class="tiny color-grey medium">';
                             foreach ($terms as $term) {
                                 echo esc_html($term->name);
                             }
-                            echo '</p>';
+                            echo '</span>';
                         }
                     }
                 ?>
@@ -182,11 +182,11 @@ if ( ! empty( $block['align'] ) ) {
 <?php
     $project_specifics = get_post_meta(get_the_ID(), 'project_specifics', true);
     if ($project_specifics) {
-        $foramtted_project_specifics = wpautop($project_specifics);
+        $formatted_project_specifics = wpautop($project_specifics);
 ?>
 
-        <div class="tiny medium hero--text wrapper">
-            <?php echo $foramtted_project_specifics; ?>
+        <div class="tiny hero--text wrapper">
+            <?php echo $formatted_project_specifics; ?>
         </div>
 <?php
     }

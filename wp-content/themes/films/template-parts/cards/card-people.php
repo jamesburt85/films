@@ -28,13 +28,12 @@ $post_id = get_the_ID(); // Get the current post ID
         <a class="[ flow--small ] no-underline" href="<?php the_permalink();?>">
     <?php } ?>
 
-        <?php include( get_template_directory() . '/template-parts/logic/get_featured_img.php'); ?>
+            <?php include( get_template_directory() . '/template-parts/logic/get_featured_img.php'); ?>
 
-        <h2 class="entry-title body light">
-            <?php the_title();  ?>
-        </h2>
+            <h2 class="entry-title body light">
+                <?php the_title();  ?>
+            </h2>
         
-
     <?php if ($active_case_study) { ?>
         </a>
     <?php } ?>

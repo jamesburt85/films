@@ -65,7 +65,7 @@ if (!empty($acf_fields)) {
             ?>
         <?php } ?>
 
-        <?php if ( get_post_type() != 'cpt_careers' && get_post_type() !='kit' && !is_home() ) { ?>
+        <?php if ( get_post_type() != 'cpt_careers' && get_post_type() != 'people' && get_post_type() !='kit' && !is_home() ) { ?>
             <?php the_excerpt(); ?>
         <?php } ?>
 

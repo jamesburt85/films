@@ -1,0 +1,20 @@
+.block-article-images {
+    img {
+        width: 100%;
+    }
+
+    .multiple-images {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+
+        .card {
+            max-width: calc(50% - 0.5rem);
+
+            img {
+                aspect-ratio: 16/9;
+                object-fit: cover;
+            }
+        }
+    }
+}
