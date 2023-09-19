@@ -1,0 +1,41 @@
+.flex {
+    display: flex;
+}
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.flex-center {
+    display: flex;
+    justify-content: center;
+}
+
+.flex-end {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.flex-space-between {
+    display: flex;
+    justify-content: space-between;
+}
+
+.flex-align-baseline {
+    display: flex;
+    align-items: baseline;
+}
+
+.align-center {
+    align-items: center;
+}
+
+.flex-thirds {
+    @include media-query('md') {
+        div {
+            width: 33%;
+        }
+    }
+}

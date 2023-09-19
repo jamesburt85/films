@@ -1,0 +1,11 @@
+.grid--half {
+    @include media-query('md') {
+        width: 50%;
+    }
+}
+
+.grid--quarter {
+    @include media-query('md') {
+        width: 25%;
+    }
+}

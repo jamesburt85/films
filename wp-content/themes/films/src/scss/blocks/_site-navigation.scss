@@ -1,0 +1,91 @@
+.site-header-desktop-menu {
+    .primary-nav {
+        a {
+            text-decoration: none;
+        }
+
+        // .js-toggle-secondary-navigation {
+        //     margin-right: 1rem;
+        // }
+
+        .primary {
+            a {
+                @include media-query('md') {
+                    &:hover {
+                        border-bottom: 4px solid get-color('primary');
+                    }
+                }
+            }
+        }
+
+        .primary-shade {
+            a {
+                @include media-query('md') {
+                    &:hover {
+                        border-bottom: 4px solid get-color('primary-shade');
+                    }
+                }
+            }
+        }
+
+        .secondary {
+            a {
+                @include media-query('md') {
+                    &:hover {
+                        border-bottom: 4px solid get-color('secondary');
+                    }
+                }
+            }
+        }
+
+        .tertiary {
+            a {
+                @include media-query('md') {
+                    &:hover {
+                        border-bottom: 4px solid get-color('tertiary');
+                    }
+                }
+            }
+        }
+
+        .current-menu-item {
+            $border-thickness: 4px;
+
+            a {
+                border-bottom: $border-thickness solid get-color('primary');
+            }
+
+            &.primary {
+                a {
+                    border-bottom: $border-thickness solid get-color('primary');
+                }
+            }
+
+            &.primary-shade {
+                a {
+                    border-bottom: $border-thickness solid get-color('primary-shade');
+                }
+            }
+
+            &.secondary {
+                a {
+                    border-bottom: $border-thickness solid get-color('secondary');
+                }
+            }
+
+            &.tertiary {
+                a {
+                    border-bottom: $border-thickness solid get-color('tertiary');
+                }
+            }
+        }
+    }
+}
+
+.site-header--inner {
+    .primary-nav {
+        a {
+            padding: 0 1.5rem 20px;
+        }
+    }
+}

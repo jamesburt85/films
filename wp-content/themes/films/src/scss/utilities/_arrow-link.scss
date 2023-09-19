@@ -1,0 +1,13 @@
+.arrow-link {
+    @extend .medium;
+    @extend .no-underline;
+    @extend .tiny;
+    color: get-color('grey-light');
+    display: flex;
+    align-items: center;
+
+    svg {
+        margin-right: 15px;
+        width: 17px;
+    }
+}

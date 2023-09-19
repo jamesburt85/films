@@ -1,0 +1,16 @@
+.borders {
+    border-top: 1px solid get-color('grey');
+    border-bottom: 1px solid get-color('grey');
+}
+
+.borders--top {
+    border-top: 1px solid get-color('grey');
+    //padding-top: calc(var(--flow-space, 1rem)/1.5);
+    padding-top: calc(var(--flow-space, 1rem)*2);
+}
+
+.borders--bottom {
+    border-bottom: 1px solid get-color('grey');
+    //padding-bottom: calc(var(--flow-space, 1rem)/1.5);
+    padding-bottom: calc(var(--flow-space, 1rem)*2);
+}

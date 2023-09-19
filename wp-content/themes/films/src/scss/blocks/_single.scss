@@ -1,0 +1,21 @@
+.single {
+    &.single-work {
+
+        // .single-content p:first-child {
+        //     @extend .body--large;
+        // }
+        .block-copy:first-of-type {
+            p:first-child {
+                @extend .body--large;
+            }
+        }
+    }
+
+    article.entry-content>*+* {
+        margin-top: calc(var(--flow-space, 1em) * 1);
+    }
+}
+
+.article--padding {
+    margin-top: 100px;
+}

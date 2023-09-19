@@ -1,0 +1,23 @@
+.block-testimonials {
+    .quote--marks {
+        margin-right: 10px;
+
+        svg {
+            width: 25px;
+            height: 25px
+        }
+    }
+
+    .blockquote--image {
+        picture {
+            min-height: 87px;
+            margin-left: 35px; //width of speech mark + margin
+            display: flex;
+            align-items: flex-end;
+
+            img {
+                aspect-ratio: auto;
+            }
+        }
+    }
+}

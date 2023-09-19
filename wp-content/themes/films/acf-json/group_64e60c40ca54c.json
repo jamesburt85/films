@@ -1,0 +1,53 @@
+{
+    "key": "group_64e60c40ca54c",
+    "title": "Page Colour",
+    "fields": [
+        {
+            "key": "field_64e60c42eaca3",
+            "label": "Page Colour",
+            "name": "page_colour",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "color-primary": "Purple",
+                "color-primary-shade": "Dark Purple",
+                "color-secondary": "Orange",
+                "color-green": "Green"
+            },
+            "default_value": false,
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "default"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1692802612
+}

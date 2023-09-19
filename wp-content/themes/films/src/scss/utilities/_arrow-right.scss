@@ -1,0 +1,9 @@
+.arrow--next {
+    width: 8px;
+    height: 4px;
+    border-top: 4px solid transparent;
+    border-bottom: 4px solid transparent;
+    border-left: 8px solid var(--color-light);
+    display: inline-block;
+    transition: 0.3s;
+}

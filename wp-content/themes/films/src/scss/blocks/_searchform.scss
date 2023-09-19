@@ -1,0 +1,48 @@
+.search--container {
+    flex-direction: column;
+
+    @include media-query('md') {
+        flex-direction: row;
+    }
+}
+
+.searchform {
+    .input-group {
+        display: flex;
+        align-items: center;
+
+        .input-group-field {
+            background: transparent;
+            border: 0;
+            border: 1px solid white;
+            border-radius: 50px;
+            color: white;
+            padding: 3px 7px;
+            font-size: 16px;
+
+            @include media-query('md') {
+                width: 300px;
+            }
+        }
+
+        .input-group-button {
+            cursor: pointer;
+        }
+
+        label {
+            display: flex;
+            align-items: center;
+        }
+
+        input[type="submit"] {
+            cursor: pointer;
+            background: transparent;
+            color: white;
+            outline: none;
+            border: none;
+            padding: 0;
+            margin-right: 14px;
+            margin-left: 14px;
+        }
+    }
+}

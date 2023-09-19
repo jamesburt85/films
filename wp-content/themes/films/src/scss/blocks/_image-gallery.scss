@@ -1,0 +1,27 @@
+.image-galllery {
+    .image-galllery--container {
+        position: relative;
+    }
+
+    div,
+    .image-wrapper,
+    picture,
+    img {
+        height: 100%;
+    }
+
+    img {
+        //max-height: 300px; //temp
+        padding-right: 1rem;
+        object-fit: cover;
+    }
+
+    .gradient--right {
+        background-image: linear-gradient(87deg, rgba(32, 38, 43, 0) 10%, #20262B 81%);
+        position: absolute;
+        right: 0;
+        height: 100%;
+        top: 0;
+        width: 150px;
+    }
+}

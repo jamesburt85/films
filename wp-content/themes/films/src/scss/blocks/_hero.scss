@@ -1,0 +1,287 @@
+.hero,
+.block-hero {
+    width: 100vw;
+    $hero-height: 70vh;
+    $hero-height-mobile: 50vh;
+
+    $home-hero-height: 100vh;
+    $home-hero-height-mobile: 80vh;
+    //$home-hero-height-mobile: 50vh;
+
+    position: relative;
+    margin-top: 0;
+    // height: $hero-height-mobile;
+    //aspect-ratio: 16/9;
+    max-height: 100vh;
+    //margin-bottom: 6rem;
+
+    // @include media-query('md') {
+
+    //     height: $hero-height;
+    // }
+
+    .hero-image__container {
+        width: 100vw;
+
+        //height: $hero-height-mobile;
+        //aspect-ratio: 16/9;
+        max-height: 100vh;
+        background: get-color('dark');
+
+        // @include media-query('md') {
+        //     height: $hero-height;
+        // }
+    }
+
+    .hero--title-wrapper {
+        // position: absolute;
+        // bottom: -4rem;
+        // width: 100%;
+        // left: 50%;
+        // transform: translateX(-50%);
+        margin-top: -4rem;
+
+        @include media-query('md') {
+            margin-top: -9rem;
+        }
+
+        .hero--title-container {
+            // @include media-query('md') {
+            //     max-width: 70%;
+            // }
+
+            .overflow-hidden {
+                overflow: hidden;
+                line-height: 1.4;
+            }
+
+
+            // transform: translate(0, -70%);
+
+            // margin-top: -8rem;
+        }
+    }
+
+    picture {
+        height: 100%;
+
+        img {
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+            //max-height: $hero-height-mobile;
+            max-height: 100vh;
+
+            height: $hero-height-mobile;
+            aspect-ratio: 16/9;
+
+            @include media-query('md') {
+                max-height: $hero-height;
+                height: $hero-height;
+            }
+        }
+    }
+
+    &.home-hero {
+        margin-bottom: 0;
+        height: auto;
+        max-height: $home-hero-height-mobile;
+
+        @include media-query('md') {
+            max-height: $home-hero-height;
+        }
+
+        //.hero-image__container,
+        .hero_image,
+        picture img {
+            height: $home-hero-height-mobile;
+            max-height: $home-hero-height-mobile;
+
+            @include media-query('md') {
+                height: $home-hero-height;
+                max-height: $home-hero-height;
+            }
+        }
+
+        button.slick-autoplay-toggle-button {
+            display: none;
+        }
+
+        .hero-image__container {
+            display: flex;
+
+            .hero_image {
+                //width: 50%;
+                position: relative;
+                width: 100%;
+
+                .hero--link__container {
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    top: 0;
+                    display: flex;
+                    flex-direction: column;
+
+                    @include media-query('md') {
+                        flex-direction: row;
+                    }
+
+                    .hero__link {
+                        display: flex;
+                        width: 100%;
+                        height: 100%;
+                        // position: absolute;
+                        top: 0;
+                        align-items: center;
+                        justify-content: center;
+
+                        a {
+                            width: 100%;
+                            height: 100%;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                        }
+                    }
+                }
+
+            }
+        }
+    }
+
+    &.small-hero {
+        //height: $hero-height-mobile;
+        aspect-ratio: 16/9;
+        max-height: 100vh;
+
+        @include media-query('md') {
+            // height: calc($hero-height/2);
+            height: 45vh;
+        }
+
+        .hero-image__container {
+            //height: $hero-height-mobile;
+            //aspect-ratio: 16/9;
+            max-height: 100vh;
+
+            @include media-query('md') {
+                height: calc($hero-height/2);
+            }
+
+            picture {
+                img {
+                    //max-height: $hero-height-mobile;
+                    aspect-ratio: 16/9;
+                    max-height: 100vh;
+
+                    @include media-query('md') {
+                        height: calc($hero-height/2);
+                    }
+                }
+            }
+        }
+    }
+
+    &.align-top {
+        img {
+            object-position: top;
+        }
+    }
+}
+
+.single-work {
+    .block-hero {
+        .hero-title {
+            font-weight: var(--weight-medium);
+        }
+
+        .hero--text {
+            margin-top: 2rem;
+
+            p {
+                margin-bottom: 1rem;
+            }
+        }
+    }
+
+    article>div:nth-of-type(2) {
+        margin-top: 0;
+    }
+
+    article>div:nth-of-type(3) {
+        margin-top: var(--flow-space);
+    }
+}
+
+
+.hero--text {
+    padding-top: 2rem;
+
+    p {
+        margin-bottom: 1rem;
+    }
+}
+
+// Restrict Hero title on posts with long titles
+.single-post,
+.single-work {
+
+    .block-hero {
+        .hero--title-wrapper {
+            margin-top: -4rem;
+        }
+    }
+
+    .hero-title,
+    .hero-title strong {
+        font-size: clamp(40px, 3vw, 80px);
+        line-height: 1.2;
+        font-weight: 500;
+    }
+
+    // .hero-title {
+    //     font-weight: 500;
+    //     font-size: 6vw;
+
+    //     strong {
+    //         line-height: 1.2;
+    //     }
+    // }
+
+    // @include media-query('md') {
+    //     .hero-title {
+    //         font-size: 4vw;
+
+    //         strong {
+    //             font-size: 4vw;
+    //         }
+    //     }
+    // }
+
+    // @include media-query('lg') {
+    //     .hero-title {
+    //         font-size: 3vw;
+    //         line-height: 1.2;
+
+    //         strong {
+    //             font-size: 3vw;
+    //         }
+    //     }
+    // }
+}
+
+// .single {
+
+//     .hero,
+//     .block-hero {
+//         .hero--title-wrapper {
+//             @include media-query('md') {
+//                 max-width: 100%;
+//             }
+//         }
+//     }
+// }

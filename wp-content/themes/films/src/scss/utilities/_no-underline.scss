@@ -1,0 +1,10 @@
+.no-underline,
+.no-underline a {
+    text-decoration: none;
+
+    @include media-query('md') {
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
