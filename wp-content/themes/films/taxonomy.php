@@ -1,35 +1,84 @@
 <?php get_header(); ?>
 
-	<article class="entry-content wrapper">
+	<article class="entry-content no-hero wrapper">
 
-		<h1><?php the_title(); ?></h1>
+		<!-- <h1><?php //the_title(); ?></h1> -->
 
 		<?php // include( get_template_directory() . '/template-parts/snippets/breadcrumbs.php'); ?>
 
-		<?php
-			if (is_tax('work_category') ) {
-
-				$pType = 'work';
-				include( get_template_directory() . '/template-parts/snippets/category-list.php');
-
-			} elseif (is_tax('kit_category')) {
-
-				$pType = 'kit';
-				include( get_template_directory() . '/template-parts/snippets/kit-category-list.php');
-
-			} elseif (is_tax('people_category')) {
-
-				$pType = 'people';
-				include( get_template_directory() . '/template-parts/snippets/category-list.php');
-
-			}
-		?>
-		
-		<div class="[ card-grid ]">
+		<div class="flow--medium">
 
 			<?php
+				if (is_tax('work_category') ) {
 
+					$pType = 'work';
+					include( get_template_directory() . '/template-parts/snippets/category-list.php');
+
+				} elseif (is_tax('work_department')) {
+
+					$pType = 'work';
+					include( get_template_directory() . '/template-parts/snippets/category-list.php');
+
+				} elseif (is_tax('kit_category')) {
+
+					$pType = 'kit';
+					include( get_template_directory() . '/template-parts/snippets/kit-category-list.php');
+
+				} elseif (is_tax('people_category')) {
+
+					$pType = 'people';
+					include( get_template_directory() . '/template-parts/snippets/category-list.php');
+
+				}
+			?>
+
+			<div class="flex-space-between">
+				<?php if (is_tax('kit_category') || is_tax('work_category') || is_tax('work_department') || is_single('kit')) { ?>
+					<?php
+					// Get the current taxonomy term
+					$current_term = get_queried_object();
+
+					// Check if the queried object is a term
+					if ($current_term instanceof WP_Term) {
+					?>
+
+						<h1 class="body--large">
+							<?php
+							    // Echo the name of the current taxonomy term
+							    echo $current_term->name;
+							?>
+						</h1>
+
+					<?php
+					}
+					?>
+				<?php } ?>
+
+				<div class="searchform">
+					<?php get_template_part('searchform'); ?>
+				</div>
+			</div>
+
+			<div>
+				<?php include( get_template_directory() . '/template-parts/snippets/taxonomy-children-list.php'); ?>
+			</div>
+		</div>
+		
+		<?php
+			$columns = 'five-columns';
+			if (is_tax('kit_category') ) {
+				$columns = 'four-columns kit-columns';
+			} else if ( is_tax('work_category') || is_tax('work_department') ) {
+				$columns = 'accordion';
+			}
+
+		?>
+
+		<div class="[ card-grid ] <?php echo $columns; ?>">
+
+			<?php
 			$queried_object = get_queried_object();
+
 			// echo "<pre>";
 			// var_dump( $queried_object );
 			// echo "</pre>";
@@ -64,7 +113,13 @@
 			    if (empty($pType)) {
 			    	$pType = '';
 			    }
-			    get_template_part( 'template-parts/cards/card', $pType );
+			    if ( is_tax('work_category') || is_tax('work_department') ) {
+			    	get_template_part( 'template-parts/snippets/post-list', $pType );
+			    } else {
+			    	get_template_part( 'template-parts/cards/card' );
+			    }
+			    // get_template_part( 'template-parts/snippets/post-list', $pType );
+			    // get_template_part( 'template-parts/cards/card', $pType );
 			    // Show Posts ...
 			endwhile;
 
@@ -92,22 +147,6 @@
 		<?php /* Display navigation to next/previous pages when applicable */ ?>
 		<?php include( get_template_directory() . '/template-parts/snippets/archive-post-nav.php'); ?>
 
-
-		<?php if (is_tax('kit_category')) { ?>
-			<div class="with-sidebar">
-				<div class="sidebar">
-					<h1>Our Kit</h1>
-					<p>Our state-of-the-art kit room and highly skilled experts are dedicated to discovering the ultimate kit for your shoot, ensuring an unparalleled result.</p>
-				</div>
-				<div class="not-sidebar">
-					<?php include( get_template_directory() . '/template-parts/snippets/kit-contact.php'); ?>
-				</div>
-			</div>
-
-			<div>
-
-			</div>
-		<?php } ?>
 
 	</article>
 

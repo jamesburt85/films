@@ -10,19 +10,25 @@
         }
 
         svg {
-            height: 20px;
+            height: 25px;
+
+            path,
+            circle {
+                fill: var(--color-primary-shade);
+            }
         }
     }
 }
 
 footer {
     .socials {
-        svg {
-            height: 20px;
+        a {
+            svg {
 
-            path,
-            circle {
-                fill: var(--color-white);
+                path,
+                circle {
+                    fill: var(--color-white);
+                }
             }
         }
     }

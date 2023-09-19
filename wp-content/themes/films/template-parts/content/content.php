@@ -16,8 +16,8 @@ if (!empty($acf_fields)) {
   // echo "<pre>"; print_r($acf_fields); echo "</pre>";
 
   // settings
-  $post_author			= $acf_fields['select_post_author'] ?? null;
-  $post_style			= $acf_fields['post_style'] ?? null;
+  $post_author	= $acf_fields['select_post_author'] ?? null;
+  $post_style		= $acf_fields['post_style'] ?? null;
 
 }
 
@@ -68,10 +68,12 @@ if (empty($post_author)) {
 			
 		</div>
 	</header>
+	
 	<div class="entry-content">
 		<?php the_content(); ?>
 		<?php edit_post_link( __( '(Edit)', 'foundationpress' ), '<span class="edit-link">', '</span>' ); ?>
 	</div>
+
 	<footer class="entry-footer">
 		<?php
 			wp_link_pages(

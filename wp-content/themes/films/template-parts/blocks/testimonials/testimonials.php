@@ -41,7 +41,7 @@ if ( ! empty( $block['align'] ) ) {
   }
 </style>
 
-<div id="<?php echo esc_attr( $id ); ?>" class="<?php echo esc_attr( $classes ); ?> [ wrapper ]">
+<div id="<?php echo esc_attr( $id ); ?>" class="<?php echo esc_attr( $classes ); ?> [ wrapper ] fade-in-up">
   
   <?php if ( $title ) : ?>
       <h1><?php echo $title; ?></h1>
@@ -52,15 +52,55 @@ if ( ! empty( $block['align'] ) ) {
   <?php endif; ?>
 
   <?php if ( $testimonials ) :
-    foreach ($testimonials as $t):
+  ?>
+
+    <div class="[ card-grid ] three-columns">
+
+  <?php foreach ($testimonials as $t):
+
+      $img          = $t['logo'];
       $quote          = $t['quote'];
       $quote_author   = $t['quote_author']; ?>
-      <blockquote>
-        <?php echo $quote; ?>
-        <figcaption><?php echo $quote_author; ?></figcaption>
-      </blockquote>
-    <?php endforeach;
-  endif; ?>
+      
+      <div class="card">
+        
+        <blockquote class="flow--medium">
+          <?php if ( $img ) { ?>
+            <div class="blockquote--image">
+              <?php
+                include( get_template_directory() . '/template-parts/snippets/img.php');
+              ?>
+            </div>
+          <?php } ?>
+          
+          <div class="flex">
+
+            <div class="quote--marks">
+                <?php get_template_part('dist/svg_php/inline', 'speech.svg'); ?>
+            </div>
+
+            <div class="flow--medium">
+              <div>
+                <?php echo $quote; ?>
+              </div>
+              
+              <div>
+                <figcaption class="tiny medium">
+                  <?php echo $quote_author; ?>
+                </figcaption>
+              </div>
+            </div>
+
+          </div>
+
+        </blockquote>  
+      </div>
+
+    <?php endforeach; ?>
+
+    </div>
+
+  <?php endif; ?>
 
   <?php if ( $ctas ) :
     foreach ($ctas as $link):

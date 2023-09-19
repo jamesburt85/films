@@ -1,5 +1,17 @@
 // .flow { outline: 10px solid red; }
 
-.flow > * + * {
-  margin-top: var(--flow-space, 1rem);
+.flow>*+* {
+    margin-top: var(--flow-space, 1rem);
+}
+
+.flow--medium>*+* {
+    margin-top: calc(var(--flow-space, 1rem)/2);
+
+    @include media-query('md') {
+        margin-top: calc(var(--flow-space, 1rem)/1.5);
+    }
+}
+
+.flow--small>*+* {
+    margin-top: calc(var(--flow-space, 1rem)/4);
 }

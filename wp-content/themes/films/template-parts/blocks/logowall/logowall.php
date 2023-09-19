@@ -35,7 +35,7 @@ if ( ! empty( $block['align'] ) ) {
   }
 </style>
 
-<div id="<?php echo esc_attr( $id ); ?>" class="<?php echo esc_attr( $classes ); ?> [ wrapper ]">
+<div id="<?php echo esc_attr( $id ); ?>" class="<?php echo esc_attr( $classes ); ?> [ wrapper ] fade-in-up">
 
   <?php if(!empty($gallery)):
     foreach ($gallery as $img):

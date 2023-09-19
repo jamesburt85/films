@@ -6,6 +6,7 @@
             "key": "field_633daca78b703",
             "label": "Title",
             "name": "title",
+            "aria-label": "",
             "type": "text",
             "instructions": "",
             "required": 0,
@@ -25,6 +26,7 @@
             "key": "field_633dacbc8b704",
             "label": "Copy",
             "name": "copy",
+            "aria-label": "",
             "type": "textarea",
             "instructions": "",
             "required": 0,
@@ -44,6 +46,7 @@
             "key": "field_633dacce8b705",
             "label": "Testimonials",
             "name": "testimonials",
+            "aria-label": "",
             "type": "repeater",
             "instructions": "",
             "required": 0,
@@ -62,9 +65,36 @@
             "rows_per_page": 20,
             "sub_fields": [
                 {
+                    "key": "field_64e48bb098051",
+                    "label": "Logo",
+                    "name": "logo",
+                    "aria-label": "",
+                    "type": "image",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "15",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "library": "all",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": "",
+                    "preview_size": "medium",
+                    "parent_repeater": "field_633dacce8b705"
+                },
+                {
                     "key": "field_633dace08b706",
                     "label": "Quote",
                     "name": "quote",
+                    "aria-label": "",
                     "type": "textarea",
                     "instructions": "",
                     "required": 0,
@@ -85,6 +115,7 @@
                     "key": "field_633dacf28b707",
                     "label": "Quote Author",
                     "name": "quote_author",
+                    "aria-label": "",
                     "type": "text",
                     "instructions": "",
                     "required": 0,
@@ -107,6 +138,7 @@
             "key": "field_633dad158b708",
             "label": "CTAs",
             "name": "testimonials_ctas",
+            "aria-label": "",
             "type": "clone",
             "instructions": "",
             "required": 0,
@@ -143,5 +175,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1665062762
+    "modified": 1692699594
 }

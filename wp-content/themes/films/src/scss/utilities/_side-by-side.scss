@@ -14,3 +14,25 @@
 
     }
 }
+
+.third-column {
+    .side-by-side {
+        @include media-query('md') {
+            grid-template-columns: repeat(12, 1fr);
+        }
+
+        .copy-column {
+            p {
+                margin-bottom: calc(var(--flow-space)/2);
+            }
+
+            @include media-query('md') {
+                grid-column: auto/span 4;
+            }
+
+            &.flow {
+                @extend .flow--small;
+            }
+        }
+    }
+}

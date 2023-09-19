@@ -79,48 +79,48 @@
 	</div>
 
 	<script type="text/javascript">
-		function fallbackCopyTextToClipboard(text) {
-		  var textArea = document.createElement("textarea");
-		  textArea.value = text;
+		// function fallbackCopyTextToClipboard(text) {
+		//   var textArea = document.createElement("textarea");
+		//   textArea.value = text;
 		  
-		  // Avoid scrolling to bottom
-		  textArea.style.top = "0";
-		  textArea.style.left = "0";
-		  textArea.style.position = "fixed";
+		//   // Avoid scrolling to bottom
+		//   textArea.style.top = "0";
+		//   textArea.style.left = "0";
+		//   textArea.style.position = "fixed";
 
-		  document.body.appendChild(textArea);
-		  textArea.focus();
-		  textArea.select();
+		//   document.body.appendChild(textArea);
+		//   textArea.focus();
+		//   textArea.select();
 
-		  try {
-		    var successful = document.execCommand('copy');
-		    var msg = successful ? 'successful' : 'unsuccessful';
-		    console.log('Fallback: Copying text command was ' + msg);
-		    jsCopyClipboardBtn.classList.add('is-copy-successful');
-		  } catch (err) {
-		    console.error('Fallback: Oops, unable to copy', err);
-		  }
+		//   try {
+		//     var successful = document.execCommand('copy');
+		//     var msg = successful ? 'successful' : 'unsuccessful';
+		//     console.log('Fallback: Copying text command was ' + msg);
+		//     jsCopyClipboardBtn.classList.add('is-copy-successful');
+		//   } catch (err) {
+		//     console.error('Fallback: Oops, unable to copy', err);
+		//   }
 
-		  document.body.removeChild(textArea);
-		}
-		function copyTextToClipboard(text) {
-		  if (!navigator.clipboard) {
-		    fallbackCopyTextToClipboard(text);
-		    return;
-		  }
-		  navigator.clipboard.writeText(text).then(function() {
-		    console.log('Async: Copying to clipboard was successful!');
-		    jsCopyClipboardBtn.classList.add('is-copy-successful');
-		  }, function(err) {
-		    console.error('Async: Could not copy text: ', err);
-		  });
-		}
+		//   document.body.removeChild(textArea);
+		// }
+		// function copyTextToClipboard(text) {
+		//   if (!navigator.clipboard) {
+		//     fallbackCopyTextToClipboard(text);
+		//     return;
+		//   }
+		//   navigator.clipboard.writeText(text).then(function() {
+		//     console.log('Async: Copying to clipboard was successful!');
+		//     jsCopyClipboardBtn.classList.add('is-copy-successful');
+		//   }, function(err) {
+		//     console.error('Async: Could not copy text: ', err);
+		//   });
+		// }
 
-		var jsCopyClipboardBtn = document.querySelector('.js-copy-clipboard-btn');
+		// var jsCopyClipboardBtn = document.querySelector('.js-copy-clipboard-btn');
 
-		jsCopyClipboardBtn.addEventListener('click', function(event) {
-		    copyTextToClipboard('<?php echo $link; ?>');
-		});
+		// jsCopyClipboardBtn.addEventListener('click', function(event) {
+		//     copyTextToClipboard('<?php echo $link; ?>');
+		// });
 
 	</script>
 

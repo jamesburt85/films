@@ -1,5 +1,6 @@
 <!doctype html>
 <html class="no-js" <?php language_attributes(); ?> >
+	
 	<head>
 
 		<meta charset="<?php bloginfo( 'charset' ); ?>" />
@@ -44,60 +45,128 @@
 		//   $post_style = 'post_style__'.$post_style;
 		// }
 	?>
-
-	<body <?php body_class('bg-light color-primary font-base'); ?>>
-
-		<?php // get_template_part( 'template-parts/devbar' ); ?>
 	
-		<?php get_template_part( 'template-parts/mobile-off-canvas' ); ?>
-			
-		<main id="site-content-container" class="site-content-container">
+	<?php get_template_part( 'template-parts/mobile-off-canvas' ); ?>
 
-			<header class="site-header [ bg-secondary ]">
+	<header class="site-header [ color-light ]">
+		<div class="wrapper site-header--wrapper">
+			<div class="site-header--inner">
+					
+				<div class="site-header--left">
+					<div class="site-header--logo">
+						<a aria-label="homepage" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
+							<?php
+								$img = get_field('company_logo', 'option');
 
-				<div class="wrapper site-header--inner [ bg-secondary ]">
-						
-					<div class="site-header--left">
-						<div class="site-header--logo">
-							<a aria-label="homepage" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
-								<?php get_template_part('dist/svg_php/inline', 'f59-logo.svg'); ?>
-							</a>
+								include( get_template_directory() . '/template-parts/snippets/img.php');
+							?>
+						</a>
+					</div>
+				</div>
+
+				<div class="site-header--right [ flex ] [ align-center ]">
+
+					<div class="site-header-desktop-menu">
+						<div class="primary-navigation [ uppercase ] tiny--nav bold">
+							<?php ray_primary_nav(); ?>
+							<!-- <a href="#" class="js-toggle-secondary-navigation">
+								More
+							</a> -->
 						</div>
 					</div>
 
-					<div class="site-header--right">
+					<div class="site-header-mobile-toggle">
 
-						<div class="site-header-desktop-menu">
-							<div class="primary-navigation">
-								<?php ray_primary_nav(); ?>
-								<a href="#" class="js-toggle-secondary-navigation">
-									More
+						<button type="button" class="js-toggle-secondary-navigation js-hamburger hamburger hamburger--squeeze" type="button">
+							<span class="hamburger-box">
+								<span class="hamburger-inner"></span>
+							</span>
+						</button> 
+
+					</div>
+
+				</div>
+
+			</div>
+
+			<div class="secondary-navigation--container color-primary-shade">
+				<div class="secondary-navigation--container__inner">
+					<div class="wrapper [ flow ]">
+
+						<button type="button" class="js-close-secondary-navigation js-hamburger hamburger hamburger--squeeze is-active">
+							<span class="hamburger-box">
+								<span class="hamburger-inner"></span>
+							</span>
+						</button>
+
+						<div>
+							<?php ray_primary_nav(); ?>
+						</div>
+
+						<div>
+							<?php ray_secondary_nav(); ?>
+						</div>
+						
+						<div class="secondary-navigation--footer flow--small flex-space-between">
+							<div>
+								<?php get_template_part('template-parts/snippets/socials'); ?>
+							</div>
+							<div>
+								<a class="secondary-navigation--footer-email" href="<?php the_field('email', 'option') ?>">
+									<?php the_field('email', 'option') ?>
 								</a>
+								<p>
+									<?php the_field('telephone', 'option') ?>
+								</p>
 							</div>
 						</div>
-
-						<div class="site-header-mobile-toggle">
-
-							<!-- Off-canvas toggle button -->
-							<button type="button" class="js-off-canvas-menu-button button js-hamburger hamburger hamburger--squeeze" type="button">
-								<span class="hamburger--label hamburger--label__closed">Menu</span>
-								<span class="hamburger--label hamburger--label__open">Close</span>
-								<span class="hamburger-box">
-									<span class="hamburger-inner"></span>
-								</span>
-							</button> 
-
-						</div>
-
-					</div>
-
-				</div>
-
-				<div class="secondary-navigation--container">
-					<div class="wrapper">
-						<?php ray_secondary_nav(); ?>
-						<?php get_template_part('template-parts/snippets/socials'); ?>
+						
 					</div>
 				</div>
+			</div>
 
-			</header>
+		</div>
+	</header>
+	<div class="header-scroll__wrapper">
+		<div class="header-scroll wrapper">
+			<div class="site-header-mobile-toggle">
+
+				<button type="button" class="js-toggle-secondary-navigation js-hamburger hamburger hamburger--squeeze" type="button">
+					<span class="hamburger-box">
+						<span class="hamburger-inner"></span>
+					</span>
+				</button> 
+
+			</div>
+		</div>
+	</div>
+
+	<body <?php body_class('bg-dark color-light font-base body'); ?>>
+
+		<?php //if (is_front_page()) { ?>
+		<!-- <div class="js-loader loader">
+			<?php //get_template_part('dist/svg_php/inline', 'logo.svg'); ?>
+		</div> -->
+		<?php //} ?>
+		
+		<?php // get_template_part( 'template-parts/devbar' ); ?>
+	
+		
+		
+		<?php $page_colour  = get_field( 'page_colour' ); ?>
+
+		<?php
+			if ( is_post_type_archive('work') ) { 
+				$page_colour = get_field('work_page_colour', 'option');
+			} else if (is_post_type_archive('kit') || is_tax('kit_category') || is_singular('kit') ) {
+				$page_colour = get_field('kit_page_colour', 'option');
+			} else if (is_post_type_archive('careers')) {
+				$page_colour = get_field('careers_page_colour', 'option');
+			}
+		?>
+
+
+		
+
+		<main id="site-content-container" class="site-content-container <?php echo $page_colour; ?>">
+

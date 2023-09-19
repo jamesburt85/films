@@ -20,7 +20,7 @@ wp.domReady(() => {
     // wp.blocks.unregisterBlockType( 'core/embed' );
     wp.blocks.unregisterBlockType('core/file');
     // wp.blocks.unregisterBlockType( 'core/freeform' );
-    // wp.blocks.unregisterBlockType( 'core/gallery' );
+    wp.blocks.unregisterBlockType('core/gallery');
     wp.blocks.unregisterBlockType('core/group');
     // wp.blocks.unregisterBlockType( 'core/heading' );
     // wp.blocks.unregisterBlockType( 'core/html' );
@@ -192,15 +192,15 @@ wp.domReady(() => {
 
     /*
     wp.blocks.registerBlockStyle( 'core/latest-posts', {
-    	name: 'columns',
-    	label: 'Columns',
-    	isDefault: false,
+        name: 'columns',
+        label: 'Columns',
+        isDefault: false,
     } );
 
     wp.blocks.registerBlockStyle( 'core/cover', {
-    	name: 'no-margin',
-    	label: 'No margin',
-    	isDefault: false,
+        name: 'no-margin',
+        label: 'No margin',
+        isDefault: false,
     } );
     */
 

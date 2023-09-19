@@ -1,3 +1,20 @@
+.category-list__wrapper {
+    flex-wrap: wrap;
+    grid-row-gap: 0.5rem;
+
+    li {
+        margin-right: 0.75rem;
+
+        &:last-of-type {
+            margin-right: 0;
+        }
+
+        &.active {
+            color: get-color('primary');
+        }
+    }
+}
+
 .category-cards {
     .category-list {
         @extend .card-grid;

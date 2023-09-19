@@ -1,12 +1,143 @@
 .card-grid {
-	display: grid;
-	grid-gap: 1rem;
-	> * {
-		max-width: 700px;
-	}
+    display: grid;
+    grid-gap: 1rem;
+
+    >* {
+        max-width: 700px;
+
+        // @include media-query('md') {
+        //     max-width: 50%; // Needs testing
+        // }
+    }
 }
+
+@supports (width: min(170px, 100%)) {
+    .card-grid.five-columns {
+        grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));
+
+        .card picture img {
+            aspect-ratio: 3/4;
+        }
+    }
+}
+
+@supports (width: min(200px, 100%)) {
+    .card-grid.four-columns {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+
+        @include media-query('md') {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+        }
+
+        &.kit-columns {
+            margin-top: 1rem;
+            grid-row-gap: 2rem;
+
+            .card {
+                picture {
+                    aspect-ratio: 16/17;
+                    background: get-color('white');
+
+                    img {
+                        object-fit: contain;
+                    }
+                }
+            }
+
+
+        }
+    }
+}
+
 @supports (width: min(250px, 100%)) {
-	.card-grid {
-		grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));
-	}
+    .card-grid.three-columns {
+        grid-template-columns: repeat(auto-fit, minmax(min(330px, 100%), 1fr));
+    }
+}
+
+@supports (width: min(250px, 100%)) {
+    .card-grid.two-columns {
+        grid-template-columns: repeat(auto-fit, minmax(min(350px, 100%), 1fr));
+    }
+}
+
+.post-type-archive-cpt_careers {
+    .block-cards {
+
+        // display: flex;
+        // justify-content: space-between;
+        // border-top: 1px solid get-color('grey-light');
+        // border-bottom: 1px solid get-color('grey-light');
+        // padding-top: 4rem;
+        // padding-bottom: 4rem;
+        &>.flow {
+
+            border-top: 1px solid #D8D8D8;
+            border-bottom: 1px solid #D8D8D8;
+            padding-top: 4rem;
+            padding-bottom: 4rem;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            flex-direction: column;
+
+            @include media-query('md') {
+                flex-direction: row;
+            }
+
+        }
+
+        .card-grid.cpt_careers {
+            grid-template-columns: repeat(12, 1fr);
+            margin-top: 0;
+
+            @include media-query('md') {
+                width: 66.666%;
+                grid-gap: 2rem;
+            }
+
+            .card {
+                @include media-query('md') {
+                    grid-column: auto/span 6;
+                }
+            }
+        }
+    }
+}
+
+.cards-wide {
+    .card {
+        width: 47%;
+
+        @include media-query('md') {
+            width: 100%;
+        }
+    }
+
+    .card:first-child {
+        width: 100%;
+        display: grid;
+        grid-column-start: 1;
+        grid-column-end: 3;
+
+        picture img {
+            aspect-ratio: 16 / 9;
+            object-fit: cover;
+        }
+    }
+
+    .card:nth-child(2) {
+        width: 100%;
+        display: grid;
+        grid-column-start: 3;
+        grid-column-end: 5;
+
+        picture img {
+            aspect-ratio: 16 / 9;
+            object-fit: cover;
+        }
+    }
 }

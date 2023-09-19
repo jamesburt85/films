@@ -18,8 +18,10 @@ else : /* rendering in editor body */
   // ACF DUMP
   $acf_fields = get_fields();
   // echo "<pre>"; print_r($acf_fields); echo "</pre>";
-  
+  $title     = $acf_fields['title'] ?? null;
   $video_url = $acf_fields['video_url'] ?? null;
+  $id        = $acf_fields[ 'id' ]; 
+
   if (!empty($video_url)) {
     $videoType  = getVideoType($video_url);
     
@@ -41,28 +43,45 @@ else : /* rendering in editor body */
   
 ?>
 
-<section
-  <?php $anchor_link = get_field('anchor_link'); if(!empty($anchor_link)){ echo 'id="'.$anchor_link.'"'; } ?>
-  class="<?php echo esc_attr( $classes ); ?>">
+<!-- <section
+  <?php $anchor_link //= get_field('anchor_link'); if(!empty($anchor_link)){ echo 'id="'.$anchor_link.'"'; } ?>
+  class="<?php //echo esc_attr( $classes ); ?> wrapper [ flow ]"> -->
+<section id="<?php echo $id; ?>"
+  class="<?php echo esc_attr( $classes ); ?> [ flow ]">
 
-      <?php if(!empty($video_url)):?>
+    <?php
+      if ( $title ) {
+    ?>
+        <div class="wrapper fade-in-up">
+          <h2 class="section-header">
+            <?php echo $title; ?>
+          </h2>
+        </div>
+    <?php
+      }
+    ?>
+    
+    <div class="video--wrapper [ flow--small ] fade-in-up">
 
-        <?php if ($videoType == 'vimeo'): ?>
-          <div class="iframe-wrapper [ responsive-video ]">
-            <iframe class="vimeoPlayer" src="https://player.vimeo.com/video/<?php echo $vimID; ?>" frameborder="0"></iframe>
-          </div>
-        <?php endif; ?>
+      <img src="https://vumbnail.com/<?php echo $video_url; ?>.jpg" />
 
-        <?php // YOUTUBE ?>
-        <?php if ($videoType == 'youtube'): ?>
-          <div class="iframe-wrapper [ responsive-video ]">
-            <iframe class="ytplayer" type="text/html"
-              src="https://www.youtube.com/embed/<?php echo $YtID; ?>?rel=0&showinfo=0"
-              frameborder="0" allowfullscreen></iframe>
-          </div>
-        <?php endif; ?>
-        
-      <?php endif;?>
+      <div class="button--play__wrapper">
+        <a class="popup-vimeo no-underline button--play bg-primary-shade" href="https://player.vimeo.com/video/<?php echo $video_url; ?>">
+          <?php get_template_part('dist/svg_php/inline', 'icon-play.svg'); ?>
+        </a>
+      </div>
+
+      <?php
+        if ( get_field('video_title') ) {
+      ?>
+          <p class="tiny medium color-grey video--title">
+            <?php the_field('video_title'); ?>
+          </p>
+      <?php
+        }
+      ?>
+
+    </div>
 
 </section> 
 

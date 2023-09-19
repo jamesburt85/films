@@ -21,7 +21,6 @@ if ( has_post_thumbnail() ) { // $post->ID
 	if (empty($img)) {
 		include( get_template_directory() . '/template-parts/logic/default-img.php');
 	}
-
 }
 
 include( get_template_directory() . '/template-parts/snippets/img.php');

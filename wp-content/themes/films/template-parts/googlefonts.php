@@ -1,5 +1,5 @@
 <?php 
-	$GoogleFontURL = 'https://fonts.googleapis.com/css2?family=Inter:wght@300;600';
+	$GoogleFontURL = 'https://fonts.googleapis.com/css2?family=Inter:wght@300;500;600;700';
 ?>
 
 <link rel="preconnect"

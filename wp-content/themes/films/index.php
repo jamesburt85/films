@@ -1,77 +1,174 @@
 <?php get_header(); ?>
 
+<?php if (is_home()) { ?>
+	<article class="entry-content article--no-margin">
+<?php } else { ?>
 	<article class="entry-content">
+<?php } ?>
 
-		<?php // include( get_template_directory() . '/template-parts/snippets/breadcrumbs.php'); ?>
 
-		<div class="wrapper">
-			
-		<?php
-			if (is_post_type_archive('work')) { ?>
-				<?php 
-					//Get the current page number, default is 1
-					 $current_page = get_query_var('paged', 1);
-					 // print_r($current_page);
+	<?php
+		// set archives in site settings, then pull in content from that page
+		if (is_post_type_archive('work')) { 
+			$archivepage = get_field('work_archive', 'option');
+		} else if (is_post_type_archive('kit')) { 
+			$archivepage = get_field('kit_archive', 'option');
+		} else if (is_post_type_archive('careers')) {
+			$archivepage = get_field('careers_archive', 'option');
+		} else if (is_home()) {
+			$archivepage = get_field('news_archive', 'option');
+		}
 
-					 if ($current_page == 0){ ?>
-					     
-					     <div class="work-intro with-sidebar">
-					     	<div class="sidebar flow">
-					     		<h1>Our Portfolio</h1>
-					     		<p>For over 25 years we have provided a range of award-winning services to producers across the globe. Supplying location kit hire, rushes management, vision & sound post, and freelancer crew & editor diaries.</p>
-					     	</div>
-					     	<div class="not-sidebar">
-					     		<?php 
-					     			$video_url 	= 'https://vimeo.com/676353092';
-					     			$vimID      = getVimeoID($video_url);
-					     			// print_r($vimID);
-					     			// $videoType = getVideoType($url);
-					     			$videoType = 'vimeo';
-					     			include( get_template_directory() . '/template-parts/snippets/video.php');
-					     		?>
-					     	</div>
-					     </div>
+		if (!empty($archivepage)) {
+			// echo "<pre>";
+			// print_r($post);
+			// echo "</pre>";
+			$post = $archivepage;
+			setup_postdata($post);
 
-					<?php  }
-				?>
+			the_content();
+		}
+		wp_reset_postdata();
+
+	?>
+
+	<?php if ( is_home() ) { ?>
+		<div class="flow--medium">
+			<div class="wrapper">
+				<?php include( get_template_directory() . '/template-parts/snippets/post-category-list.php'); ?>
+			</div>
+
+			<div class="[ card-grid ] [ three-columns ] wrapper">
+
+				<?php // $i = 0; // styling some cards...
+
+				while ( have_posts() ) : the_post();
+					
+					$pType = get_post_type($post->ID);
+					// echo "<pre>";
+					// print_r($pType);
+					// echo "</pre>";
+					if (empty($pType)) {
+						$pType = '';
+					}
+					get_template_part( 'template-parts/cards/card', $pType );
+					// get_template_part( 'template-parts/cards/card' );
+
+				endwhile; ?>
+
+				<?php /* Display navigation to next/previous pages when applicable */ ?>
+				<?php //include( get_template_directory() . '/template-parts/snippets/archive-post-nav.php'); ?>
+
+			</div>
+		</div>
+	<?php } ?>
+
+	<?php if (is_post_type_archive('work')) { ?>
+		
+		<div id="case-studies" class="wrapper flow--small fade-in-up">
+			<h3 class="tiny medium uppercase">
+				Case Studies
+			</h3>
+			<!-- Initial list of Featured Posts -->
+			<div class="[ card-grid ] [ three-columns ]">
 				
-			<?php }
+				<?php
+					while ( have_posts() ) : the_post();
 
-			if (is_post_type_archive('kit')) { ?>
-				<div class="work-intro with-sidebar">
-					<div class="sidebar">
-						<h1>Everything your shoot needs</h1>
-						<p>Our state-of-the-art kit room and highly skilled experts are dedicated to discovering the ultimate kit for your shoot, ensuring an unparalleled result.</p>
-					</div>
-					<div class="not-sidebar">
-						<img src="<?php echo get_site_url(); ?>/wp-content/uploads/2016/03/hire_9.jpg">
+						$active_case_study = get_field('active_case_study');
+						
+						if ( $active_case_study ) {
+						
+							$pType = get_post_type($post->ID);
+							// echo "<pre>";
+							// print_r($pType);
+							// echo "</pre>";
+							if (empty($pType)) {
+								$pType = '';
+							}
+							get_template_part( 'template-parts/cards/card', $pType );
+							// get_template_part( 'template-parts/cards/card' );
+						}
+
+					endwhile;
+				?>
+			</div>
+		</div>
+
+	<?php // } elseif (is_home() || is_category()) { ?>
+
+		<?php // include( get_template_directory() . '/template-parts/snippets/post-category-list.php'); ?>
+
+	<?php } ?>
+	
+	<?php if (is_post_type_archive('work')) { ?>
+		<div id="our-work" class="wrapper [ flow--medium ] post-list">
+
+			<div class="side-by-side fade-in-up">
+				<div class="[ flow--small ]">
+					<h3 class="tiny medium uppercase">
+						Projects
+					</h3>
+					<div>
+						<!-- <ul class="flex">
+							<li class="pill active">All</li>
+							<li class="pill">Post</li>
+							<li class="pill">Hire</li>
+						</ul> -->
+						<?php include( get_template_directory() . '/template-parts/snippets/category-list--pills.php'); ?>
 					</div>
 				</div>
 
-				<div>
-
+				<div class="[ flow--small ]">
+					<h3 class="tiny medium uppercase">
+						Genre
+					</h3>
+					<div>
+						<?php include( get_template_directory() . '/template-parts/snippets/category-list.php'); ?>
+					</div>
 				</div>
-			<?php }
-		?>
+			</div>
 
+			<div class="accordion">
+				<?php // $i = 0; // styling some cards...
+					// ACF DUMP
+					$acf_fields = get_fields();
+				
+					//print_r($acf_fields);
 
+					// if (!empty($active_case_study)) {
 
-		<?php
-			if (is_post_type_archive('work')) {
-				include( get_template_directory() . '/template-parts/snippets/category-list.php');
-			// } elseif (is_post_type_archive('service_cpt')) {
-			// 	$showTax = 'service_cpt';
-			// 	include( get_template_directory() . '/template-parts/snippets/category-list.php');
-			} elseif (is_post_type_archive('kit')) {
-				include( get_template_directory() . '/template-parts/snippets/kit-category-list.php');
-			} elseif (is_home() || is_category()) {
-				include( get_template_directory() . '/template-parts/snippets/post-category-list.php');
-			}
-		?>
+					//     // echo "<pre>"; print_r($acf_fields); echo "</pre>";
+					//     $active_case_study = $acf_fields['active_case_study'] ?? null;
+
+					// }
+					
+					while ( have_posts() ) : the_post();
+						$active_case_study = get_field('active_case_study');
+						if ( !$active_case_study ) {
+						
+							$pType = get_post_type($post->ID);
+							// echo "<pre>";
+							// print_r($pType);
+							// echo "</pre>";
+							if (empty($pType)) {
+								$pType = '';
+							}
+							get_template_part( 'template-parts/snippets/post-list', $pType );
+							// get_template_part( 'template-parts/cards/card' );
+						}
+
+					endwhile;
+				
+				?>
+			</div>
+
+			<?php /* Display navigation to next/previous pages when applicable */ ?>
+			<?php //include( get_template_directory() . '/template-parts/snippets/archive-post-nav.php'); ?>
 
 		</div>
-		
-		<div class="[ card-grid ] wrapper">
+	<?php } else if (!is_post_type_archive('kit') && !is_home()) { ?>
+		<div class="[ card-grid ] [ four-columns ] wrapper">
 
 			<?php // $i = 0; // styling some cards...
 
@@ -89,112 +186,14 @@
 
 			endwhile; ?>
 
+		</div>
+	<?php } ?>
 
+	<?php if (is_home()) { ?>
 		<?php /* Display navigation to next/previous pages when applicable */ ?>
 		<?php include( get_template_directory() . '/template-parts/snippets/archive-post-nav.php'); ?>
-
-		</div>
-
-		<?php 
-
-			// set archives in site settings, then pull in content from that page
-			if (is_post_type_archive('kit')) { 
-				$post = get_field('kit_archive', 'option');
-				if (!empty($post)) {
-					// echo "<pre>";
-					// print_r($post);
-					// echo "</pre>";
-					setup_postdata($post);
-					the_content();
-				}
-				wp_reset_postdata();
-			}
-
-			// // set archives in site settings, then pull in content from that page
-			// if (is_post_type_archive('people')) { 
-			// 	$post = get_field('people_archive', 'option');
-			// 	if (!empty($post)) {
-			// 		// echo "<pre>";
-			// 		// print_r($post);
-			// 		// echo "</pre>";
-			// 		setup_postdata($post);
-			// 		the_content();
-			// 	}
-			// 	wp_reset_postdata();
-			// }
-
-			// set archives in site settings, then pull in content from that page
-			if (is_post_type_archive('work')) { 
-				$post = get_field('work_archive', 'option');
-				if (!empty($post)) {
-					// echo "<pre>";
-					// print_r($post);
-					// echo "</pre>";
-					setup_postdata($post);
-					the_content();
-				}
-				wp_reset_postdata();
-			}
-
-		?>
-
-		<?php 
-			// https://wordpress.stackexchange.com/questions/103958/custom-post-type-hierarchical-loop-in-homepage
-
-
-
-		if (is_post_type_archive('kit')) { 
-
-			include( get_template_directory() . '/template-parts/snippets/kit-contact.php');
-
-			$args = array(
-			    'post_type' => 'people',
-			    'posts_per_page' => -1,
-			    'tax_query' => array(
-		            array (
-		                'taxonomy' => 'people_category',
-		                'field' => 'slug',
-		                'terms' => 'kit',
-		            )
-		        ),
-			    'post_status'  => 'publish',
-			);
-			// wp_list_pages($args);
-
-			// The Query
-			$the_query = new WP_Query( $args );
-
-			// The Loop
-			if ( $the_query->have_posts() ) {
-			        echo '<div class="wrapper flow"><h2>Our Kit Team</h2><div class="[ card-grid ]">';
-			    while ( $the_query->have_posts() ) {
-			        $the_query->the_post();
-
-			        // get_template_part( 'template-parts/cards/card', $pType );
-			        get_template_part( 'template-parts/cards/card' );
-
-			    }
-			        echo '</div>';
-			        echo '</div>';
-			} else {
-			    // no posts found
-			}
-			/* Restore original Post Data */
-			wp_reset_postdata();
-
-
-
-			
-
-
-			?>
-
-
-		<?php }
-
-		?>
-
-
-	</article>
+	<?php } ?>
+	
+</article>
 
 <?php get_footer(); ?>

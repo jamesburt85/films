@@ -22,6 +22,10 @@ class ThemePluginFilesCli extends ThemePluginFilesAddon
      * @var Cli
      */
     private $cli;
+    /**
+     * @var ThemePluginFilesLocal|mixed
+     */
+    private $tpf_local;
 
     public function __construct(
         Addon $addon,
@@ -236,7 +240,7 @@ class ThemePluginFilesCli extends ThemePluginFilesAddon
             $others    = isset($remote['site_details'], $remote['site_details']['others']) ? $remote['site_details']['others'] : [];
         } else {
             $themes    = $this->get_local_themes();
-            $plugins   = $this->filesystem->get_local_plugins();
+            $plugins   = $this->filesystem->get_local_plugins(true);
             $muplugins = $this->get_local_muplugin_files();
             $others    = $this->get_local_other_files();
         }
@@ -379,6 +383,7 @@ class ThemePluginFilesCli extends ThemePluginFilesAddon
             : null;
         $plugins_to_migrate = [];
 
+        $plugins = $this->exclude_migrate_plugins($plugins);
         if ('all' === $plugins_selected || 'all' === $plugins_option) {
             $plugin_paths = array_map(function ($plugin) {
                 return $plugin[0]['path'];
@@ -442,6 +447,24 @@ class ThemePluginFilesCli extends ThemePluginFilesAddon
         }
 
         return $plugins_to_migrate;
+    }
+
+    /**
+     * Exclude the Migrate Plugins from the plugins list
+     *
+     * @param array $plugins
+     * @return array
+     **/
+    protected function exclude_migrate_plugins($plugins)
+    {
+        $filtered_plugins = [];
+        foreach ($plugins as $key => $plugin) {
+            if (0 === strpos($key, 'wp-migrate-db')) {
+                continue;
+            }
+            $filtered_plugins[$key] = $plugin;
+        }
+        return $filtered_plugins;
     }
 
     /**

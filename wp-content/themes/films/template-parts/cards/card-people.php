@@ -10,49 +10,39 @@
 
 // ACF DUMP
 $acf_fields = get_fields();
+$post_id = get_the_ID(); // Get the current post ID
 
-if (!empty($acf_fields)) {
-
-    // echo "<pre>"; print_r($acf_fields); echo "</pre>";
-    $active_case_study = $acf_fields['active_case_study'] ?? null;
-
-}
+//if (!empty($acf_fields)) {
+    //echo "<pre>"; print_r($acf_fields); echo "</pre>";
+    //$active_case_study = $acf_fields['active_case_study'] ?? null;
+    $active_case_study = get_field('active_case_study', $post_id);
+    //$role = $acf_fields['role'];
+    $role = get_field('role', $post_id);
+//}
 
 ?>
 
-<article class="[ card ] [ flow ] [ bg-secondary ]">
+<article class="[ card ] [ flow--small ] card--portrait fade-in-up">
     
     <?php if ($active_case_study) { ?>
-        <a href="<?php the_permalink();?>">
+        <a class="[ flow--small ] no-underline" href="<?php the_permalink();?>">
     <?php } ?>
+
         <?php include( get_template_directory() . '/template-parts/logic/get_featured_img.php'); ?>
+
+        <h2 class="entry-title body light">
+            <?php the_title();  ?>
+        </h2>
+        
+
     <?php if ($active_case_study) { ?>
         </a>
     <?php } ?>
-    
-    <?php the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );  ?>
 
-    <?php
-        echo get_field('role');
-    ?>
-
-    <?php if ($active_case_study) { ?>
-        <?php get_template_part('dist/svg_php/inline', 'arrow-right.svg'); ?>
-    <?php } ?>
-
-    <?php
-
-        $categories = wp_get_object_terms( $id, 'work_category');
-        // $categories = wp_get_object_terms( $post->ID, 'work_category');
-        // echo "<pre>";
-        // print_r($categories);
-        // echo "</pre>";
-        if (!empty($categories)) {
-            foreach ($categories as $cat) { ?>
-                <p><?php echo $cat->name; ?></p>
-            <?php }
-        }
-
-    ?>
+    <p class="tiny color-grey medium">
+        <?php
+            echo $role;
+        ?>
+    </p>
 
 </article>

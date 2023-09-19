@@ -56,7 +56,7 @@ function cpt_kit() {
         // 'hierarchical'        => true,
         'public'              => true,
         'publicly_queryable'  => true,
-        'exclude_from_search' => true,
+        'exclude_from_search' => false,
         // 'taxonomies'  => array( 'category' ),
         'has_archive'         => true,
         'show_ui'             => true,
@@ -65,7 +65,7 @@ function cpt_kit() {
         'menu_icon'           => 'dashicons-video-alt',
         'rewrite'             => array(
             'slug' => 'kit-hire',
-            'with_front' => false
+            'with_front' => true
         ) ,
         'capability_type'     => 'post',
         'show_in_rest'        => true, // gutenberg
@@ -85,7 +85,6 @@ function cpt_kit() {
 
     /* end of register post type */
 
-
     register_taxonomy('kit_category', 'kit', array(
         'public' => true,
         'show_ui' => true,
@@ -97,11 +96,10 @@ function cpt_kit() {
         'show_tagcloud' => true,
         'rewrite' => array(
             'slug' => 'kit-category',
-            'with_front' => false,
+            'with_front' => true,
             'hierarchical' => true
         ),
     ));
-
 
     // register_taxonomy('custom_tax', 'casestudy', array(
     //     'public' => true,
@@ -115,13 +113,7 @@ function cpt_kit() {
     //         'slug' => 'country',
     //     ) ,
     // ));
-
-
 }
 
 // adding the function to the Wordpress init
 add_action('init', 'cpt_kit');
-
-
-
-

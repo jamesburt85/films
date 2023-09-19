@@ -6,10 +6,19 @@
             "key": "field_633d99efbddc3",
             "label": "Hero Image",
             "name": "hero_image",
+            "aria-label": "",
             "type": "image",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
+            "instructions": "Ensure images are compressed through https:\/\/tinyjpg.com before uploading",
+            "required": 1,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_64dc99b8e63f8",
+                        "operator": "!=",
+                        "value": "home-hero"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -27,26 +36,94 @@
             "preview_size": "medium"
         },
         {
-            "key": "field_633d9a50bddc4",
-            "label": "Hero BG Colour",
-            "name": "hero_bg_colour",
-            "type": "color_picker",
+            "key": "field_64f99116454d1",
+            "label": "Home Carousel",
+            "name": "home_carousel",
+            "aria-label": "",
+            "type": "gallery",
             "instructions": "",
             "required": 0,
-            "conditional_logic": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_64dc99b8e63f8",
+                        "operator": "==",
+                        "value": "home-hero"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "",
                 "id": ""
             },
-            "default_value": "",
-            "enable_opacity": 0,
-            "return_format": "string"
+            "return_format": "array",
+            "library": "all",
+            "min": "",
+            "max": "",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": "",
+            "insert": "append",
+            "preview_size": "medium"
+        },
+        {
+            "key": "field_64dc9b5fcef7e",
+            "label": "Link One",
+            "name": "link_one",
+            "aria-label": "",
+            "type": "link",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_64dc99b8e63f8",
+                        "operator": "==",
+                        "value": "home-hero"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array"
+        },
+        {
+            "key": "field_64dc9b91cef80",
+            "label": "Link Two",
+            "name": "link_two",
+            "aria-label": "",
+            "type": "link",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_64dc99b8e63f8",
+                        "operator": "==",
+                        "value": "home-hero"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array"
         },
         {
             "key": "field_633d9a65bddc5",
             "label": "Hero Title",
             "name": "hero_title",
+            "aria-label": "",
             "type": "text",
             "instructions": "",
             "required": 0,
@@ -63,11 +140,12 @@
             "append": ""
         },
         {
-            "key": "field_633d9a6fbddc6",
-            "label": "Hero Copy",
-            "name": "hero_copy",
-            "type": "textarea",
-            "instructions": "",
+            "key": "field_64de1738f880a",
+            "label": "Hero Title Bold",
+            "name": "hero_title_bold",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Bold text appears on a new line",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -77,15 +155,73 @@
             },
             "default_value": "",
             "maxlength": "",
-            "rows": 2,
             "placeholder": "",
-            "new_lines": ""
+            "prepend": "",
+            "append": ""
         },
         {
-            "key": "field_633d9b5095693",
-            "label": "Hero CTAs",
-            "name": "hero_ctas",
-            "type": "clone",
+            "key": "field_64e377e311597",
+            "label": "Navigation",
+            "name": "navigation",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_64dc99b8e63f8",
+                        "operator": "==",
+                        "value": "add-nav"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "table",
+            "pagination": 0,
+            "min": 0,
+            "max": 0,
+            "collapsed": "",
+            "button_label": "Add Row",
+            "rows_per_page": 20,
+            "sub_fields": [
+                {
+                    "key": "field_64e377f811598",
+                    "label": "Link",
+                    "name": "link",
+                    "aria-label": "",
+                    "type": "link",
+                    "instructions": "Link must be a unique ID and start with a #. Set the ID in the relevant content block.",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_64dc99b8e63f8",
+                                "operator": "==",
+                                "value": "add-nav"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "parent_repeater": "field_64e377e311597"
+                }
+            ]
+        },
+        {
+            "key": "field_64dc99b8e63f8",
+            "label": "Options",
+            "name": "options",
+            "aria-label": "",
+            "type": "checkbox",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -94,13 +230,19 @@
                 "class": "",
                 "id": ""
             },
-            "clone": [
-                "group_633d9b073589f"
-            ],
-            "display": "seamless",
-            "layout": "block",
-            "prefix_label": 0,
-            "prefix_name": 1
+            "choices": {
+                "home-hero": "Home Hero",
+                "small-hero": "Small Hero",
+                "add-nav": "Add Nav?",
+                "align-top": "Align Image Top"
+            },
+            "default_value": [],
+            "return_format": "value",
+            "allow_custom": 0,
+            "layout": "horizontal",
+            "toggle": 0,
+            "save_custom": 0,
+            "custom_choice_button_text": "Add new choice"
         }
     ],
     "location": [
@@ -121,5 +263,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1665062585
+    "modified": 1695032431
 }

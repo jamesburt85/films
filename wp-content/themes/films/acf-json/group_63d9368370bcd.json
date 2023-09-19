@@ -3,6 +3,26 @@
     "title": "Copy and Text Block",
     "fields": [
         {
+            "key": "field_64e481b96e170",
+            "label": "Title",
+            "name": "title",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
             "key": "field_63d936842377e",
             "label": "Copy and Text Blocks",
             "name": "copy_and_text_blocks",
@@ -46,33 +66,6 @@
                     "parent_repeater": "field_63d936842377e"
                 },
                 {
-                    "key": "field_63d9372923783",
-                    "label": "Image or Map?",
-                    "name": "image_or_map",
-                    "aria-label": "",
-                    "type": "select",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "choices": {
-                        "image": "Image",
-                        "map": "Map"
-                    },
-                    "default_value": false,
-                    "return_format": "value",
-                    "multiple": 0,
-                    "allow_null": 0,
-                    "ui": 0,
-                    "ajax": 0,
-                    "placeholder": "",
-                    "parent_repeater": "field_63d936842377e"
-                },
-                {
                     "key": "field_63d9370023781",
                     "label": "Image",
                     "name": "image",
@@ -80,15 +73,7 @@
                     "type": "image",
                     "instructions": "",
                     "required": 0,
-                    "conditional_logic": [
-                        [
-                            {
-                                "field": "field_63d9372923783",
-                                "operator": "==",
-                                "value": "image"
-                            }
-                        ]
-                    ],
+                    "conditional_logic": 0,
                     "wrapper": {
                         "width": "",
                         "class": "",
@@ -105,37 +90,73 @@
                     "mime_types": "",
                     "preview_size": "medium",
                     "parent_repeater": "field_63d936842377e"
-                },
-                {
-                    "key": "field_63d9371e23782",
-                    "label": "Map",
-                    "name": "map",
-                    "aria-label": "",
-                    "type": "textarea",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": [
-                        [
-                            {
-                                "field": "field_63d9372923783",
-                                "operator": "==",
-                                "value": "map"
-                            }
-                        ]
-                    ],
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "maxlength": "",
-                    "rows": "",
-                    "placeholder": "",
-                    "new_lines": "",
-                    "parent_repeater": "field_63d936842377e"
                 }
             ]
+        },
+        {
+            "key": "field_64f7239685056",
+            "label": "Extra Text",
+            "name": "extra_text",
+            "aria-label": "",
+            "type": "wysiwyg",
+            "instructions": "*Optional text after blocks",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 1,
+            "delay": 0
+        },
+        {
+            "key": "field_64e47da85f051",
+            "label": "Options",
+            "name": "options",
+            "aria-label": "",
+            "type": "checkbox",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "small-images": "Small Images"
+            },
+            "default_value": [],
+            "return_format": "value",
+            "allow_custom": 0,
+            "layout": "vertical",
+            "toggle": 0,
+            "save_custom": 0,
+            "custom_choice_button_text": "Add new choice"
+        },
+        {
+            "key": "field_64e5f9a79b5b2",
+            "label": "ID",
+            "name": "id",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Enter a unique ID for this section. Useful when using the Hero in-page navigation option.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "#",
+            "append": ""
         }
     ],
     "location": [
@@ -156,5 +177,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1675180914
+    "modified": 1693918128
 }

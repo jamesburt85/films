@@ -1,25 +1,70 @@
 .pill {
-    display: inline-block;
-    padding: 0.6rem 0.9rem;
-    font-size: get-size('400');
+    //display: inline-block;
+    text-transform: uppercase;
+    padding: 7px 12px;
+    min-width: 61px;
+    @extend .tiny;
+    @extend .medium;
     text-decoration: none;
     line-height: 1;
     white-space: nowrap;
     text-align: center;
-    border-radius: 1rem;
+    border-radius: 8px;
+    color: get-color('light');
+    border: 1px solid #8576AB;
+    transition: 0.3s;
+    cursor: pointer;
+    margin-right: 8px;
+
+    @include media-query('md') {
+        margin-right: 16px;
+    }
+
+    &:last-of-type {
+        margin-right: 0;
+    }
+
+    &.active,
+    &:hover {
+        background: #8576AB;
+    }
+
+    a {
+        text-decoration: none;
+    }
 
     // Apply a default background colour if no token set
     &:not([class*='bg-']) {
-        background: get-color('dark-shade');
-        color: get-color('light');
+        //background: get-color('dark-shade');
     }
 
     &.child {
         background: get-color('grey');
     }
+}
 
-    // Capitalize only in english
-    [lang*='en'] & {
-        text-transform: capitalize;
+.pill--secondary {
+    border: 1px solid get-color('secondary');
+
+    &.active,
+    &:hover {
+        background: get-color('secondary');
+    }
+}
+
+.category-list {
+    .pill--secondary__item {
+        border-left: 1px solid get-color('primary');
+        padding-left: 8px;
+
+        @include media-query('md') {
+            padding-left: 16px;
+        }
+
+        margin-left:8px;
+
+        @include media-query('md') {
+            margin-left: 16px;
+        }
     }
 }

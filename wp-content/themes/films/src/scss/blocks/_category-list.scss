@@ -1,14 +1,29 @@
 ul.category-list,
 .category-list {
 
-	--flow-space: 0.5rem;
+    // --flow-space: 0.5rem;
 
-	padding: 1rem 0 0.5rem;
+    //padding: 1rem 0 0.5rem;
 
-	display: flex;
-	flex-wrap: wrap;
-	> * {
-		margin: var(--flow-space) var(--flow-space) 0;
-		margin-left: 0;
-	}
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+
+    >* {
+        margin: 0 8px 0 0;
+
+        @include media-query('md') {
+            margin: 0 16px 0 0;
+        }
+
+        margin-left: 0;
+
+        &:last-of-type {
+            margin-right: 0;
+        }
+    }
+
+    a {
+        transition: 0.3s;
+    }
 }

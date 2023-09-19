@@ -14,17 +14,20 @@
 // echo "<pre>"; print_r($block); echo "</pre>";
 
 # set vars from acf
-$title              = get_field( 'title' ) ?? null;
-$copy               = get_field( 'copy' ) ?? null;
-$optional_image     = get_field( 'optional_image' ) ?? null;
-$orientation        = get_field( 'orientation' ) ?? null;
-$ctas               = get_field( 'ctas_ctas' ) ?? null;
+$header       = get_field( 'header' ) ?? null;
+$column_one   = get_field( 'column_one' ) ?? null;
+$column_two   = get_field( 'column_two' ) ?? null;
+$column_three = get_field( 'column_three' ) ?? null;
+$quote_name   = get_field( 'quote_name' ) ?? null;
+$extra_text   = get_field( 'extra_text' ) ?? null;
+$options      = get_field( 'options' );
+$id           = get_field( 'id' ); 
 
 // Create id attribute allowing for custom "anchor" value.
-$id = 'copy-' . $block['id'];
-if ( ! empty($block['anchor'] ) ) {
-    $id = $block['anchor'];
-}
+// $id = 'copy-' . $block['id'];
+// if ( ! empty($block['anchor'] ) ) {
+//     $id = $block['anchor'];
+// }
 
 // Create class attribute allowing for custom "className" and "align" values.
 $classes = 'block-copy';
@@ -46,32 +49,71 @@ if ( ! empty( $orientation ) ) {
   }
 </style>
 
-<div id="<?php echo esc_attr( $id ); ?>" class="<?php echo esc_attr( $classes ); ?>">
-    
-    <div class="[ wrapper ]">
-        
-        <div>
-            <?php if ( $title ) : ?>
-                <h1><?php echo $title; ?></h1>
-            <?php endif; ?>
+<div class="[ wrapper ]">
+    <div id="<?php echo esc_attr( $id ); ?>" class="<?php echo esc_attr( $classes ); ?><?php if($options){ echo ' '.implode(" ", $options); } ?>">
 
-            <?php if ( $copy ) : ?>
-                <p><?php echo $copy; ?></p>
-            <?php endif; ?>
+        <?php if ( $header ) { ?>
+            <h2>
+                <?php echo $header; ?>
+            </h2>
+            <br />
+        <?php } ?>
+        <div class="[ side-by-side ] flow">
+            <?php if ( $column_one ) { ?>
+                <div class="copy-column column-one [ flow ] fade-in-up">
 
-            <?php if ( $ctas ) :
-              foreach ($ctas as $link):
-                $link = $link['cta'];
-                include( get_template_directory() . '/template-parts/snippets/link__button.php');
-              endforeach;
-            endif; ?>
+                    <?php echo $column_one; ?>
+
+                    <?php if ( $options && in_array('quote', $options) ) { ?>
+                        <div class="quote--marks">
+                            <?php get_template_part('dist/svg_php/inline', 'speech.svg'); ?>
+                        </div>
+                    <?php } ?>
+
+                </div>
+            <?php } ?>
+
+            <?php if ( $column_two ) { ?>
+                <div class="copy-column column-two [ flow ] fade-in-up">
+
+                    <?php echo $column_two; ?>
+                    
+                    <?php if ( $quote_name ) { ?>
+                        <div>
+                            <span class="tiny medium">
+                                <?php echo $quote_name; ?>
+                            </span>
+                        </div>
+                    <?php } ?>
+                    
+                </div>
+            <?php } ?>
+
+            <?php if ( $column_three ) { ?>
+                <div class="copy-column column-three [ flow ] fade-in-up">
+
+                    <?php echo $column_three; ?>
+                    
+                    <?php if ( $quote_name ) { ?>
+                        <div>
+                            <span class="tiny medium">
+                                <?php echo $quote_name; ?>
+                            </span>
+                        </div>
+                    <?php } ?>
+                    
+                </div>
+            <?php } ?>
+
         </div>
 
-        <?php if ( $optional_image ) :
-            $img = $optional_image;
-            include( get_template_directory() . '/template-parts/snippets/img.php');
-        endif; ?>
-
+        <?php if ( $extra_text ) { ?>
+            <br />
+            
+            <div class="flow extra-text tiny medium">
+                <?php echo $extra_text; ?>
+            </div>
+            
+        <?php } ?>
     </div>
-
 </div>

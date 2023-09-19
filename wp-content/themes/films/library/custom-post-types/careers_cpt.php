@@ -7,7 +7,7 @@
 function cpt_careers() {
 
     // creating (registering) the custom type (http://codex.wordpress.org/Function_Reference/register_post_type)
-    register_post_type('careers',
+    register_post_type('cpt_careers',
 
     // let's now add all the options for this post type
     array(
@@ -63,10 +63,10 @@ function cpt_careers() {
         'query_var'           => true,
         'menu_position'       => 5,
         'menu_icon'           => 'dashicons-networking',
-        // 'rewrite'             => array(
-        //     'slug' => 'careers',
-        //     'with_front' => false
-        // ) ,
+        'rewrite'             => array(
+            'slug' => 'careers',
+            'with_front' => true
+        ) ,
         'capability_type'     => 'post',
         'show_in_rest'        => true, // gutenberg
         'supports'            => array(

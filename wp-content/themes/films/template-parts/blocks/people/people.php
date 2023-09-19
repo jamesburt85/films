@@ -52,7 +52,7 @@ if ( ! empty( $block['align'] ) ) {
 
   <?php
   if( $people ) {
-      echo '<div class="[ card-grid ]">';
+      echo '<div class="[ card-grid ] three-columns">';
       global $post;
 
       foreach ($people as $post) {
@@ -72,7 +72,7 @@ if ( ! empty( $block['align'] ) ) {
       
       wp_reset_postdata();
 
-      echo '</div">';
+      echo '</div>';
 
       }
     ?>

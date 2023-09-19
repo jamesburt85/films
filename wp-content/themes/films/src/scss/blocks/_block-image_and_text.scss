@@ -1,4 +1,5 @@
-.block-img_and_text {
+.block-img_and_text,
+.block-copy_and_text {
 
     .image-and-text--row {
         @include media-query('md') {
@@ -16,11 +17,27 @@
 
     }
 
-    .image-and-text--text {
+    .copy-and-text--text {
         --flow-space: 2rem;
+        background: get-color('dark');
+        padding-top: 1rem;
+        padding-bottom: 1rem;
 
         @include media-query('md') {
             padding-left: var(--big-space);
+            background: transparent;
+            padding-top: 0;
+            padding-bottom: 0;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            @extend .body--large;
+            font-weight: var(--weight-medium);
         }
     }
 
@@ -33,9 +50,51 @@
         }
     }
 
+    .extra-text {
+        margin-top: 4rem;
+    }
+
     iframe {
         width: 100%;
         height: 100%;
         aspect-ratio: 1 / 1;
+    }
+
+    // Timeline / Small Images
+    &.small-images {
+
+        .copy-and-text--image {
+            position: relative;
+        }
+
+        .copy-and-text--image:before {
+            content: '';
+            background: get-color('grey');
+            width: 1px;
+            height: 300%;
+            display: block;
+            position: absolute;
+            z-index: -1;
+            left: 1rem;
+
+            @include media-query('md') {
+                left: 50%;
+            }
+        }
+
+        .copy-and-text--row {
+            margin-bottom: 4rem;
+        }
+
+        .side-by-side {
+            @include media-query('md') {
+                display: flex;
+
+                picture,
+                img {
+                    max-width: 170px;
+                }
+            }
+        }
     }
 }

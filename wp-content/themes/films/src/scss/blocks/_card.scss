@@ -1,29 +1,53 @@
 .card {
 
-  padding: get-size('500') get-size('500') get-size('600') get-size('500');
-  // line-height: 1.1;
+    padding: get-size('500') get-size('500') get-size('600') get-size('500');
+    // line-height: 1.1;
 
-  // dl,
-  // dt {
-  //   --flow-space: #{get-size('700')};
-  // }
+    // dl,
+    // dt {
+    //   --flow-space: #{get-size('700')};
+    // }
 
-  // dd {
-  //   --flow-space: #{get-size('300')};
-  // }
+    // dd {
+    //   --flow-space: #{get-size('300')};
+    // }
 
-  // work single card is active and clickable!
-  &[data-status='clickable'] {
-    background-color: var(--color-tertiary);
-  }
+    // work single card is active and clickable!
+    &[data-status='clickable'] {
+        background-color: var(--color-tertiary);
+    }
 
-  svg {
-    width: 30px;
-  }
+    svg {
+        width: 30px;
+    }
 
-  picture img {
-    aspect-ratio: 16 / 9;
-    object-fit: cover;
-  }
+    picture img {
+        aspect-ratio: 16 / 9;
+        object-fit: cover;
+    }
 
+    img {
+        height: 100%;
+        object-fit: cover;
+    }
+
+    &.card--square {
+        picture img {
+            aspect-ratio: 1 / 1;
+        }
+    }
+
+    &.card--portrait {
+        picture img {
+            aspect-ratio: 3/4;
+        }
+    }
+
+}
+
+// Allow text to overlap bottom of thumbnail
+.overlap {
+    .card--lower {
+        transform: translateY(-1.2rem);
+    }
 }

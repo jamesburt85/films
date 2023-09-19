@@ -13,84 +13,79 @@ $gorko-base-size: 1rem;
  * calcuated off the base size, so change that and cascade across
  * your whole project.
  */
-$gorko-size-scale: (
-  '300': $gorko-base-size * 0.8,
-  '400': $gorko-base-size,
-  '500': $gorko-base-size * 1.33,
-  '600': $gorko-base-size * 1.77,
-  '700': $gorko-base-size * 2.4
-);
+$gorko-size-scale: ('small': $gorko-base-size * 0.8,
+'body': $gorko-base-size,
+'medium': $gorko-base-size * 1.33,
+'large': $gorko-base-size * 1.77,
+'largest': $gorko-base-size * 2.4);
 
 /**
  * COLORS
  * Colors are shared between backgrounds and text by default. 
  * You can also use them to power borders, fills or shadows, for example.
  */
-$gorko-colors: (
-  'primary': #222222,
-  'secondary': #cacaca,
-  'secondary-shade': #ff5151,
-  'tertiary': #b3b9cb,
-  'tertiary-glare': #d6fff6,
-  'quaternary': #2374ab,
-  'light': #fafafa,
-  'light-shade': #eeeeee,
-  'dark': #121212,
-  'dark-shade': #282828,
-  'grey': #c4c4c4,
-  'white' : #f8f8f8,
-  'black' : #000000
-);
+$gorko-colors: ('primary': #a996da,
+'primary-shade': #453c5b,
+'secondary': #f29127,
+'secondary-shade': #ff5151,
+'tertiary': #7bad94,
+'tertiary-glare': #d6fff6,
+'quaternary': #2374ab,
+'light': #fafafa,
+'light-shade': #eeeeee,
+'dark': #20262b,
+'dark-shade': #121417,
+'grey': #8C8C8C,
+'grey-light': #D8D8D8,
+'white' : #f8f8f8,
+'green' : #7BAC94,
+'black' : #000000);
+
 
 /**
  * CORE CONFIG
  * This powers everything from utility class generation to breakpoints
  * to enabling/disabling pre-built components/utilities.
  */
-$gorko-config: (
-  'css-vars': (
-    'color': $gorko-colors,
-    'weight': (
-      'medium' : 500,
-      'bold': 700,
-      'black': 900
-    )
-  ),
-  'bg': (
-    'items': 'color',
-    'css-vars': true,
-    'output': 'standard',
-    'property': 'background'
-  ),
-  'font': (
-    'items': (
-      'base': '"Inter", Helvetica, Arial, sans-serif',
-      'mono': 'Courier New, Courier, monospace'
-    ),
-    'output': 'standard',
-    'property': 'font-family'
-  ),
-  'gap-top': (
-    'items': $gorko-size-scale,
-    'output': 'standard',
-    'property': 'margin-top'
-  ),
-  'pad-top': (
-    'items': $gorko-size-scale,
-    'output': 'standard',
-    'property': 'padding-top'
-  ),
-  'text': (
-    'items': $gorko-size-scale,
-    'output': 'responsive',
-    'property': 'font-size'
-  ),
-  'breakpoints': (
-    'sm': '(min-width: 36em)',
-    'md': '(min-width: 48em)',
-    'lg': '(min-width: 62em)'
-  )
-);
+$gorko-config: ('css-vars': ('color': $gorko-colors,
+'weight': ('light': 300,
+'medium': 500,
+'semi-bold': 600,
+'bold': 700,
+'black': 900)),
+'bg': ('items': 'color',
+'css-vars': true,
+'output': 'standard',
+'property': 'background'
+),
+'color': ('items': 'color',
+'css-vars': true,
+'output': 'standard',
+'property': 'color'
+),
+'font': ('items': ('base': '"Inter", Helvetica, Arial, sans-serif',
+'mono': 'Courier New, Courier, monospace'
+),
+'output': 'standard',
+'property': 'font-family'
+),
+'gap-top': ('items': $gorko-size-scale,
+'output': 'standard',
+'property': 'margin-top'
+),
+'pad-top': ('items': $gorko-size-scale,
+'output': 'standard',
+'property': 'padding-top'
+),
+'text': ('items': $gorko-size-scale,
+'output': 'responsive',
+'property': 'font-size'
+),
+'breakpoints': ('sm': '(min-width: 36em)',
+'md': '(min-width: 48em)',
+'lg': '(min-width: 70em)',
+'xlg': '(min-width: 80em)'
+));
 
 /**
   * COMMENTED OUT CONFIG PROPS
@@ -102,4 +97,3 @@ $gorko-config: (
   ),
 
  */
-

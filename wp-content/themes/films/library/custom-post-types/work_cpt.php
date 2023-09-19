@@ -57,7 +57,7 @@ function work() {
         'public'              => true,
         'publicly_queryable'  => true,
         'exclude_from_search' => true,
-        // 'taxonomies'  => array( 'category' ),
+        //'taxonomies'          => array( 'work_category' ),
         'has_archive'         => true,
         'show_ui'             => true,
         'query_var'           => true,
@@ -85,14 +85,13 @@ function work() {
 
     /* end of register post type */
 
-
-
     register_taxonomy('work_category', 'work', array(
         'public' => true,
         'show_ui' => true,
         'show_in_nav_menus' => true,
         'show_admin_column' => true,
         'hierarchical' => true,
+        'show_in_rest' => true, // gutenberg
         'label' => __("Work Category", 'ray_theme') ,
         'query_var' => true,
         'show_tagcloud' => true,
@@ -101,6 +100,40 @@ function work() {
             'with_front' => false,
             'hierarchical' => true
         ) ,
+    ));
+
+    register_taxonomy('work_department', 'work', array(
+        'public' => true,
+        'show_ui' => true,
+        'show_in_nav_menus' => true,
+        'show_admin_column' => true,
+        'hierarchical' => true,
+        'show_in_rest' => true, // gutenberg
+        'label' => __("Department", 'ray_theme') ,
+        'query_var' => true,
+        'show_tagcloud' => true,
+        'rewrite' => array(
+            'slug' => 'show-department',
+            'with_front' => false,
+            'hierarchical' => true
+        ) ,
+    ));
+
+    register_taxonomy('work_broadcaster_category', 'work', array(
+        'public' => true,
+        'show_ui' => true,
+        'show_in_nav_menus' => true,
+        'show_admin_column' => true,
+        'hierarchical' => true,
+        'show_in_rest' => true, // gutenberg
+        'label' => __("Broadcaster", 'ray_theme') ,
+        'query_var' => true,
+        'show_tagcloud' => true,
+        // 'rewrite' => array(
+        //     'slug' => 'show-category',
+        //     'with_front' => false,
+        //     'hierarchical' => true
+        // ) ,
     ));
 
 

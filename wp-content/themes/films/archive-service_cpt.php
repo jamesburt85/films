@@ -123,7 +123,7 @@
 						        	<a href="<?php the_permalink(); ?>" class="button">
 						        		<div class="with-icon">
 							        		<h4><?php the_title(); ?></h4>
-							        		<div class="icon">					        			
+							        		<div class="icon">
 								        		<?php get_template_part('dist/svg_php/inline', 'arrow-right.svg'); ?>
 							        		</div>
 						        		</div>
@@ -211,12 +211,6 @@
 					}
 					/* Restore original Post Data */
 					wp_reset_postdata();
-
-
-
-
-
-
 
 					// $child_pages = new WP_Query( array(
 					//     'post_type'      => 'page', // set the post type to page

@@ -322,12 +322,17 @@ class Filesystem
     /**
      * Is the specified path a file?
      *
-     * @param string $abs_path
+     * @param string|null $abs_path
      *
      * @return bool
      */
     public function is_file($abs_path)
     {
+        // if the path is not valid, return false
+        if (null === $abs_path) {
+            return false;
+        }
+
         $return = is_file($abs_path);
 
         if (!$return && $this->use_filesystem) {
@@ -501,14 +506,14 @@ class Filesystem
      * Get a list of files/folders under specified directory
      *
      * @param string $abs_path
+     * @param string $stage
      * @param int $offset
      * @param int $limit
      * @param int $scan_count
-     * @param string $stage
      *
      * @return array|bool|\WP_error
      */
-    public function scandir($abs_path, $offset = 0, $limit = -1, &$scan_count = 0, $stage = '')
+    public function scandir($abs_path, $stage = '', $offset = 0, $limit = -1, &$scan_count = 0)
     {
         $symlink = is_link($abs_path);
         $dirlist = @scandir($abs_path, SCANDIR_SORT_DESCENDING);
@@ -587,12 +592,13 @@ class Filesystem
      * List all files in a directory recursively
      *
      * @param $abs_path
+     * @param string $stage
      *
      * @return array|bool
      */
-    public function scandir_recursive($abs_path)
+    public function scandir_recursive($abs_path, $stage = '')
     {
-        $dirlist = $this->scandir($abs_path);
+        $dirlist = $this->scandir($abs_path, $stage);
 
         if (is_wp_error($dirlist)) {
             return $dirlist;
@@ -602,7 +608,7 @@ class Filesystem
             if ('d' === $entry['type']) {
                 $current_dir  = trailingslashit($entry['name']);
                 $current_path = trailingslashit($abs_path) . $current_dir;
-                $contents     = $this->scandir_recursive($current_path);
+                $contents     = $this->scandir_recursive($current_path, $stage);
                 unset($dirlist[$key]);
                 foreach ($contents as $filename => $value) {
                     $contents[$current_dir . $filename] = $value;
@@ -778,7 +784,7 @@ class Filesystem
         // don't need to check for user permissions as our 'add_management_page' already takes care of this
         $util->set_time_limit();
 
-        $raw_dump_name = filter_input(INPUT_GET, 'download', FILTER_SANITIZE_STRIPPED);
+        $raw_dump_name = htmlspecialchars($_GET['download'], ENT_QUOTES | ENT_HTML5);
         $dump_name     = $table_helper->format_dump_name($raw_dump_name);
         $diskfile      = $this->get_upload_info('path') . DIRECTORY_SEPARATOR . $dump_name;
         if ($is_full_site_export) {
@@ -790,13 +796,9 @@ class Filesystem
         $salt             = substr($filename, $last_dash, 6);
         $filename_no_salt = str_replace($salt, '', $filename);
 
-        $backup = filter_input(INPUT_GET, 'backup', FILTER_SANITIZE_STRIPPED);
-
         if (file_exists($diskfile)) {
             $filesize = $this->filesize($diskfile);
             if (!headers_sent()) {
-
-                ob_end_clean();
 
                 header('Content-Description: File Transfer');
                 header('Content-Type: application/octet-stream');
@@ -806,13 +808,15 @@ class Filesystem
                 header('Expires: 0');
                 header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
 
-                ob_end_flush();
+                while(@ob_end_clean()){
+                    // Clear all output buffer at any level
+                }
 
                 readfile($diskfile);
 
                 Persistence::cleanupStateOptions();
 
-                if (!$backup || (int)$backup !== 1) { // Don't delete file if file was created during a local backup
+                if ( ! isset($_GET['backup'])) { // Don't delete file if file was created during a local backup
                     $this->unlink($diskfile);
                 }
 

@@ -74,7 +74,7 @@
             "name": "number_of_posts_to_show",
             "aria-label": "",
             "type": "number",
-            "instructions": "",
+            "instructions": "Enter -1 to display all posts",
             "required": 0,
             "conditional_logic": [
                 [
@@ -106,15 +106,7 @@
             "type": "select",
             "instructions": "",
             "required": 0,
-            "conditional_logic": [
-                [
-                    {
-                        "field": "field_633da3515e99a",
-                        "operator": "==",
-                        "value": "latest"
-                    }
-                ]
-            ],
+            "conditional_logic": 0,
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -122,10 +114,11 @@
             },
             "choices": {
                 "post": "Blog Posts",
-                "team": "Team Members",
-                "careers": "Jobs\/Careers",
+                "people": "People",
+                "cpt_careers": "Careers",
                 "kit": "Kit",
-                "work": "Work"
+                "work_cpt": "Work",
+                "service_cpt": "Services"
             },
             "default_value": "post",
             "return_format": "value",
@@ -161,8 +154,11 @@
                 "post",
                 "people",
                 "kit",
-                "work"
+                "work",
+                "service_cpt",
+                "cpt_careers"
             ],
+            "post_status": "",
             "taxonomy": "",
             "filters": [
                 "search",
@@ -172,7 +168,9 @@
             "return_format": "object",
             "min": "",
             "max": "",
-            "elements": ""
+            "elements": "",
+            "bidirectional": 0,
+            "bidirectional_target": []
         },
         {
             "key": "field_633da3515e990",
@@ -195,6 +193,52 @@
             "layout": "block",
             "prefix_label": 0,
             "prefix_name": 1
+        },
+        {
+            "key": "field_64de50a0d9345",
+            "label": "Options",
+            "name": "options",
+            "aria-label": "",
+            "type": "checkbox",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "overlap": "Overlap",
+                "borders--top": "Border Top"
+            },
+            "default_value": [],
+            "return_format": "value",
+            "allow_custom": 0,
+            "layout": "horizontal",
+            "toggle": 0,
+            "save_custom": 0,
+            "custom_choice_button_text": "Add new choice"
+        },
+        {
+            "key": "field_64e5fa2985030",
+            "label": "ID",
+            "name": "id",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Enter a unique ID for this section. Useful when using the Hero in-page navigation option.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "#",
+            "append": ""
         }
     ],
     "location": [
@@ -215,5 +259,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1675179526
+    "modified": 1693895008
 }

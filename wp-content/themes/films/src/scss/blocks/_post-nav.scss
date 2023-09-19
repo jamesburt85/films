@@ -1,4 +1,20 @@
 .post-nav {
-	display: flex;
-	> * + * { padding-left: get-size('300'); }
+    display: flex;
+    margin-top: 4rem;
+
+    >*+* {
+        padding-left: get-size('300');
+    }
+
+    li {
+        margin-right: 1rem;
+
+        &:last-child {
+            margin-right: 0;
+        }
+
+        span.page-numbers.current {
+            text-decoration: underline;
+        }
+    }
 }

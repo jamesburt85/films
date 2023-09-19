@@ -10,8 +10,8 @@
 
 <?php // <!-- using lazysizes.js --> ?>
 
+
 <!-- <img
-	
     data-sizes="auto"
     data-src="<?php // echo $img['sizes']['medium']; ?>"
     data-srcset="<?php // echo $img['sizes']['fp-medium']; ?> 1024w,
@@ -24,11 +24,11 @@
 <picture>
   <source 
     srcset="<?php echo $img['sizes']['fp-xlarge']; ?>"
-    media="(min-width: 1920w)"
+    media="(min-width: 1920px)"
   />
   <source 
     srcset="<?php echo $img['sizes']['fp-large']; ?>"
-    media="(min-width: 1200w)"
+    media="(min-width: 1200px)"
   />
   <source 
     srcset="<?php echo $img['sizes']['fp-medium']; ?>"

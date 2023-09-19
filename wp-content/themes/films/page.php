@@ -1,10 +1,11 @@
-
 <?php get_header(); ?>
 	<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-			<article class="entry-content [ wrapper ]">
+			
+			<article class="entry-content">
 				<?php // include( get_template_directory() . '/template-parts/snippets/breadcrumbs.php'); ?>
 				<?php the_content();?>
 			</article>
+			
 	<?php 
 	endwhile;
 	endif; 

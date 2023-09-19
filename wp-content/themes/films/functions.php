@@ -107,46 +107,43 @@ function adstyles_embed_oembed_html( $html ) {
 /****************************************************
  * Adding a DIV wrapper to Gutenberg’s Classic blocks
  ****************************************************/
+// add_filter( 'render_block', 'wrap_paragraph_block', 10, 2 );
 
+// function wrap_paragraph_block( $block_content, $block ) {
 
+//     $classicBlocks = [
+//         'core/paragraph',
+//         'core/block',
+//         'core/button',
+//         'core/embed',
+//         'core/freeform',
+//         'core/gallery',
+//         'core/heading',
+//         'core/html',
+//         // 'core/image',
+//         'core/list',
+//         'core/paragraph',
+//         'core/preformatted',
+//         'core/pullquote',
+//         'core/quote',
+//         'yoast/faq-block'
+//     ];
 
-add_filter( 'render_block', 'wrap_paragraph_block', 10, 2 );
+//     // echo '<pre>';
+//     // print_r($block['blockName']);
+//     // echo '</pre>';
 
-function wrap_paragraph_block( $block_content, $block ) {
+//     // $result = in_array($block['blockName'], $classicBlocks);
+//     // var_dump($result);
 
-    $classicBlocks = [
-        'core/paragraph',
-        'core/block',
-        'core/button',
-        'core/embed',
-        'core/freeform',
-        'core/gallery',
-        'core/heading',
-        'core/html',
-        // 'core/image',
-        'core/list',
-        'core/paragraph',
-        'core/preformatted',
-        'core/pullquote',
-        'core/quote',
-        'yoast/faq-block'
-    ];
+//   if ( in_array($block['blockName'], $classicBlocks) ) {
+//     // echo "<h1>IS IN ARRAY</h1>";
+//     $block_content = '<div class="wrapper">' . $block_content . '</div>';
+//   }
 
-    // echo '<pre>';
-    // print_r($block['blockName']);
-    // echo '</pre>';
+//   return $block_content;
 
-    // $result = in_array($block['blockName'], $classicBlocks);
-    // var_dump($result);
-
-  if ( in_array($block['blockName'], $classicBlocks) ) {
-    // echo "<h1>IS IN ARRAY</h1>";
-    $block_content = '<div class="wrapper">' . $block_content . '</div>';
-  }
-
-  return $block_content;
-
-}
+// }
 
 
 
@@ -287,3 +284,94 @@ function clean_wp_list_pages($menu) {
     return $menu;
 }
 add_filter( 'wp_list_pages', 'clean_wp_list_pages' );
+
+
+// Add highlight to nav items when on CPT Archives and Single
+function add_current_nav_class($classes, $item) {
+
+   // Getting the current post details
+   global $post;
+
+   // Get post ID, if nothing found set to NULL
+   $id = ( isset( $post->ID ) ? get_the_ID() : NULL );
+
+   // Checking if post ID exist...
+   if (isset( $id )){
+
+       // Getting the post type of the current post
+       $current_post_type = get_post_type_object(get_post_type($post->ID));
+
+       // Getting the rewrite slug containing the post type's ancestors
+       $ancestor_slug = $current_post_type->rewrite ? $current_post_type->rewrite['slug'] : '';
+
+       // Split the slug into an array of ancestors and then slice off the direct parent.
+       $ancestors = explode('/',$ancestor_slug);
+       $parent = array_pop($ancestors);
+
+       // Getting the URL of the menu item
+       $menu_slug = strtolower(trim($item->url));
+
+       // Remove domain from menu slug
+       $menu_slug = str_replace($_SERVER['SERVER_NAME'], "", $menu_slug);
+
+       // If the menu item URL contains the post type's parent
+       if (!empty($menu_slug) && !is_search() && !empty($parent) && strpos($menu_slug,$parent) !== false) {
+           $classes[] = 'current-menu-item';
+       }
+       
+       // If the menu item URL contains any of the post type's ancestors
+       foreach ( $ancestors as $ancestor ) {
+           if (!empty($menu_slug) && !empty($ancestor) && strpos($menu_slug,$ancestor) !== false) {
+               $classes[] = 'current-page-ancestor';
+           }
+       }
+   }
+   // Return the corrected set of classes to be added to the menu item
+   return $classes;
+
+}
+add_action('nav_menu_css_class', 'add_current_nav_class', 10, 2 );
+
+// Add active class to CPT Archive link when viewing Taxonomy pages
+function add_active_class_to_cpt_archive_nav_item($classes, $item) {
+    // Check if the current page is a CPT taxonomy page
+    if (is_tax() && !is_search() && in_array('menu-item', $classes)) {
+        // Get the taxonomy object for the current term
+        $term = get_queried_object();
+        
+        // Check if the term is associated with a CPT
+        if ($term && isset($term->taxonomy)) {
+            $taxonomy = $term->taxonomy;
+            $post_type = get_taxonomy($taxonomy)->object_type[0];
+            
+            // Check if the menu item links to the CPT archive
+            if ($item->url === get_post_type_archive_link($post_type)) {
+                $classes[] = 'current-menu-item'; // Add the active class
+            }
+        }
+    }
+
+    return $classes;
+}
+
+add_filter('nav_menu_css_class', 'add_active_class_to_cpt_archive_nav_item', 10, 2);
+
+
+// function exclude_featured_post( $query ) {
+//     if ( is_front_page() && $query->is_main_query() ) {
+
+
+//         $meta_query = $query->get('meta_query') ? $query->get('meta_query') : array();
+
+//         // append yours
+//         $meta_query[] = array(
+//             'key' => 'active_case_study', // please make sure that key is correct
+//             'value' => '1',
+//             'compare' => '!=' // you can also try 'NOT EXISTS' comparison
+//         );
+
+//         $query->set('meta_query', $meta_query);
+
+//     }
+// }
+// add_action( 'pre_get_posts', 'exclude_featured_post' );

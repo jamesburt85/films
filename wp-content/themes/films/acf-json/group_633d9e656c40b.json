@@ -3,11 +3,12 @@
     "title": "Copy Content",
     "fields": [
         {
-            "key": "field_633d9e657495b",
-            "label": "Title",
-            "name": "title",
+            "key": "field_64f83bab13394",
+            "label": "Header",
+            "name": "header",
+            "aria-label": "",
             "type": "text",
-            "instructions": "",
+            "instructions": "*Optional",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -22,51 +23,108 @@
             "append": ""
         },
         {
-            "key": "field_633d9e6574961",
-            "label": "Copy",
-            "name": "copy",
-            "type": "textarea",
-            "instructions": "",
+            "key": "field_64d3727952909",
+            "label": "Column One",
+            "name": "column_one",
+            "aria-label": "",
+            "type": "wysiwyg",
+            "instructions": "Use H2 for headings",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "",
+                "width": "50",
                 "class": "",
                 "id": ""
             },
-            "default_value": "Cras justo odio, dapibus ac facilisis in, egestas eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.",
-            "maxlength": "",
-            "rows": 2,
-            "placeholder": "",
-            "new_lines": ""
+            "default_value": "",
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 1,
+            "delay": 0
         },
         {
-            "key": "field_633d9e6574967",
-            "label": "CTAs",
-            "name": "ctas",
-            "type": "clone",
+            "key": "field_64d3728f5290a",
+            "label": "Column Two",
+            "name": "column_two",
+            "aria-label": "",
+            "type": "wysiwyg",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "",
+                "width": "50",
                 "class": "",
                 "id": ""
             },
-            "clone": [
-                "group_633d9b073589f"
+            "default_value": "",
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 1,
+            "delay": 0
+        },
+        {
+            "key": "field_64e5cc8369996",
+            "label": "Column Three",
+            "name": "column_three",
+            "aria-label": "",
+            "type": "wysiwyg",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_64d38226dc7cc",
+                        "operator": "==",
+                        "value": "third-column"
+                    }
+                ]
             ],
-            "display": "seamless",
-            "layout": "block",
-            "prefix_label": 0,
-            "prefix_name": 1
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 1,
+            "delay": 0
         },
         {
-            "key": "field_633d9eaa07486",
-            "label": "Optional Image",
-            "name": "optional_image",
-            "type": "image",
+            "key": "field_64d38249dc7cd",
+            "label": "Quote Name",
+            "name": "quote_name",
+            "aria-label": "",
+            "type": "text",
             "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_64d38226dc7cc",
+                        "operator": "==",
+                        "value": "quote"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "Client Name, Company Name",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_64f840b8f9b70",
+            "label": "Extra Text",
+            "name": "extra_text",
+            "aria-label": "",
+            "type": "wysiwyg",
+            "instructions": "*Optional",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -74,22 +132,18 @@
                 "class": "",
                 "id": ""
             },
-            "return_format": "array",
-            "library": "all",
-            "min_width": "",
-            "min_height": "",
-            "min_size": "",
-            "max_width": "",
-            "max_height": "",
-            "max_size": "",
-            "mime_types": "",
-            "preview_size": "medium"
+            "default_value": "",
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 1,
+            "delay": 0
         },
         {
-            "key": "field_633d9ebf07487",
-            "label": "Orientation",
-            "name": "orientation",
-            "type": "select",
+            "key": "field_64d38226dc7cc",
+            "label": "Options",
+            "name": "options",
+            "aria-label": "",
+            "type": "checkbox",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -99,16 +153,42 @@
                 "id": ""
             },
             "choices": {
-                "copy_col__left": "copy on left",
-                "copy_col__right": "copy on right"
+                "quote": "Quote",
+                "narrow": "Narrow",
+                "full-width": "Full Width",
+                "small-text": "Small Text",
+                "bg-dark-shade": "Dark Background",
+                "third-column": "Third Column",
+                "borders--top": "Border Top",
+                "borders--bottom": "Border Bottom"
             },
-            "default_value": "copy_on_left",
+            "default_value": [],
             "return_format": "value",
-            "multiple": 0,
-            "allow_null": 0,
-            "ui": 1,
-            "ajax": 0,
-            "placeholder": ""
+            "allow_custom": 0,
+            "layout": "horizontal",
+            "toggle": 0,
+            "save_custom": 0,
+            "custom_choice_button_text": "Add new choice"
+        },
+        {
+            "key": "field_64e5f94814560",
+            "label": "ID",
+            "name": "id",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Enter a unique ID for this section. Useful when using the Hero in-page navigation option.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
         }
     ],
     "location": [
@@ -129,5 +209,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1665150947
+    "modified": 1693991124
 }

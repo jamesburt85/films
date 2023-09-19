@@ -35,6 +35,11 @@
 
 body {
     --flow-space: 2rem;
+    -webkit-font-smoothing: antialiased;
+
+    pre {
+        font-family: var(--font-base);
+    }
 }
 
 // Pull in modern reset
@@ -68,6 +73,212 @@ body {
     line-height: 1.5;
     // overflow-x: hidden;
     // padding-bottom: get-size('600');
+}
+
+.site-header--inner .current-menu-item a {
+    border-bottom: 4px solid get-color('primary');
+}
+
+br {
+    display: none;
+
+    @include media-query('md') {
+        display: block;
+    }
+}
+
+.highlighted {
+    color: get-color('primary');
+}
+
+.highlighted-hover:hover {
+    color: get-color('primary');
+}
+
+.color-primary {
+    color: get-color('light');
+
+    .site-header--inner .current-menu-item a {
+        border-bottom: 4px solid get-color('primary');
+    }
+
+    .highlighted {
+        color: get-color('primary');
+    }
+
+    .highlighted-hover:hover {
+        color: get-color('primary');
+    }
+}
+
+.site-content-container.color-primary-shade {
+    color: get-color('light');
+
+    .site-header--inner .current-menu-item a {
+        border-bottom: 4px solid get-color('primary-shade');
+    }
+
+    .highlighted {
+        color: get-color('primary-shade');
+    }
+
+    .highlighted-hover:hover,
+    .category-list a:hover {
+        color: get-color('primary');
+    }
+}
+
+.color-secondary {
+    color: get-color('light');
+
+    .site-header--inner .current-menu-item a {
+        border-bottom: 4px solid get-color('secondary');
+    }
+
+    .highlighted {
+        color: get-color('secondary');
+    }
+
+    .highlighted-hover:hover {
+        color: get-color('secondary');
+    }
+
+    .category-list a:hover {
+        color: get-color('secondary');
+    }
+}
+
+.color-green {
+    color: get-color('light');
+
+    .site-header--inner .current-menu-item a {
+        border-bottom: 4px solid get-color('green');
+    }
+
+    .highlighted {
+        color: get-color('green');
+    }
+
+    .highlighted-hover:hover {
+        color: get-color('green');
+    }
+}
+
+
+// CUSTOM FONT SIZES & LINE HEIGHTS
+.tiny {
+    font-size: 13px;
+    line-height: 16px;
+}
+
+.tiny--nav {
+    font-size: 14px;
+    line-height: 16px;
+    letter-spacing: 2.5px;
+}
+
+.light {
+    font-weight: var(--weight-light);
+}
+
+.medium {
+    font-weight: var(--weight-medium);
+}
+
+.bold {
+    font-weight: var(--weight-bold);
+}
+
+.body {
+    font-size: 16px;
+    line-height: 19px;
+
+    @include media-query('md') {
+        font-size: 18px;
+        line-height: 21px;
+    }
+
+    font-weight: var(--weight-light);
+}
+
+.body--plus {
+    font-size: 20px;
+    line-height: 24px;
+}
+
+.body--medium {
+    font-size: 22px;
+    line-height: 26px;
+    font-weight: var(--weight-medium);
+}
+
+.body--large {
+    font-size: 20px;
+    line-height: 25px;
+    font-weight: var(--weight-light);
+
+    @include media-query('md') {
+        font-size: 24px;
+        line-height: 29px;
+    }
+}
+
+.body--largest {
+    font-size: 38px;
+    line-height: 46px;
+    font-weight: var(--weight-medium);
+}
+
+.section-header {
+    font-size: 35px;
+    line-height: 40px;
+    font-weight: var(--weight-medium);
+
+    @include media-query('md') {
+        font-size: 44px;
+        line-height: 46px;
+    }
+}
+
+
+.hero-small {
+    font-size: 35px;
+
+    @include media-query('md') {
+        font-size: 60px;
+        line-height: 72px;
+    }
+
+    font-weight: var(--weight-semi-bold);
+}
+
+.hero-title {
+
+    font-size: 40px;
+    line-height: 44px;
+    font-weight: var(--weight-light);
+
+    @include media-query('md') {
+        font-size: 80px;
+        line-height: 97px;
+    }
+
+
+    strong {
+        font-size: 50px;
+        line-height: 55px;
+
+        @include media-query('md') {
+            font-size: 100px;
+            line-height: 98px;
+        }
+
+        font-weight: var(--weight-semi-bold);
+    }
+}
+
+strong {
+    font-weight: var(--weight-medium);
 }
 
 // sticky footer solved by Flexbox
@@ -109,10 +320,10 @@ th {
     text-align: left;
 }
 
-:focus {
-    outline: 2px dotted;
-    outline-offset: 0.25rem;
-}
+// :focus {
+//     outline: 2px dotted;
+//     outline-offset: 0.25rem;
+// }
 
 .block-sitewide {
     @extend article;
@@ -123,7 +334,7 @@ th {
     --flow-space: 2rem;
 
     // margin-top: var(--flow-space);
-    margin-top: 1rem;
+    // margin-top: 1rem;
 
     // image immediately after gutenberg container
     >.wp-block-image {
@@ -131,6 +342,13 @@ th {
         margin-top: var(--flow-space, 1rem);
     }
 }
+
+//.archive {
+.entry-content.no-hero {
+    margin-top: 6rem;
+}
+
+//}
 
 // Compositonal (Utilities)
 @import 'utilities/flow';
@@ -142,6 +360,17 @@ th {
 @import 'utilities/is-sticky';
 @import 'utilities/highlighted-copy';
 @import 'utilities/highlighted-box';
+@import 'utilities/flex';
+@import 'utilities/borders';
+@import 'utilities/flow-padding';
+@import 'utilities/uppercase';
+@import 'utilities/capitalize';
+@import 'utilities/shift-up';
+@import 'utilities/no-underline';
+@import 'utilities/grid';
+@import 'utilities/accordion';
+@import 'utilities/arrow-right';
+@import 'utilities/logged-in';
 // @import 'utilities/xxxx';
 // @import 'utilities/xxxx';
 // @import 'utilities/xxxx';
@@ -158,7 +387,7 @@ th {
 @import 'utilities/responsive-video';
 @import 'utilities/image-gallery-grid';
 @import 'utilities/side-by-side';
-
+@import 'utilities/arrow-link';
 // @import 'utilities/xxx';
 // @import 'utilities/xxx';
 // @import 'utilities/xxx';
@@ -169,6 +398,7 @@ th {
 @import 'blocks/button';
 @import 'blocks/site-header';
 @import 'blocks/pill';
+@import 'blocks/four-o-four';
 // @import 'blocks/site-head';
 // @import 'blocks/table-group';
 // @import 'blocks/user';
@@ -176,15 +406,19 @@ th {
 @import 'blocks/post-nav';
 @import 'blocks/share-bar';
 @import 'blocks/site-footer';
+@import 'blocks/site-navigation';
 @import 'blocks/magnific-popup';
 @import 'blocks/category-list';
 @import 'blocks/services-sidebar-list';
 @import 'blocks/socials';
-// @import 'blocks/xxx';
-// @import 'blocks/xxx';
-// @import 'blocks/xxx';
-// @import 'blocks/xxx';
-
+@import 'blocks/hamburger';
+@import 'blocks/hero';
+@import 'blocks/single';
+@import 'blocks/post-list';
+@import 'blocks/page-nav';
+@import 'blocks/image-gallery';
+@import 'blocks/searchform';
+@import 'blocks/loader';
 
 // ACF Blocks
 @import 'blocks/block-copy';
@@ -192,11 +426,10 @@ th {
 @import 'blocks/block-yoast-faq';
 @import 'blocks/block-embed';
 @import 'blocks/block-image_and_text';
-// @import 'blocks/block-xxx';
-// @import 'blocks/block-xxx';
-// @import 'blocks/block-xxx';
-// @import 'blocks/block-xxx';
-// @import 'blocks/block-xxx';
+@import 'blocks/block-video';
+@import 'blocks/block-contact';
+@import 'blocks/block-testimonials';
+@import 'blocks/block-gallery';
 
 
 // TEMP - DELETE THIS AFTER PROTOTYPE PHASE
@@ -211,12 +444,6 @@ body.page-template-page-homepage {
     }
 }
 
-.desktop-menu {
-    >* {
-        margin: 0 0.5rem;
-    }
-}
-
 .work-intro {
     iframe {
         aspect-ratio: 16 / 9;
@@ -224,51 +451,11 @@ body.page-template-page-homepage {
     }
 }
 
-.primary-nav,
-.secondary-navigation,
-.site-header--inner {
-    a {
-        text-decoration: none;
+p {
+    margin-bottom: var(--flow-space);
 
-        &:hover {
-            text-decoration: underline;
-        }
-    }
-
-    .js-toggle-secondary-navigation {
-        margin-right: 1rem;
-    }
-
-    .current_page_item {
-        font-weight: bold;
-    }
-}
-
-.secondary-navigation {
-    // font-size: 1.6rem;
-}
-
-.primary-nav {
-    font-size: 1.6rem;
-}
-
-body.single {
-    .hero-image {
-        // aspect-ratio: 16 / 9;
-        height: 400px;
-        width: 100%;
-        overflow: hidden;
-        position: relative;
-
-        picture,
-        img {
-            height: 100%;
-            width: 100%;
-            object-fit: cover;
-            position: absolute;
-            top: 0;
-            left: 0;
-        }
+    &:last-of-type {
+        margin-bottom: 0;
     }
 }
 
@@ -289,11 +476,4 @@ body.single {
 
 .service_content {
     padding-top: 7rem;
-}
-
-.post-type-archive-people {
-    .entry-content .category-list a {
-        font-size: 2rem;
-        padding: 3rem 0;
-    }
 }

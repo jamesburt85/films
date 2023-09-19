@@ -27,19 +27,27 @@ $args = array(
 ?>
 
 <ul class="category-list">
+  <li class="color-grey medium tiny">
+    Kit Hire
+  </li>
+  <li class="medium tiny no-underline">
+    <a href="<?php echo site_url(); ?>/kit-hire">
+      All
+    </a>
+  </li>
   <?php
     foreach( get_terms( 'kit_category', array( 'hide_empty' => true, 'parent' => 0 ) ) as $parent_term ) {
       // display top level term name
       echo '<li>
-        <a class="button pill parent" href="' . get_category_link( $parent_term->term_id ) . '" title="' . sprintf( __( "View all posts in %s" ), $parent_term->name ) . '" ' . '>' . $parent_term->name.'</a>
+        <a class="medium tiny no-underline parent" href="' . get_category_link( $parent_term->term_id ) . '" title="' . sprintf( __( "View all posts in %s" ), $parent_term->name ) . '" ' . '>' . $parent_term->name.'</a>
         </li>';
 
-      foreach( get_terms( 'kit_category', array( 'hide_empty' => true, 'parent' => $parent_term->term_id ) ) as $child_term ) {
-        // display name of all childs of the parent term
-        echo  '<li>
-        <a class="button pill child" href="' . get_category_link( $child_term->term_id ) . '" title="' . sprintf( __( "View all posts in %s" ), $child_term->name ) . '" ' . '>' . $child_term->name.'</a>
-        </li>';
-      }
+      // foreach( get_terms( 'kit_category', array( 'hide_empty' => true, 'parent' => $parent_term->term_id ) ) as $child_term ) {
+      //   // display name of all childs of the parent term
+      //   echo  '<li>
+      //   <a class="medium tiny no-underline child" href="' . get_category_link( $child_term->term_id ) . '" title="' . sprintf( __( "View all posts in %s" ), $child_term->name ) . '" ' . '>' . $child_term->name.'</a>
+      //   </li>';
+      // }
     }
   ?>
 </ul>

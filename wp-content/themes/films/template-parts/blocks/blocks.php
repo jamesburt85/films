@@ -26,10 +26,15 @@ function register_acf_blocks() {
     register_block_type( __DIR__ . '/testimonials' );
     register_block_type( __DIR__ . '/logowall' );
     register_block_type( __DIR__ . '/sitewide' );
-    register_block_type( __DIR__ . '/psgallery' );
+    // register_block_type( __DIR__ . '/psgallery' );
+    register_block_type( __DIR__ . '/gallery' );
+    register_block_type( __DIR__ . '/article-images' );
     register_block_type( __DIR__ . '/people' );
     register_block_type( __DIR__ . '/video' );
     register_block_type( __DIR__ . '/copy-and-text' );
+    register_block_type( __DIR__ . '/contact' );
+    register_block_type( __DIR__ . '/copy-and-list' );
+    register_block_type( __DIR__ . '/hire-contact' );
 }
 
 // add_action('acf/init', 'my_acf_blocks_init');
