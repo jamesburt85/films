@@ -16,7 +16,37 @@ gsap.registerPlugin(
     ScrollTrigger
 );
 
-//import gsap from "gsap";
+// AD ADDED // homepage logo loading anim
+
+// grab body as const
+const body = document.querySelector('body');
+// if body has class home = on homepage
+if (body.classList.contains('home')) {
+    gsap.set('#homepage-overlay svg path', {autoAlpha: 0});
+    var homeTL = gsap.timeline({
+        defaults: {duration: 1, ease: "power2.InOut", },
+        // delay: 1,
+        paused: true,
+        reversed: true
+    } );
+    // homeTL.delay(4);
+    homeTL
+        .to("#homepage-overlay svg path", {
+            autoAlpha: 1,
+            stagger: -0.1
+        })
+        // .add(() => {}, "+=0.1") // delay
+        .to("#homepage-overlay svg path", {
+            autoAlpha: 0,
+            stagger: -0.1
+        })
+        .to(".homepage-overlay", {
+            autoAlpha: 0,
+        })
+    ;
+    homeTL.play().delay(1);
+}
+
 
 // Create a GSAP timeline One
 const one = gsap.timeline({
