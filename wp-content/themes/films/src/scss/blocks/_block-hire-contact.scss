@@ -1,0 +1,11 @@
+.block-hire-contact {
+    .flex-thirds {
+        flex-direction: column;
+        margin-bottom: 1rem;
+
+        @include media-query('md') {
+            flex-direction: row;
+            margin-bottom: 0;
+        }
+    }
+}
