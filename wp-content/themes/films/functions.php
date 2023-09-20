@@ -178,7 +178,6 @@ add_action( 'enqueue_block_editor_assets', 'my_block_plugin_editor_scripts' );
 
 
 // SET NUM OF POSTS TO DISPLAY, ACCORDING TO POST TYPE
-
 function num_posts_in_archive($query) {
     if (!is_admin() && $query->is_archive('service_cpt') && $query->is_main_query()) {
             $query->set('posts_per_page', 99);
@@ -191,9 +190,10 @@ add_filter('pre_get_posts', 'num_posts_in_archive');
 // SET NUM OF POSTS TO DISPLAY, ACCORDING TO POST TYPE
 
 function num_kit_posts_in_archive($query) {
-    if (!is_admin() && $query->is_archive('kit') && $query->is_main_query()) {
-            $query->set('posts_per_page', 12);
-   }
+    // if (!is_admin() && $query->is_archive('kit') && $query->is_main_query()) {
+    if (!is_admin() && $query->is_post_type_archive('kit') ) {
+        $query->set('posts_per_page', 12);
+    }
     return $query;
 }
 

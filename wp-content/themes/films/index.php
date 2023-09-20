@@ -145,7 +145,7 @@
 					
 					while ( have_posts() ) : the_post();
 						$active_case_study = get_field('active_case_study');
-						if ( !$active_case_study ) {
+						//if ( !$active_case_study ) {
 						
 							$pType = get_post_type($post->ID);
 							// echo "<pre>";
@@ -156,7 +156,7 @@
 							}
 							get_template_part( 'template-parts/snippets/post-list', $pType );
 							// get_template_part( 'template-parts/cards/card' );
-						}
+						//}
 
 					endwhile;
 				
