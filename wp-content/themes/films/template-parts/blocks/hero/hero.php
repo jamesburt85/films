@@ -97,7 +97,9 @@ if ( ! empty( $block['align'] ) ) {
 
                         <div class="hero__link fade-in-up">
                             <a class="hero-small no-underline" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>">
-                                <?php echo esc_html( $link_title ); ?>
+                                <span>
+                                    <?php echo esc_html( $link_title ); ?>
+                                </span>
                             </a>
                         </div>
                             
@@ -112,7 +114,9 @@ if ( ! empty( $block['align'] ) ) {
                         ?>
                         <div class="hero__link fade-in-up">
                             <a class="hero-small no-underline" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>">
-                                <?php echo esc_html( $link_title ); ?>
+                                <span>
+                                    <?php echo esc_html( $link_title ); ?>
+                                </span>
                             </a>
                         </div>
 
