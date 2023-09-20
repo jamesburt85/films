@@ -15,7 +15,7 @@
 # set vars from acf
 $hero_title = get_field( 'hero_title' ) ?? null;
 $hero_title_bold  = get_field( 'hero_title_bold' ) ?? null;
-$img = get_field( 'hero_image' ) ?? null;
+$images = get_field( 'hero_image' ) ?? null;
 
 $link_one = get_field( 'link_one' ) ?? null;
 $link_two = get_field( 'link_two' ) ?? null;
@@ -61,12 +61,12 @@ if ( ! empty( $block['align'] ) ) {
         <div class="hero_image">
 
             <?php
-                $home_carousel_images = get_field('home_carousel');
-                if( $home_carousel_images ) {
+                //$home_carousel_images = get_field('home_carousel');
+                //if( $home_carousel_images ) {
             ?>
                 <div class="js-slick-hero">
                     
-                    <?php foreach ( $home_carousel_images as $img ) { ?>
+                    <?php foreach ( $images as $img ) { ?>
                         
                         <?php include( get_template_directory() . '/template-parts/snippets/img--hero.php'); ?>
                         
@@ -74,11 +74,11 @@ if ( ! empty( $block['align'] ) ) {
 
                 </div>
             <?php
-                } else {
-                    if ( $img ) { ?>
-                        <?php include( get_template_directory() . '/template-parts/snippets/img--hero.php'); ?>
-                    <?php }
-                }
+                //} else {
+                    //if ( $img ) { ?>
+                        <?php //include( get_template_directory() . '/template-parts/snippets/img--hero.php'); ?>
+                    <?php //}
+                //}
             ?>
             
 

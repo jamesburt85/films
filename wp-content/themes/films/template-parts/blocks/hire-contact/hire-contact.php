@@ -19,7 +19,7 @@ $block  = get_field( 'block' ) ?? null;
 $copy   = get_field( 'copy' ) ?? null;
 
 // Create class attribute allowing for custom "className" and "align" values.
-$classes = 'block-testimonials';
+$classes = 'block-hire-contact';
 if ( ! empty( $block['className'] ) ) {
     $classes .= ' ' . $block['className'];
 }

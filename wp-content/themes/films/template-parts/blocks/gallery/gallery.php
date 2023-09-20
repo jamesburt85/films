@@ -56,7 +56,7 @@ if ( ! empty( $block['align'] ) ) {
             <div class="card">
               
               <a class="js-image-popup" href="<?php echo esc_url( $gallery_image['url'] ); ?>">
-                <img src="<?php echo esc_url( $gallery_image['url'] ); ?>" alt="<?php echo esc_attr( $gallery_image['alt'] ); ?>" />
+                <img src="<?php echo esc_url( $gallery_image['sizes']['featured-medium'] ); ?>" alt="<?php echo esc_attr( $gallery_image['alt'] ); ?>">
               </a>
               
               <div class="card--lower">

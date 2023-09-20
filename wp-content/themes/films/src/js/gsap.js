@@ -22,13 +22,13 @@ gsap.registerPlugin(
 const body = document.querySelector('body');
 // if body has class home = on homepage
 if (body.classList.contains('home')) {
-    gsap.set('#homepage-overlay svg path', {autoAlpha: 0});
+    gsap.set('#homepage-overlay svg path', { autoAlpha: 0 });
     var homeTL = gsap.timeline({
-        defaults: {duration: 1, ease: "power2.InOut", },
+        defaults: { duration: 1, ease: "power2.InOut", },
         // delay: 1,
         paused: true,
         reversed: true
-    } );
+    });
     // homeTL.delay(4);
     homeTL
         .to("#homepage-overlay svg path", {
@@ -42,54 +42,56 @@ if (body.classList.contains('home')) {
         })
         .to(".homepage-overlay", {
             autoAlpha: 0,
-        })
-    ;
+        });
     homeTL.play().delay(1);
 }
 
+const body_gallery = document.querySelector('body');
+if (body_gallery.classList.contains('post-type-archive-work')) {
+    // - Scrolling Galleries
+    // Create a GSAP timeline One
+    const one = gsap.timeline({
+        scrollTrigger: {
+            trigger: ".gsap-scroll-1", // Elements to trigger the animation
+            start: "top bottom", // Start the animation when the top of the element reaches the bottom of the viewport
+            end: "bottom top", // End the animation when the bottom of the element reaches the top of the viewport
+            //markers: true, // Add debug markers to visualize the trigger area
+            scrub: 1, // Smoothly animate elements as you scroll
+        },
+    });
 
-// Create a GSAP timeline One
-const one = gsap.timeline({
-    scrollTrigger: {
-        trigger: ".gsap-scroll-1", // Elements to trigger the animation
-        start: "top bottom", // Start the animation when the top of the element reaches the bottom of the viewport
-        end: "bottom top", // End the animation when the bottom of the element reaches the top of the viewport
-        //markers: true, // Add debug markers to visualize the trigger area
-        scrub: 1, // Smoothly animate elements as you scroll
-    },
-});
+    // Create a GSAP timeline Two
+    const two = gsap.timeline({
+        scrollTrigger: {
+            trigger: ".gsap-scroll-2", // Elements to trigger the animation
+            start: "top bottom", // Start the animation when the top of the element reaches the bottom of the viewport
+            end: "bottom top", // End the animation when the bottom of the element reaches the top of the viewport
+            //markers: true, // Add debug markers to visualize the trigger area
+            scrub: 1, // Smoothly animate elements as you scroll
+        },
+    });
 
-// Create a GSAP timeline Two
-const two = gsap.timeline({
-    scrollTrigger: {
-        trigger: ".gsap-scroll-2", // Elements to trigger the animation
-        start: "top bottom", // Start the animation when the top of the element reaches the bottom of the viewport
-        end: "bottom top", // End the animation when the bottom of the element reaches the top of the viewport
-        //markers: true, // Add debug markers to visualize the trigger area
-        scrub: 1, // Smoothly animate elements as you scroll
-    },
-});
+    // Create a GSAP timeline Three
+    const three = gsap.timeline({
+        scrollTrigger: {
+            trigger: ".gsap-scroll-3", // Elements to trigger the animation
+            start: "top bottom", // Start the animation when the top of the element reaches the bottom of the viewport
+            end: "bottom top", // End the animation when the bottom of the element reaches the top of the viewport
+            //markers: true, // Add debug markers to visualize the trigger area
+            scrub: 1, // Smoothly animate elements as you scroll
+        },
+    });
 
-// Create a GSAP timeline Three
-const three = gsap.timeline({
-    scrollTrigger: {
-        trigger: ".gsap-scroll-3", // Elements to trigger the animation
-        start: "top bottom", // Start the animation when the top of the element reaches the bottom of the viewport
-        end: "bottom top", // End the animation when the bottom of the element reaches the top of the viewport
-        //markers: true, // Add debug markers to visualize the trigger area
-        scrub: 1, // Smoothly animate elements as you scroll
-    },
-});
+    // Define the animation
+    // -Animation for the first div (move to the left)
+    one.fromTo(".gsap-scroll-1", { x: "0" }, { x: "-10%", stagger: 0.2, duration: 1 });
 
-// Define the animation
-// -Animation for the first div (move to the left)
-one.fromTo(".gsap-scroll-1", { x: "0" }, { x: "-10%", stagger: 0.2, duration: 1 });
+    // -Animation for the second div (move to the right)
+    two.fromTo(".gsap-scroll-2", { x: "-10%" }, { x: "0", stagger: 0.2, duration: 1 });
 
-// -Animation for the second div (move to the right)
-two.fromTo(".gsap-scroll-2", { x: "-10%" }, { x: "0", stagger: 0.2, duration: 1 });
-
-// -Animation for the third div (move to the left)
-three.fromTo(".gsap-scroll-3", { x: "0" }, { x: "-10%", stagger: 0.2, duration: 1 });
+    // -Animation for the third div (move to the left)
+    three.fromTo(".gsap-scroll-3", { x: "0" }, { x: "-10%", stagger: 0.2, duration: 1 });
+}
 
 
 // Fade In Up

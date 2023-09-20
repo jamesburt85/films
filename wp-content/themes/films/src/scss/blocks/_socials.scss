@@ -28,6 +28,17 @@ footer {
                 path,
                 circle {
                     fill: var(--color-white);
+                    transition: 0.3s;
+                }
+
+                @include media-query('md') {
+                    &:hover {
+
+                        path,
+                        circle {
+                            fill: var(--color-primary);
+                        }
+                    }
                 }
             }
         }

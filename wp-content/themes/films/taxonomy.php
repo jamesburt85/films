@@ -54,9 +54,23 @@
 					?>
 				<?php } ?>
 
-				<div class="searchform">
-					<?php get_template_part('searchform'); ?>
-				</div>
+				<?php
+					if ( is_tax('kit_category') ) {
+				?>
+						<div class="searchform">
+							<?php get_template_part('searchform-kit'); ?>
+						</div>
+				<?php } else if ( is_tax('people_category') ) { ?>
+
+						<div class="searchform">
+							<?php get_template_part('searchform-people'); ?>
+						</div>
+
+				<?php } else { ?>
+						<div class="searchform">
+							<?php get_template_part('searchform'); ?>
+						</div>
+				<?php } ?>
 			</div>
 
 			<div>

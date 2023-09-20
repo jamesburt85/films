@@ -310,6 +310,7 @@ h3 {
 
 a {
     color: currentColor;
+    transition: 0.3s;
 }
 
 table {
@@ -432,6 +433,7 @@ th {
 @import 'blocks/block-testimonials';
 @import 'blocks/block-gallery';
 @import 'blocks/block-article-images';
+@import 'blocks/block-hire-contact';
 
 
 // TEMP - DELETE THIS AFTER PROTOTYPE PHASE

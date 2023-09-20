@@ -40,6 +40,7 @@
         // left: 50%;
         // transform: translateX(-50%);
         margin-top: -4rem;
+        position: relative;
 
         @include media-query('md') {
             margin-top: -9rem;
@@ -220,6 +221,10 @@
             object-position: top;
         }
     }
+}
+
+span.slick-pause-icon {
+    display: none;
 }
 
 .single-work {

@@ -22,7 +22,7 @@ $number_of_posts_to_show    = get_field( 'number_of_posts_to_show' ) ?? '3';
 $ctas                       = get_field( 'ctas_ctas' ) ?? null;
 $options                    = get_field( 'options' );
 $id                         = get_field( 'id' );
-
+$active_case_study          = get_field('active_case_study');
 // Create id attribute allowing for custom "anchor" value.
 // $id = 'cards-' . $block['id'];
 // if ( !empty($block['anchor'] ) ) {

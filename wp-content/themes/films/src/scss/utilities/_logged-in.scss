@@ -1,7 +1,13 @@
 .logged-in {
-    margin-top: 32px;
+
+    //margin-top: 32px;
+    .site-header {
+        top: 32px;
+    }
 
     .header-scroll__wrapper {
+        top: 2rem;
+
         .site-header {
             top: 32px;
         }

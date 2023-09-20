@@ -14,6 +14,7 @@ $acf_fields = get_fields();
 if (!empty($acf_fields)) {
 	// echo "<pre>"; print_r($acf_fields); echo "</pre>";
 	$active_case_study = $acf_fields['active_case_study'] ?? null;
+    $active_case_study = get_field('active_case_study');
 }
 
 ?>
