@@ -128,6 +128,7 @@
 
                     @include media-query('md') {
                         flex-direction: row;
+                        width: 70%;
                     }
 
                     .hero__link {
@@ -151,7 +152,9 @@
 
                                 span {
                                     &:after {
-                                        opacity: 1;
+                                        @include media-query('md') {
+                                            opacity: 1;
+                                        }
                                     }
                                 }
                             }

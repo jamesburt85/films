@@ -245,8 +245,8 @@ br {
     font-size: 35px;
 
     @include media-query('md') {
-        font-size: 60px;
-        line-height: 72px;
+        font-size: 75px;
+        line-height: 87px;
     }
 
     font-weight: var(--weight-semi-bold);
