@@ -12,7 +12,7 @@
 						<div class="image-galllery--container">
 							<?php 
 							$images = get_field('people_gallery');
-							if( $images ): ?>
+							if( $images ) { ?>
 							    <div class="js-slick">
 							    	<div class="image-wrapper">
 							    		<?php include( get_template_directory() . '/template-parts/logic/get_featured_img.php'); ?>	
@@ -25,7 +25,17 @@
 							        <?php endforeach; ?>
 							    </div>
 							    <div class="gradient--right"></div>
-							<?php endif; ?>
+							<?php } else { ?>
+								<div class="js-slick">
+									<div class="image-wrapper">
+										<?php
+											include( get_template_directory() . '/template-parts/logic/get_featured_img.php');
+										?>
+									</div>
+								</div>
+
+							<?php
+							} ?>
 						</div>
 					</div>
 				</div>
@@ -53,12 +63,12 @@
 								}
 							?>
 							<div class="flow--small">
-								<p class="tiny medium color-grey">
-									Credits include
-								</p>
-
+							<?php if ( have_rows( 'projects' ) ) : ?>
 								
-								<?php if ( have_rows( 'projects' ) ) : ?>
+									<p class="tiny medium color-grey">
+										Credits include
+									</p>
+
 									<ul class="tiny medium">
 									<?php while ( have_rows( 'projects' ) ) : the_row(); ?>
 										<li>
@@ -74,9 +84,10 @@
 								<?php else : ?>
 									<?php // No rows found ?>
 									</ul>
-								<?php endif; ?>
-
+								
+							<?php endif; ?>
 							</div>
+
 						</div>
 					</div>
 

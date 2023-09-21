@@ -25,3 +25,11 @@
         width: 150px;
     }
 }
+
+.single-people {
+    .image-galllery .image-galllery--container {
+        .slick-track {
+            margin-left: 0;
+        }
+    }
+}

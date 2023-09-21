@@ -11,13 +11,31 @@
     }
 }
 
-@supports (width: min(170px, 100%)) {
-    .card-grid.five-columns {
-        grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));
+// @supports (width: min(170px, 100%)) {
+//     .card-grid.five-columns {
+//         grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));
 
-        .card picture img {
-            aspect-ratio: 3/4;
+//         .card picture img {
+//             aspect-ratio: 3/4;
+//         }
+//     }
+// }
+
+.card-grid.five-columns {
+
+    grid-template-columns: repeat(10, 1fr);
+    grid-row-gap: 2rem;
+
+    .card {
+        grid-column: auto / span 5;
+
+        @include media-query('md') {
+            grid-column: auto / span 2;
         }
+    }
+
+    .card picture img {
+        aspect-ratio: 3/4;
     }
 }
 

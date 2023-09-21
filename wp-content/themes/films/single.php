@@ -25,34 +25,16 @@
 
 	  		        <div class="wrapper hero--title-wrapper">
 	  		            <div class="hero--title-container">
-	  		                <?php //if ( $hero_title ) : ?>
-	  		                    <h1 class="hero-title">
-	  		                        <div class="overflow-hidden">
-	  		                            <div class="fade-in-up-big">
-	  		                                <span>
-	  		                                    <?php the_title(); ?>
-	  		                                </span>
-	  		                            </div>
-	  		                        </div>
-	  		                        
-	  		                        <?php
-	  		                            //if ( $hero_title_bold ) {
-	  		                        ?>
-	  		                                <!-- <br /> -->
-	  		                                <!-- <div class="overflow-hidden"> 
-	  		                                    <div class="fade-in-up-big">
-	  		                                        <span>
-	  		                                            <strong>
-	  		                                                <?php //echo $hero_title_bold; ?>
-	  		                                            </strong>
-	  		                                        </span>
-	  		                                    </div>
-	  		                                </div> -->
-	  		                        <?php
-	  		                            //}
-	  		                        ?>
-	  		                    </h1>
-	  		                <?php //endif; ?>
+  		                    <h1 class="hero-title">
+  		                        <div class="overflow-hidden">
+  		                            <div class="fade-in-up-big">
+  		                                <span>
+  		                                    <?php the_title(); ?>
+  		                                </span>
+  		                            </div>
+  		                        </div>
+  		                        
+  		                    </h1>
 	  		            </div>
 	  		        </div>
 
@@ -91,7 +73,7 @@
 							include( get_template_directory() . '/template-parts/snippets/kit-category-list.php');
 						?>
 
-						<div class="flex-space-between">
+						<div class="flex-space-between  search--container [ flow--small ]">
 
 							<?php if (is_tax('kit_category') || is_singular('kit')) { ?>
 								<?php
@@ -125,17 +107,11 @@
 						        }
 								?>
 							<?php } ?>
-							<?php
-								if ( is_singular('kit') ) {
-							?>
-									<div class="searchform">
-										<?php get_template_part('searchform-kit'); ?>
-									</div>
-							<?php } else { ?>
-									<div class="searchform">
-										<?php get_template_part('searchform'); ?>
-									</div>
-							<?php } ?>
+							
+							<div class="searchform">
+								<?php get_template_part('searchform'); ?>
+							</div>
+
 						</div>
 
 						<div>
@@ -197,32 +173,21 @@
 					<?php
 						}
 					?>
-					
-					<?php
-					  	if ( get_post_type() == 'post' ) { ?>
-
-							<a class="arrow-link" href="<?php echo get_post_type_archive_link( 'post' ); ?>">
-								<?php get_template_part('dist/svg_php/inline', 'arrow-left-thin.svg'); ?> Back to Posts
-							</a>
-					<?php } ?>
 
 				</div>
 			</div>
 		</div>
 
-		
-		<?php // include( get_template_directory() . '/template-parts/snippets/share-bar.php'); ?>
+		<?php
+		  	if ( get_post_type() == 'post' ) { ?>
 
-		<?php if (get_post_type() == 'kit') { ?>
+		  		<div class="wrapper">
+					<a class="arrow-link" href="<?php echo get_post_type_archive_link( 'post' ); ?>">
+						<?php get_template_part('dist/svg_php/inline', 'arrow-left-thin.svg'); ?> Back to Posts
+					</a>		  			
+		  		</div>
 
-			
 		<?php } ?>
-
-		<?php 
-			// if (get_post_type() == 'post') {
-			// 	include( get_template_directory() . '/template-parts/snippets/related_posts.php');
-			// }
-		?>
 
 	</article>
 

@@ -1,22 +1,24 @@
 // added html.js so only shows if JS running.
 html.js .homepage-overlay {
-	background-color: var(--color-dark);
-	position: fixed;
-	top: 0;
-	left: 0;
-	height: 100%;
-	width: 100%;
-	z-index: 10;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	svg {
-		width: 80vw;
-		height: 50vh;
-		max-width: 1200px;
-	}
-	svg path {
-		opacity: 0;
-	}
-}
+    background-color: var(--color-dark);
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    max-width: 100vw;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
+    svg {
+        width: 80vw;
+        height: 50vh;
+        max-width: 1200px;
+    }
+
+    svg path {
+        opacity: 0;
+    }
+}

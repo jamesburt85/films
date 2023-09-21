@@ -6,6 +6,14 @@
     }
 }
 
+.search--container {
+    flex-direction: column;
+
+    @include media-query('md') {
+        flex-direction: row;
+    }
+}
+
 .searchform {
     .input-group {
         display: flex;

@@ -23,7 +23,7 @@
 
 <picture>
   <source 
-    srcset="<?php echo $img['sizes']['featured-small']; ?>"
+    srcset="<?php echo $img['sizes']['fp-medium']; ?>"
     media="(min-width: 1920px)"
   />
   <source 

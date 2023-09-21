@@ -110,7 +110,9 @@
         }
 
         .hero-image__container {
-            display: flex;
+            @include media-query('md') {
+                display: flex;
+            }
 
             .hero_image {
                 //width: 50%;

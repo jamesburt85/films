@@ -20,22 +20,21 @@
     src="<?php // echo $img['sizes']['medium']; ?>"
 /> -->
  
- <picture>
-   <source 
-     srcset="<?php echo $img['sizes']['fp-xlarge']; ?>"
-     media="(min-width: 1920px)"
-   />
-   <source 
-     srcset="<?php echo $img['sizes']['fp-large']; ?>"
-     media="(min-width: 1200px)"
-   />
-   <source 
-     srcset="<?php echo $img['sizes']['fp-medium']; ?>"
-     media="(min-width: 1024px)"
-   />
-   <img 
-     src="<?php echo $img['sizes']['fp-small']; ?>"
-     alt="<?php echo $img['alt']; ?>"
-   />
-
- </picture>
+<picture>
+  <source 
+    srcset="<?php echo $img['sizes']['fp-small']; ?>"
+    media="(min-width: 1920px)"
+  />
+  <source 
+    srcset="<?php echo $img['sizes']['fp-small']; ?>"
+    media="(min-width: 1200px)"
+  />
+  <source 
+    srcset="<?php echo $img['sizes']['fp-small']; ?>"
+    media="(min-width: 1024px)"
+  />
+  <img 
+    src="<?php echo $img['sizes']['fp-small']; ?>"
+    alt="<?php echo $img['alt']; ?>"
+  />
+</picture>

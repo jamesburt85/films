@@ -7,6 +7,14 @@
     margin: 0 auto !important;
 }
 
+.gform_wrapper.gravity-theme .gfield textarea.medium {
+    height: 100px;
+}
+
+h2.gform_title {
+    display: none;
+}
+
 /**
  * Simple fade transition,
  */
@@ -18,7 +26,7 @@
 }
 
 .mfp-fade.mfp-bg.mfp-ready {
-    opacity: 0.8;
+    opacity: 0.9;
 }
 
 .mfp-fade.mfp-bg.mfp-removing {

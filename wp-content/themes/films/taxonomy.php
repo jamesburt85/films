@@ -32,7 +32,7 @@
 				}
 			?>
 
-			<div class="flex-space-between">
+			<div class="flex-space-between search--container [ flow--small ]">
 				<?php if (is_tax('kit_category') || is_tax('people_category') || is_tax('work_category') || is_tax('work_department') || is_single('kit')) { ?>
 					<?php
 					// Get the current taxonomy term
@@ -53,24 +53,11 @@
 					}
 					?>
 				<?php } ?>
-
-				<?php
-					if ( is_tax('kit_category') ) {
-				?>
-						<div class="searchform">
-							<?php get_template_part('searchform-kit'); ?>
-						</div>
-				<?php } else if ( is_tax('people_category') ) { ?>
-
-						<div class="searchform">
-							<?php get_template_part('searchform-people'); ?>
-						</div>
-
-				<?php } else { ?>
-						<div class="searchform">
-							<?php get_template_part('searchform'); ?>
-						</div>
-				<?php } ?>
+				
+				<div class="searchform">
+					<?php get_template_part('searchform'); ?>
+				</div>
+				
 			</div>
 
 			<div>
@@ -133,6 +120,8 @@
 			    }
 			    if ( is_tax('work_category') || is_tax('work_department') ) {
 			    	get_template_part( 'template-parts/snippets/post-list', $pType );
+			    } else if (is_tax('people_category')) {
+			    	get_template_part( 'template-parts/cards/card-people' );
 			    } else {
 			    	get_template_part( 'template-parts/cards/card' );
 			    }
