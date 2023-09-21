@@ -24,5 +24,3 @@
 	<?php include( get_template_directory() . '/template-parts/snippets/archive-post-nav.php'); ?>
 
 </article>
-
-<?php get_footer();
