@@ -19,22 +19,26 @@
     class="lazyload <?php // echo $imgType; ?> <?php // echo $imgClasses; ?>"
     src="<?php // echo $img['sizes']['medium']; ?>"
 /> -->
- 
-<picture>
-  <source 
-    srcset="<?php echo $img['sizes']['fp-small']; ?>"
-    media="(min-width: 1920px)"
-  />
-  <source 
-    srcset="<?php echo $img['sizes']['fp-small']; ?>"
-    media="(min-width: 1200px)"
-  />
-  <source 
-    srcset="<?php echo $img['sizes']['fp-small']; ?>"
-    media="(min-width: 1024px)"
-  />
-  <img 
-    src="<?php echo $img['sizes']['fp-small']; ?>"
-    alt="<?php echo $img['alt']; ?>"
-  />
-</picture>
+
+<?php if (isset($img['sizes'])) { ?>
+
+  <picture>
+    <source 
+      srcset="<?php echo $img['sizes']['fp-small']; ?>"
+      media="(min-width: 1920px)"
+    />
+    <source 
+      srcset="<?php echo $img['sizes']['fp-small']; ?>"
+      media="(min-width: 1200px)"
+    />
+    <source 
+      srcset="<?php echo $img['sizes']['fp-small']; ?>"
+      media="(min-width: 1024px)"
+    />
+    <img 
+      src="<?php echo $img['sizes']['fp-small']; ?>"
+      alt="<?php echo $img['alt']; ?>"
+    />
+  </picture>
+
+<?php } ?>
